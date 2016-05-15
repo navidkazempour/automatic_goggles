@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+body {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+  body::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.left_bar,
+.right_bar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  .left_bar:last-child,
+  .right_bar:last-child {
+    margin-right: 0; }
+
+.center_bar {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .center_bar:last-child {
+    margin-right: 0; }
+
+.right_bar {
+  margin-right: 0; }
+
+.image_carousel,
+.video_carousel,
+.wiki,
+.geography {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .image_carousel:last-child,
+  .video_carousel:last-child,
+  .wiki:last-child,
+  .geography:last-child {
+    margin-right: 0; }
+
+.image_carousel,
+.wiki {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.video_carousel,
+.geography {
+  margin-bottom: 10px; }
+
+.news {
+  margin-top: 10px; }
+
+header {
+  height: 50px; }
+
+img {
+  width: 100%; }
+
+.wiki_img {
+  height: 20px;
+  width: 80px;
+  padding: 0px; }
+
+.wiki p {
+  margin-bottom: 5px; }
+
+/*# sourceMappingURL=stylesheet.css.map */
