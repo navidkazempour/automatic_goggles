@@ -1,0 +1,66 @@
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$test-color: #83807f;
+
+body {
+	@include outer-container;
+}
+
+.left_bar,
+.right_bar {
+	@include span-columns(3 of 12);
+}
+
+.center_bar {
+	@include span-columns(6 of 12);
+}
+
+.right_bar {
+	@include omega();
+}
+
+.image_carousel,
+.video_carousel,
+.wiki,
+.geography {
+	@include span-columns(12);
+}
+
+.image_carousel,
+.wiki {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.video_carousel,
+.geography {
+	margin-bottom: 10px;
+}
+
+.news {
+	margin-top: 10px;
+}
+
+header {
+	height: 50px;
+}
+
+img {
+	width: 100%;
+}
+
+.wiki_img {
+	height: 20px;
+	width: 80px;
+	padding: 0;
+}
+
+.wiki p {
+	margin-bottom: 5px;
+}
+
+
+
+
