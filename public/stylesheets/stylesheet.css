@@ -17,7 +17,9 @@ header {
   height: 50px; }
 
 img {
-  width: 100%; }
+  width: 100%;
+  display: block;
+  border-radius: 7px; }
 
 footer {
   float: left;
@@ -74,41 +76,66 @@ ul {
 .geography {
   margin-bottom: 10px; }
 
-.news {
-  margin-top: 10px; }
-
 .wiki_img {
   height: 20px;
   width: 80px;
-  padding: 0; }
+  padding: 0;
+  box-shadow: none; }
 
 .wiki p {
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  box-shadow: none; }
 
 .twitter li {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 23.23176%;
-  border: 1px solid black; }
+  box-shadow: 3px 3px 5px #cbc6c5;
+  border-radius: 7px; }
   .twitter li:last-child {
     margin-right: 0; }
   .twitter li:nth-child(4n) {
     margin-right: 0; }
   .twitter li:nth-child(4n+1) {
     clear: left; }
+  .twitter li:hover {
+    box-shadow: 8px 8px 5px #cbc6c5;
+    border-radius: 7px; }
 
-.news li {
+.news {
+  margin-top: 10px; }
+  .news li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-bottom: 5px; }
+    .news li:last-child {
+      margin-right: 0; }
+    .news li:nth-child(2n) {
+      margin-right: 0; }
+    .news li:nth-child(2n+1) {
+      clear: left; }
+
+.geography,
+.wiki {
+  box-shadow: 3px 3px 5px #cbc6c5;
+  border-radius: 7px; }
+  .geography:hover,
+  .wiki:hover {
+    box-shadow: 8px 8px 5px #cbc6c5;
+    border-radius: 7px; }
+
+.article_pic {
+  display: inline-block;
+  height: 200px;
+  width: 250px;
   float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-bottom: 5px; }
-  .news li:last-child {
-    margin-right: 0; }
-  .news li:nth-child(2n) {
-    margin-right: 0; }
-  .news li:nth-child(2n+1) {
-    clear: left; }
+  margin: 5px;
+  padding: 5px; }
+
+figcaption {
+  float: left; }
 
 /*# sourceMappingURL=stylesheet.css.map */
