@@ -1,0 +1,121 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$box-shadow-color: #cbc6c5;
+$box-shadow-radius: 7px;
+
+body {
+	@include outer-container;
+}
+
+header {
+	height: 50px;
+}
+
+img {
+	width: 100%;
+	display: block;
+	border-radius: 7px;
+}
+
+footer {
+	@include span-columns(12);
+}
+
+ul {
+	padding: 0;
+}
+
+.left_bar,
+.right_bar {
+	@include span-columns(3 of 12);
+
+}
+
+.center_bar {
+	@include span-columns(6 of 12);
+}
+
+.right_bar {
+	@include omega();
+}
+
+.image_carousel,
+.video_carousel,
+.wiki,
+.geography {
+	@include span-columns(12);
+}
+
+.image_carousel,
+.wiki {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.video_carousel,
+.geography {
+	margin-bottom: 10px;
+}
+
+.wiki_img {
+	height: 20px;
+	width: 80px;
+	padding: 0;
+	box-shadow: none;
+}
+
+.wiki p {
+	margin-bottom: 5px;
+	box-shadow: none;
+}
+
+.twitter li {
+	@include span-columns(3);
+	@include omega(4n);
+	box-shadow: 3px 3px 5px $box-shadow-color;
+	border-radius: $box-shadow-radius;
+
+	&:hover {
+		box-shadow: 8px 8px 5px $box-shadow-color;
+		border-radius: $box-shadow-radius;
+	}
+}
+
+.news {
+	margin-top: 10px;
+
+	li {
+		@include span-columns(6 of 12);
+		@include omega(2n);
+		margin-bottom: 5px;
+	}
+}
+
+.geography,
+.wiki {
+	box-shadow: 3px 3px 5px $box-shadow-color;
+	border-radius: $box-shadow-radius;
+
+	&:hover {
+		box-shadow: 8px 8px 5px $box-shadow-color;
+		border-radius: $box-shadow-radius;
+	}
+}
+
+.article_pic {
+	display: inline-block;
+	height: 200px;
+	width: 250px;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+}
+
+figcaption {
+	float: left;
+}
+
+
+
+
