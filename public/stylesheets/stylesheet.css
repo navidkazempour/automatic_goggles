@@ -4,17 +4,36 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-body {
+/* Mixins */
+/* Styles */
+html {
+  color: #222;
+  background-color: #fcfcfc;
+  font-size: 1em;
+  line-height: 1.4; }
+
+.wrapper {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
+
+body {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  max-width: none; }
   body::after {
     clear: both;
     content: "";
     display: table; }
 
 header {
-  height: 50px; }
+  padding: 1em 3em;
+  margin-bottom: 10px;
+  background-color: #2b55b0; }
+  header #logo {
+    width: auto; }
 
 img {
   width: 100%;
@@ -25,7 +44,8 @@ footer {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 10px; }
   footer:last-child {
     margin-right: 0; }
 
@@ -46,9 +66,15 @@ ul {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%; }
+  width: 48.82117%;
+  box-shadow: 0 2px 2px #cbc6c5;
+  border-radius: 7px;
+  background-color: #fff; }
   .center_bar:last-child {
     margin-right: 0; }
+  .center_bar:hover {
+    box-shadow: 0 8px 8px #cbc6c5;
+    border-radius: 7px; }
 
 .right_bar {
   margin-right: 0; }
@@ -60,16 +86,24 @@ ul {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%; }
+  width: 100%;
+  box-shadow: 0 2px 2px #cbc6c5;
+  border-radius: 7px; }
   .image_carousel:last-child,
   .video_carousel:last-child,
   .wiki:last-child,
   .geography:last-child {
     margin-right: 0; }
+  .image_carousel:hover,
+  .video_carousel:hover,
+  .wiki:hover,
+  .geography:hover {
+    box-shadow: 0 8px 8px #cbc6c5;
+    border-radius: 7px; }
 
 .image_carousel,
 .wiki {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px; }
 
 .video_carousel,
@@ -91,7 +125,7 @@ ul {
   display: block;
   margin-right: 2.35765%;
   width: 23.23176%;
-  box-shadow: 3px 3px 5px #cbc6c5;
+  box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px; }
   .twitter li:last-child {
     margin-right: 0; }
@@ -100,7 +134,7 @@ ul {
   .twitter li:nth-child(4n+1) {
     clear: left; }
   .twitter li:hover {
-    box-shadow: 8px 8px 5px #cbc6c5;
+    box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
 .news {
@@ -120,22 +154,55 @@ ul {
 
 .geography,
 .wiki {
-  box-shadow: 3px 3px 5px #cbc6c5;
+  box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px; }
   .geography:hover,
   .wiki:hover {
-    box-shadow: 8px 8px 5px #cbc6c5;
+    box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
 .article_pic {
-  display: inline-block;
   height: 200px;
   width: 250px;
-  float: left;
   margin: 5px;
   padding: 5px; }
 
-figcaption {
+figure {
+  display: inline-block;
+  margin: 0 12px 12px 12px;
   float: left; }
+
+figcaption {
+  text-align: center;
+  font-family: Raleway, Arial, serif;
+  font-weight: 300;
+  font-style: italic; }
+
+h1 {
+  font-family: Raleway, Arial, serif;
+  font-weight: 900;
+  font-size: 3em;
+  margin: 0; }
+
+h2 {
+  font-family: Raleway, Arial, serif;
+  font-weight: 700;
+  font-size: 2em;
+  margin-top: 0; }
+
+h3 {
+  font-family: Raleway, Arial, serif;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0; }
+
+p {
+  font-family: Raleway, Arial, serif;
+  font-weight: 400;
+  font-size: 1 em; }
+
+.wiki {
+  border: 1px solid #ccc;
+  padding: 7px; }
 
 /*# sourceMappingURL=stylesheet.css.map */
