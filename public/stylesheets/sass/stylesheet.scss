@@ -1,0 +1,191 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$header-color: #2b55b0;
+$box-shadow-color: #cbc6c5;
+$box-shadow-radius: 7px;
+$font: Raleway, Arial, serif;
+
+
+/* Mixins */
+
+@mixin card {
+	box-shadow: 0 2px 2px $box-shadow-color;
+	border-radius: $box-shadow-radius;
+
+	&:hover {
+		box-shadow: 0 8px 8px $box-shadow-color;
+		border-radius: $box-shadow-radius;
+	}
+}
+
+/* Styles */
+
+html {
+	color: #222;
+	background-color: #fcfcfc;
+	font-size: 1em;
+	line-height: 1.4;
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	@include outer-container;
+	margin-top: 0;
+	max-width: none;
+}
+
+header {
+	padding: 1em 3em;
+	margin-bottom: 10px;
+	background-color: $header-color;
+
+	#logo {
+		width: auto;
+	}
+}
+
+img {
+	width: 100%;
+	display: block;
+	border-radius: 7px;
+}
+
+footer {
+	@include span-columns(12);
+	margin-bottom: 10px;
+}
+
+ul {
+	padding: 0;
+}
+
+.left_bar,
+.right_bar {
+	@include span-columns(3 of 12);
+
+}
+
+.center_bar {
+	@include span-columns(6 of 12);
+	@include card;
+	background-color: #fff;
+}
+
+.right_bar {
+	@include omega();
+}
+
+.image_carousel,
+.video_carousel,
+.wiki,
+.geography {
+	@include span-columns(12);
+	@include card;
+}
+
+.image_carousel,
+.wiki {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.video_carousel,
+.geography {
+	margin-bottom: 10px;
+}
+
+.wiki_img {
+	height: 20px;
+	width: 80px;
+	padding: 0;
+	box-shadow: none;
+}
+
+.wiki p {
+	margin-bottom: 5px;
+	box-shadow: none;
+}
+
+.twitter li {
+	@include span-columns(3);
+	@include omega(4n);
+	@include card;
+}
+
+.news {
+	margin-top: 10px;
+
+	li {
+		@include span-columns(6 of 12);
+		@include omega(2n);
+		margin-bottom: 5px;
+	}
+}
+
+
+.geography,
+.wiki {
+	@include card;
+}
+
+.article_pic {
+	height: 200px;
+	width: 250px;
+	margin: 5px;
+	padding: 5px;
+}
+
+figure {
+	display: inline-block;
+	margin: 0 12px 12px 12px;
+	float: left;
+}
+
+figcaption {
+	text-align: center;
+	font-family: $font;
+	font-weight: 300;
+	font-style: italic;
+}
+
+h1 {
+	font-family: $font;
+	font-weight: 900;
+	font-size: 3em;
+	margin: 0;
+}
+
+h2 {
+	font-family: $font;
+	font-weight: 700;
+	font-size: 2em;
+	margin-top: 0;
+}
+
+h3 {
+	font-family: $font;
+	font-weight: 300;
+	font-style: italic;
+	margin: 0;
+}
+
+p {
+	font-family: $font;
+	font-weight: 400;
+	font-size: 1 em;
+}
+
+.wiki {
+	border: 1px solid #ccc;
+	padding: 7px;
+}
+
+
+
+
