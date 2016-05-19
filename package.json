@@ -16,7 +16,6 @@
     "intl-wikipedia": "^5.0.0",
     "jade": "^1.11.0",
     "nodemon": "^1.9.2",
-    "ntwitter": "^0.5.0",
     "path": "^0.12.7",
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
