@@ -1,13 +1,26 @@
+'use strict';
+
 var express = require('express');
-var config = require('../config');
-var twitter = require('ntwitter');
-var Youtube = require('youtube-node');
-var youTube = new Youtube();
 var router = express.Router();
 
-var twit = new twitter(config.twitter);
+var config = require('../config');
 
-router.get('/',function(req,res,next){
+var Youtube = require('youtube-node');
+var youTube = new Youtube();
+
+var Twitter = require('twitter');
+var twitter = new Twitter(config.twitter);
+
+var Intlpedia = require('intl-wikipedia');
+var intlpedia = new Intlpedia('en')
+
+router.get('/search', function(req, res, next) {
+	res.render('search');
+});
+
+router.get('/results/:search_term?', function(req, res, next) {
+	var searchTerm = req.params.search_term || 'cute wombats'
+
 	// 	twit.stream('statuses/filter',{track: 'nodejs'},function(stream){
 	// 	stream.on('data',function(data){
 	// 		// console.log(data);
@@ -22,27 +35,32 @@ router.get('/',function(req,res,next){
 	// 		 res.render('twitter',{tweets: tweet});
 	// 	 });
 	// });
-	// youTube.setKey(config.youtube.consumer_key);
-	// youTube.addParam('relevanceLanguage', 'en');
 
-	// youTube.search('World War z Trailer',5,function(error, result) {
-	// if (error) {
-	// console.log(error);
-	// }
-	// else {
-	// var vids = [];
-	// for(var i=0;i<result["items"].length;i++){
-	// 	vids.push({
-	// 		video_id: result["items"][i].id.videoId,
-	// 		date: result["items"][i].snippet.publishedAt,
-	// 		title: result["items"][i].snippet.title,
-	// 		description: result["items"][i].snippet.description
-	// 	});
-	// }
-	// res.render('index',{video: vids});
-	// }
-	// });
-	res.render('index');
+	intlpedia.search(searchTerm)
+	  .then(page => console.log(page))
+	  .catch(err => console.error(err));
+
+	youTube.setKey(config.youtube.consumer_key);
+	youTube.addParam('relevanceLanguage', 'en');
+
+	youTube.search(searchTerm, 2, function(error, result) {
+		if (error) {
+			console.log(error);
+		} else {
+			var videos = [];
+
+			for (var i = 0; i < result["items"].length; i++) {
+				videos.push({
+					video_id: result["items"][i].id.videoId,
+					date: result["items"][i].snippet.publishedAt,
+					title: result["items"][i].snippet.title,
+					description: result["items"][i].snippet.description
+				});
+			}
+				res.render('index', {videos: videos});
+		}
+	});
+	// res.render('index');
 });
 
 module.exports = router;
