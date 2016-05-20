@@ -57,7 +57,8 @@ router.get('/results/:search_term?', function(req, res, next) {
 					description: result["items"][i].snippet.description
 				});
 			}
-				res.render('index', {videos: videos});
+
+			res.render('index', {videos: videos});
 		}
 	});
 	// res.render('index');
