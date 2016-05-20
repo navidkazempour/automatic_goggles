@@ -14,7 +14,7 @@ var twitter = new Twitter(config.twitter);
 var Intlpedia = require('intl-wikipedia');
 var intlpedia = new Intlpedia('en')
 
-router.get('/search', function(req, res, next) {
+router.get('/', function(req, res, next) {
 	res.render('search');
 });
 
@@ -42,6 +42,10 @@ router.get('/results/:search_term?', function(req, res, next) {
 
 	youTube.setKey(config.youtube.consumer_key);
 	youTube.addParam('relevanceLanguage', 'en');
+
+	var youTubePromise = new Promise(function(resolve, reject) {
+
+	});
 
 	youTube.search(searchTerm, 2, function(error, result) {
 		if (error) {
