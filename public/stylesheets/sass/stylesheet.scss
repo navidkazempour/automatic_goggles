@@ -1,6 +1,12 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
+
+/* Variables */
+
+$article-background-color: #fff;
+$site-background-color: #fcfcfc;
+$font-color: #222;
 $header-color: #2b55b0;
 $box-shadow-color: #cbc6c5;
 $box-shadow-radius: 7px;
@@ -22,8 +28,8 @@ $font: Raleway, Arial, serif;
 /* Styles */
 
 html {
-	color: #222;
-	background-color: #fcfcfc;
+	color: $font-color;
+	background-color: $site-background-color;
 	font-size: 1em;
 	line-height: 1.4;
 }
@@ -62,81 +68,6 @@ footer {
 
 ul {
 	padding: 0;
-}
-
-.left_bar,
-.right_bar {
-	@include span-columns(3 of 12);
-
-}
-
-.center_bar {
-	@include span-columns(6 of 12);
-	@include card;
-	background-color: #fff;
-}
-
-.right_bar {
-	@include omega();
-}
-
-.image_carousel,
-.video_carousel,
-.wiki,
-.geography {
-	@include span-columns(12);
-	@include card;
-}
-
-.image_carousel,
-.wiki {
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-
-.video_carousel,
-.geography {
-	margin-bottom: 10px;
-}
-
-.wiki_img {
-	height: 20px;
-	width: 80px;
-	padding: 0;
-	box-shadow: none;
-}
-
-.wiki p {
-	margin-bottom: 5px;
-	box-shadow: none;
-}
-
-.twitter li {
-	@include span-columns(3);
-	@include omega(4n);
-	@include card;
-}
-
-.news {
-	margin-top: 10px;
-
-	li {
-		@include span-columns(6 of 12);
-		@include omega(2n);
-		margin-bottom: 5px;
-	}
-}
-
-.geography,
-.wiki {
-	@include card;
-}
-
-.article_pic {
-	height: 200px;
-	width: 250px;
-	margin: 5px;
-	padding: 5px;
 }
 
 figure {
@@ -179,11 +110,84 @@ p {
 	font-size: 1 em;
 }
 
-.wiki {
-	border: 1px solid #ccc;
-	padding: 7px;
+.media_bar,
+.wikipedia_map_bar {
+	@include span-columns(3 of 12);
+
 }
 
+.main_bar {
+	@include span-columns(6 of 12);
+}
 
+.wikipedia_map_bar {
+	@include omega();
+}
 
+.image_carousel,
+.video_carousel,
+.wiki,
+.geography {
+	@include span-columns(12);
+	@include card;
+}
+
+.image_carousel,
+.wiki {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.video_carousel,
+.geography {
+	margin-bottom: 10px;
+}
+
+.wiki_img {
+	height: 20px;
+	width: 80px;
+	padding: 0;
+	box-shadow: none;
+}
+
+.wiki p {
+	margin-bottom: 5px;
+	box-shadow: none;
+}
+
+.twitter li {
+	@include span-columns(3);
+	@include omega(4n);
+	@include card;
+}
+
+.news {
+	margin-top: 10px;
+	padding: 15px;
+
+	li {
+		@include span-columns(6 of 12);
+		@include omega(2n);
+		margin-bottom: 5px;
+	}
+}
+
+.geography {
+	@include card;
+}
+
+.article_pic {
+	height: 200px;
+	width: 250px;
+	margin: 5px;
+	padding: 5px;
+}
+
+.news,
+.wiki {
+	@include card;
+	border: 1px solid #ccc;
+	padding: 15px;
+	background-color: $article-background-color;
+}
 

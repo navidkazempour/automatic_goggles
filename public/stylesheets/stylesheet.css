@@ -4,6 +4,7 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+/* Variables */
 /* Mixins */
 /* Styles */
 html {
@@ -51,31 +52,59 @@ footer {
 ul {
   padding: 0; }
 
-.left_bar,
-.right_bar {
+figure {
+  display: inline-block;
+  margin: 0 12px 12px 12px;
+  float: left; }
+
+figcaption {
+  text-align: center;
+  font-family: Raleway, Arial, serif;
+  font-weight: 300;
+  font-style: italic; }
+
+h1 {
+  font-family: Raleway, Arial, serif;
+  font-weight: 900;
+  font-size: 3em;
+  margin: 0; }
+
+h2 {
+  font-family: Raleway, Arial, serif;
+  font-weight: 700;
+  font-size: 2em;
+  margin-top: 0; }
+
+h3 {
+  font-family: Raleway, Arial, serif;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0; }
+
+p {
+  font-family: Raleway, Arial, serif;
+  font-weight: 400;
+  font-size: 1 em; }
+
+.media_bar,
+.wikipedia_map_bar {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 23.23176%; }
-  .left_bar:last-child,
-  .right_bar:last-child {
+  .media_bar:last-child,
+  .wikipedia_map_bar:last-child {
     margin-right: 0; }
 
-.center_bar {
+.main_bar {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
-  box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px;
-  background-color: #fff; }
-  .center_bar:last-child {
+  width: 48.82117%; }
+  .main_bar:last-child {
     margin-right: 0; }
-  .center_bar:hover {
-    box-shadow: 0 8px 8px #cbc6c5;
-    border-radius: 7px; }
 
-.right_bar {
+.wikipedia_map_bar {
   margin-right: 0; }
 
 .image_carousel,
@@ -137,7 +166,8 @@ ul {
     border-radius: 7px; }
 
 .news {
-  margin-top: 10px; }
+  margin-top: 10px;
+  padding: 15px; }
   .news li {
     float: left;
     display: block;
@@ -151,12 +181,10 @@ ul {
     .news li:nth-child(2n+1) {
       clear: left; }
 
-.geography,
-.wiki {
+.geography {
   box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px; }
-  .geography:hover,
-  .wiki:hover {
+  .geography:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
@@ -166,42 +194,16 @@ ul {
   margin: 5px;
   padding: 5px; }
 
-figure {
-  display: inline-block;
-  margin: 0 12px 12px 12px;
-  float: left; }
-
-figcaption {
-  text-align: center;
-  font-family: Raleway, Arial, serif;
-  font-weight: 300;
-  font-style: italic; }
-
-h1 {
-  font-family: Raleway, Arial, serif;
-  font-weight: 900;
-  font-size: 3em;
-  margin: 0; }
-
-h2 {
-  font-family: Raleway, Arial, serif;
-  font-weight: 700;
-  font-size: 2em;
-  margin-top: 0; }
-
-h3 {
-  font-family: Raleway, Arial, serif;
-  font-weight: 300;
-  font-style: italic;
-  margin: 0; }
-
-p {
-  font-family: Raleway, Arial, serif;
-  font-weight: 400;
-  font-size: 1 em; }
-
+.news,
 .wiki {
+  box-shadow: 0 2px 2px #cbc6c5;
+  border-radius: 7px;
   border: 1px solid #ccc;
-  padding: 7px; }
+  padding: 15px;
+  background-color: #fff; }
+  .news:hover,
+  .wiki:hover {
+    box-shadow: 0 8px 8px #cbc6c5;
+    border-radius: 7px; }
 
 /*# sourceMappingURL=stylesheet.css.map */
