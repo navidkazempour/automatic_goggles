@@ -58,7 +58,6 @@ img {
 
 footer {
 	@include span-columns(12);
-	margin-bottom: 10px;
 }
 
 ul {
@@ -127,7 +126,6 @@ ul {
 		margin-bottom: 5px;
 	}
 }
-
 
 .geography,
 .wiki {
