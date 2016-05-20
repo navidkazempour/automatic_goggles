@@ -4,19 +4,15 @@ var express = require('express'),
     cheerio = require('cheerio'),
     path = require('path'),
     bodyParser = require('body-parser'),
-    router = require('./app/action'),
     sequelize = require('./models').sequelize,
+    router = require('./app/action'),
     favicon = require('serve-favicon'),
-    config = require('./config'),
-    Intlpedia = require('intl-wikipedia');
-    // Twitter = require('twitter');
+    config = require('./config');
 
 var app = express();
 
 var port = 3000;
 
-// var twitter = new Twitter(config.twitter);
-// var intlpedia = new Intlpedia('en');
 var server;
 
 app.set('view engine', 'jade');
