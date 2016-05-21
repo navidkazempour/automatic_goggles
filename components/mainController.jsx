@@ -7,7 +7,6 @@ import WikipediaController from './wikipediaController.jsx'
 
 export default class MainController extends React.Component{
   render(){
-    console.log(this.state.data);
     return(
             <div id="media">
               <div id="yt">
