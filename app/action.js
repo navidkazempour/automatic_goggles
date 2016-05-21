@@ -7,6 +7,8 @@ var config = require('../config');
 
 var Youtube = require('youtube-node');
 var youTube = new Youtube();
+youTube.setKey('AIzaSyBWDQ2uae9ojRM-lOHaL1qqyFJCF3B_P7A');
+youTube.addParam('relevanceLanguage', 'en');
 
 var Twitter = require('twitter');
 var twitter = new Twitter(config.twitter);
@@ -37,8 +39,8 @@ router.post('/wikipedia',function(req,res){
       			var content = $('div#bodyContent div#mw-content-text > p:first-of-type');
       			wiki["title"] = headingText;
       			wiki["body"] = content.text().replace(/(\[\d*\])/g,"");
-            console.log(wiki["title"]);
-            console.log(wiki["body"]);
+            // console.log(wiki["title"]);
+            // console.log(wiki["body"]);
             callback(null);
       		}
       	});
@@ -65,8 +67,8 @@ router.post('/wikipedia',function(req,res){
       		  }
             wiki["key"] = key;
             wiki["value"]= value;
-            console.log(wiki["key"]);
-            console.log(wiki["value"]);
+            // console.log(wiki["key"]);
+            // console.log(wiki["value"]);
       		  // for(var i = 0; i<key.length;i++){
       		  // 	wikiFacts[key[i]] = value[i];
       		  // }
@@ -74,13 +76,42 @@ router.post('/wikipedia',function(req,res){
       		  // console.log(value);
       		}).catch(err => console.error(err)).then(
             ()=>{
-              console.log(wiki);
+              // console.log(wiki);
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({ data: wiki }));
             });
       });
   /*******************************/
+});
+router.post('/youtube',function(req,res){
+  var vids = [];
+  var searchTerm = req.params.search_term || 'World War z Trailer';
 
+  var videos = function(searchTerm,callback){
+    youTube.search(searchTerm,1,function(error, result) {
+      if (error) {
+      	console.log(error);
+      	}
+      	else {
+        	for(var i=0;i<result["items"].length;i++){
+        		vids.push({
+        			video_id: result["items"][i].id.videoId,
+        			date: result["items"][i].snippet.publishedAt,
+        			title: result["items"][i].snippet.title,
+        			description: result["items"][i].snippet.description
+        		});
+        	}
+          callback(null);
+        }
+    });
+  };
+
+  videos(searchTerm,function(){
+    console.log("Completed");
+    console.log(vids);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ data: vids }));
+  });
 });
 router.get('/results/:search_term?', function(req, res, next) {
   var searchTerm = req.params.search_term || 'cute wombats'

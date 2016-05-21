@@ -10,7 +10,7 @@ export default class MainController extends React.Component{
     return(
             <div id="media">
               <div id="yt">
-                <YoutubeController videos={contacts}/>
+                <YoutubeController/>
               </div>
               <div id="wiki">
                   <WikipediaController/>
