@@ -20,10 +20,17 @@ export default class WikipediaController extends React.Component {
   }
   render(){
     return(
-        <div>
+        <div className="wiki">
           {!this.state.loading ?
+<<<<<<< HEAD
             <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body} facts={this.state.data.data.facts} />:
               <h1>Loading...</h1>}
        </div>
+=======
+            <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body}/>:
+            <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />
+          }
+        </div>
+>>>>>>> 6b0f6fa0462053ccbb3b8edf3caf37fa80c4d7f6
      )};
 }
