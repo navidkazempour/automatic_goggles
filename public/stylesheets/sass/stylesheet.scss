@@ -47,11 +47,13 @@ body {
 }
 
 header {
+	@include span-columns(12 of 12);
 	padding: 1em 3em;
 	margin-bottom: 10px;
 	background-color: $header-color;
 
 	#logo {
+		max-width: 100%;
 		width: auto;
 	}
 }
@@ -63,7 +65,7 @@ img {
 }
 
 footer {
-	@include span-columns(12);
+	@include span-columns(12 of 12);
 }
 
 ul {
@@ -190,4 +192,43 @@ p {
 	padding: 15px;
 	background-color: $article-background-color;
 }
+
+/* Media Queries */
+
+$tablet: new-breakpoint(max-width 1220px);
+
+@include media($tablet) {
+	.main_bar {
+		@include span-columns(12 of 12);
+	}
+
+	.media_bar,
+	.wikipedia_map_bar {
+		@include span-columns(6 of 12);
+	}
+
+	.wikipedia_map_bar {
+		@include omega();
+	}
+
+	.twitter li {
+		@include span-columns(6 of 12);
+		margin-bottom: 10px;
+	}
+
+	.twitter li:nth-child(2n){
+		@include omega();
+	}
+}
+
+$mobile: new-breakpoint(max-width 600px);
+
+@include media($mobile) {
+	.main_bar,
+	.media_bar,
+	.wikipedia_map_bar {
+		@include span-columns(12 of 12);
+	}
+}
+
 
