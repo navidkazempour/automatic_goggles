@@ -22,7 +22,7 @@ export default class WikipediaController extends React.Component {
     return(
         <div>
           {!this.state.loading ?
-            <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body}/>:
+            <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body} facts={this.state.data.data.facts} />:
               <h1>Loading...</h1>}
        </div>
      )};

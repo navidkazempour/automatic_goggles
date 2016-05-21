@@ -4,8 +4,11 @@ import WikipediaFact from './wikipediaFact.jsx'
 
 
 export default class Wikipedia extends React.Component{
-
   render() {
+    var self = this;
+    var wikipediaFact = Object.keys(this.props.facts).map(function(keys){
+      return(<WikipediaFact key={keys} factkey={keys} factText={self.props.facts[keys]}/>);
+    });
     return(
       <div>
         <div>
@@ -13,6 +16,9 @@ export default class Wikipedia extends React.Component{
         </div>
         <div>
           <p>{this.props.body}</p>
+        </div>
+        <div>
+            {wikipediaFact}
         </div>
       </div>
     );

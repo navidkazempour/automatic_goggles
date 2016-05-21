@@ -18,10 +18,6 @@ var intlpedia = new Intlpedia('en');
 var cheerio = require('cheerio');
 var request = require('request');
 
-// router.get('/todos',function(req,res){
-//   res.json({todos:todos});
-// });
-
 router.get('/',function(req,res){
   res.render('index');
 });
@@ -39,8 +35,6 @@ router.post('/wikipedia',function(req,res){
       			var content = $('div#bodyContent div#mw-content-text > p:first-of-type');
       			wiki["title"] = headingText;
       			wiki["body"] = content.text().replace(/(\[\d*\])/g,"");
-            // console.log(wiki["title"]);
-            // console.log(wiki["body"]);
             callback(null);
       		}
       	});
@@ -48,7 +42,8 @@ router.post('/wikipedia',function(req,res){
       wikipedia(url,function(){
       	var wikiFacts = {};
       	var key = [];
-      	var value = []
+      	var value = [];
+        var result = {};
       	var count = 0;
       	intlpedia.search(searchTerm)
       	  .then(function(page){
@@ -65,18 +60,13 @@ router.post('/wikipedia',function(req,res){
       		  		count++;
       		  	});
       		  }
-            wiki["key"] = key;
-            wiki["value"]= value;
-            // console.log(wiki["key"]);
-            // console.log(wiki["value"]);
-      		  // for(var i = 0; i<key.length;i++){
-      		  // 	wikiFacts[key[i]] = value[i];
-      		  // }
-      		  // console.log(key);
-      		  // console.log(value);
+      		  for(var i = 0; i<key.length;i++){
+      		  	result[key[i]] = value[i];
+      		  }
+            wiki["facts"]=result;
       		}).catch(err => console.error(err)).then(
             ()=>{
-              // console.log(wiki);
+              console.log(wiki);
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({ data: wiki }));
             });
@@ -88,7 +78,7 @@ router.post('/youtube',function(req,res){
   var searchTerm = req.params.search_term || 'World War z Trailer';
 
   var videos = function(searchTerm,callback){
-    youTube.search(searchTerm,1,function(error, result) {
+    youTube.search(searchTerm,10,function(error, result) {
       if (error) {
       	console.log(error);
       	}
