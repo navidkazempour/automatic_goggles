@@ -51,15 +51,10 @@ header {
 	padding: 1em 3em;
 	margin-bottom: 10px;
 	background-color: $header-color;
-
-	#logo {
-		max-width: 100%;
-		width: auto;
-	}
 }
 
 img {
-	width: 100%;
+	max-width: 100%;
 	display: block;
 	border-radius: 7px;
 }
@@ -132,6 +127,11 @@ p {
 .geography {
 	@include span-columns(12);
 	@include card;
+}
+
+.loading {
+	display: block;
+	margin: auto;
 }
 
 .image_carousel,

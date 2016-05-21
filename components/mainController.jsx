@@ -12,9 +12,7 @@ export default class MainController extends React.Component{
               <div id="yt">
                 <YoutubeController/>
               </div>
-              <div id="wiki">
-                  <WikipediaController/>
-              </div>
+              <WikipediaController/>
             </div>
         );
   }
