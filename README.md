@@ -23,4 +23,4 @@ Single page application that takes as input data a news article and gives back a
 4. Open a pull request on Github to merge your branch with upstream/development.
 
 ##### Database (getting started for development):
-1. Install PostgreSQL via Brew
+1. Now using MongoDB
