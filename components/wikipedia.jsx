@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react'
-// import WikipediaFact from './wikipediaFact.jsx'
+import WikipediaFact from './wikipediaFact.jsx'
 
 
 export default class Wikipedia extends React.Component{
