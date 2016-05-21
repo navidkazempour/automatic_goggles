@@ -1,22 +1,19 @@
-module.exports={
-	entry:"./client.js",
-	output:{
-		filename: "public/javascript/bundle.js"
-	},
+var path = require('path');
+var webpack = require('webpack');
 
- module: {
-   loaders: [
-     {
-       loader: 'babel',
-       exclude: /(node_modules|server.js)/,
-       query: {
-         presets: ['react', 'es2015']
-       }
-     },
+module.exports = {
+  entry: './app/main.js',
+  output: {filename: 'public/dist/bundle.js' },
+  module: {
+    loaders: [
       {
-        test: /\.less$/,
-        loader: 'style!css!postcss!less'
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /(node_modules|.\/src\/app)/,
+        query: {
+          presets: ['es2015', 'react']
+        }
       }
-   ]
- }
+    ]
+  },
 };

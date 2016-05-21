@@ -1,4 +1,5 @@
-var React = require('react');
-var APP = require('./components/app');
+import React from 'react'
+import ReactDOM from 'react-dom'
+import MainController from './mainController.jsx'
 
-React.render(<APP />, document.getElementById('react-container'));
+ReactDOM.render(<MainController/>,document.getElementById('main'));
