@@ -30146,7 +30146,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        !this.state.loading ? _react2.default.createElement(_wikipedia2.default, { title: this.state.data.data.title, body: this.state.data.data.body }) : _react2.default.createElement(
+	        !this.state.loading ? _react2.default.createElement(_wikipedia2.default, { title: this.state.data.data.title, body: this.state.data.data.body, facts: this.state.data.data.facts }) : _react2.default.createElement(
 	          'h1',
 	          null,
 	          'Loading...'
@@ -30176,6 +30176,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _wikipediaFact = __webpack_require__(174);
+
+	var _wikipediaFact2 = _interopRequireDefault(_wikipediaFact);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30183,8 +30187,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// import WikipediaFact from './wikipediaFact.jsx'
 
 	var Wikipedia = function (_React$Component) {
 	  _inherits(Wikipedia, _React$Component);
@@ -30198,6 +30200,10 @@
 	  _createClass(Wikipedia, [{
 	    key: 'render',
 	    value: function render() {
+	      var self = this;
+	      var wikipediaFact = Object.keys(this.props.facts).map(function (keys) {
+	        return _react2.default.createElement(_wikipediaFact2.default, { key: keys, factkey: keys, factText: self.props.facts[keys] });
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -30218,6 +30224,11 @@
 	            null,
 	            this.props.body
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          wikipediaFact
 	        )
 	      );
 	    }
@@ -30227,6 +30238,64 @@
 	}(_react2.default.Component);
 
 	exports.default = Wikipedia;
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var WikipediaFact = function (_React$Component) {
+	  _inherits(WikipediaFact, _React$Component);
+
+	  function WikipediaFact() {
+	    _classCallCheck(this, WikipediaFact);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(WikipediaFact).apply(this, arguments));
+	  }
+
+	  _createClass(WikipediaFact, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          this.props.factkey
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          this.props.factText
+	        )
+	      );
+	    }
+	  }]);
+
+	  return WikipediaFact;
+	}(_react2.default.Component);
+
+	exports.default = WikipediaFact;
 
 /***/ }
 /******/ ]);
