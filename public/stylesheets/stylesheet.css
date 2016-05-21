@@ -30,10 +30,17 @@ body {
     display: table; }
 
 header {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
   padding: 1em 3em;
   margin-bottom: 10px;
   background-color: #2b55b0; }
+  header:last-child {
+    margin-right: 0; }
   header #logo {
+    max-width: 100%;
     width: auto; }
 
 img {
@@ -205,5 +212,52 @@ p {
   .wiki:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
+
+/* Media Queries */
+@media screen and (max-width: 1220px) {
+  .main_bar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .main_bar:last-child {
+      margin-right: 0; }
+
+  .media_bar,
+  .wikipedia_map_bar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .media_bar:last-child,
+    .wikipedia_map_bar:last-child {
+      margin-right: 0; }
+
+  .wikipedia_map_bar {
+    margin-right: 0; }
+
+  .twitter li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-bottom: 10px; }
+    .twitter li:last-child {
+      margin-right: 0; }
+
+  .twitter li:nth-child(2n) {
+    margin-right: 0; } }
+@media screen and (max-width: 600px) {
+  .main_bar,
+  .media_bar,
+  .wikipedia_map_bar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .main_bar:last-child,
+    .media_bar:last-child,
+    .wikipedia_map_bar:last-child {
+      margin-right: 0; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
