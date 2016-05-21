@@ -21,10 +21,9 @@ export default class YoutubeController extends React.Component {
     if(!this.state.loading){
       videoControlller = this.state.data.data.map((vid)=>{
         return (
-          <Youtube key={vid.id} title={vid.title} videoId={vid.videoId}/>
+          <Youtube key={vid.id} title={vid.title} videoId={vid.video_id}/>
         );
       });
-      debugger;
     }
     return(
         <div>

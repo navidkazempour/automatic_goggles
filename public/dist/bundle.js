@@ -30152,9 +30152,8 @@
 	      var videoControlller = [];
 	      if (!this.state.loading) {
 	        videoControlller = this.state.data.data.map(function (vid) {
-	          return _react2.default.createElement(_youtube2.default, { key: vid.id, title: vid.title, videoId: vid.videoId });
+	          return _react2.default.createElement(_youtube2.default, { key: vid.id, title: vid.title, videoId: vid.video_id });
 	        });
-	        debugger;
 	      }
 	      return _react2.default.createElement(
 	        'div',
