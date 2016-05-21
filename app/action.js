@@ -83,54 +83,62 @@ router.post('/wikipedia',function(req,res){
 
 });
 router.get('/results/:search_term?', function(req, res, next) {
-  var searchTerm = req.params.search_term || 'cute wombats'
+	var searchTerm = req.params.search_term || 'cute wombats'
 
-  twitter.stream('statuses/filter', {track: 'donald trump'}, function(stream) {
-    stream.on('data',function(data){
-      console.log(data);
+	// twitter.stream('statuses/filter', {track: searchTerm}, function(stream) {
+	// 	stream.on('data',function(data){
+	// 		console.log(data);
+	//
+	// 		var tweet = {
+	// 				twid: data["id_str"],
+	// 				author: data["user"]["name"],
+	// 				avatar: data["user"]["profile_image_url"],
+	// 				text: data["text"],
+	// 				date: data['created_at'],
+	//       screenname: data['user']['screen_name']
+	// 			};
+	//
+	// 		res.render('index', {tweets: tweet});
+	// 	 });
+	// });
 
-      // var tweet = {
-      //    twid: data["id_str"],
-      //    author: data["user"]["name"],
-      //    avatar: data["user"]["profile_image_url"],
-      //    text: data["text"],
-      //    date: data['created_at'],
-      //   screenname: data['user']['screen_name']
-      //  };
-      //
-      // res.render('index', {tweets: tweet});
-     });
-  });
+	twitter.get('search/tweets', {q: searchTerm}, function(error, tweets, response) {
+		for (var i = 0; i < tweets.statuses.length; i++) {
+			console.log(tweets.statuses[i].user.screen_name);
+			console.log(tweets.statuses[i].text);
+			// console.log(tweets.statuses[0]);
+		};
+	});
 
-  // intlpedia.search(searchTerm)
-  //   .then(page => console.log(page))
-  //   .catch(err => console.error(err));
+	// intlpedia.search(searchTerm)
+	//   .then(page => console.log(page))
+	//   .catch(err => console.error(err));
 
-  youTube.setKey(config.youtube.consumer_key);
-  youTube.addParam('relevanceLanguage', 'en');
+	youTube.setKey(config.youtube.consumer_key);
+	youTube.addParam('relevanceLanguage', 'en');
 
-  youTube.search(searchTerm, 2, function(error, result) {
-    var videos = [];
+	youTube.search(searchTerm, 2, function(error, result) {
+		var videos = [];
 
-    function parseResult(result) {
-      for (var i = 0; i < result["items"].length; i++) {
-        videos.push({
-          video_id: result["items"][i].id.videoId,
-          date: result["items"][i].snippet.publishedAt,
-          title: result["items"][i].snippet.title,
-          description: result["items"][i].snippet.description
-        });
-      }
-    }
+		function parseResult(result) {
+			for (var i = 0; i < result["items"].length; i++) {
+				videos.push({
+					video_id: result["items"][i].id.videoId,
+					date: result["items"][i].snippet.publishedAt,
+					title: result["items"][i].snippet.title,
+					description: result["items"][i].snippet.description
+				});
+			}
+		}
 
-    if (error) {
-      console.log(error);
-    } else {
-      parseResult(result)
-      res.render('index', {videos: videos});
-    }
-  });
-  // res.render('index');
+		if (error) {
+			console.log(error);
+		} else {
+			parseResult(result)
+			res.render('index', {videos: videos});
+		}
+	});
+	// res.render('index');
 });
 
 module.exports = router;
