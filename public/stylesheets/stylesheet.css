@@ -39,12 +39,9 @@ header {
   background-color: #2b55b0; }
   header:last-child {
     margin-right: 0; }
-  header #logo {
-    max-width: 100%;
-    width: auto; }
 
 img {
-  width: 100%;
+  max-width: 100%;
   display: block;
   border-radius: 7px; }
 
@@ -135,6 +132,10 @@ p {
   .geography:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
+
+.loading {
+  display: block;
+  margin: auto; }
 
 .image_carousel,
 .wiki {
