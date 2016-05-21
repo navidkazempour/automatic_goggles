@@ -1,10 +1,25 @@
 extends ./layout
 block content
-  include ./partials/_video
-  include ./partials/_twitter
-  include ./partials/_wiki
-  include ./partials/_image
-  #main
-  #hello
-    h1 Hello World
-  #world
+  header
+    img(id="logo" src="images/logo.png" alt="logo")
+  .wrapper
+    .main_bar
+      .news
+        include ./partials/_news
+    .media_bar
+      .image_carousel.cell
+        include ./partials/_image
+      .video_carousel
+        include ./partials/_video
+    .wikipedia_map_bar
+      .wiki
+        include ./partials/_wiki
+      .geography
+        img(src="images/map-placeholder.png" alt="Map")
+    #TestEnv
+      #main
+      #hello
+        h1 Hello World
+      #world
+    footer
+      include ./partials/_twitter
