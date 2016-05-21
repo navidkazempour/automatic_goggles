@@ -9,12 +9,12 @@ export default class WikipediaController extends React.Component {
     this.state = {data:[],loading: true};
   }
   componentWillMount(){
-    this.serverRequest = $.ajax({
-      url: '/wikipedia',
+      this.serverRequest =$.ajax({
       type: 'POST',
+      url: '/wikipedia',
       dataType: 'json',
       success: function(wikiData){
-        this.setState({data:wikiData,loading: false});
+        this.setState({data: wikiData, loading:false});
       }.bind(this)
     });
   }
@@ -22,8 +22,9 @@ export default class WikipediaController extends React.Component {
     debugger;
     return(
         <div>
-          <Wikipedia title={this.props.wiki.data.title}
-            body={this.props.wiki.data.body}/>
+          {!this.state.loading ?
+            <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body}/>:
+              <h1>Loading...</h1>}
        </div>
      )};
 }
