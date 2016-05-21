@@ -20196,31 +20196,15 @@
 	var MainController = function (_React$Component) {
 	  _inherits(MainController, _React$Component);
 
-	  function MainController(props) {
+	  function MainController() {
 	    _classCallCheck(this, MainController);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MainController).call(this, props));
-
-	    _this.state = { data: [], loading: true };
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MainController).apply(this, arguments));
 	  }
 
 	  _createClass(MainController, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.serverRequest = _jquery2.default.ajax({
-	        type: 'POST',
-	        url: '/wikipedia',
-	        dataType: 'json',
-	        success: function (data) {
-	          this.setState({ data: data, loading: false });
-	        }.bind(this)
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.state.data);
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'media' },
@@ -20232,11 +20216,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'wiki' },
-	          !this.state.loading ? _react2.default.createElement(_wikipediaController2.default, { wiki: this.state.data }) : _react2.default.createElement(
-	            'h1',
-	            null,
-	            'Loading...'
-	          )
+	          _react2.default.createElement(_wikipediaController2.default, null)
 	        )
 	      );
 	    }
@@ -30259,20 +30239,38 @@
 	var WikipediaController = function (_React$Component) {
 	  _inherits(WikipediaController, _React$Component);
 
-	  function WikipediaController() {
+	  function WikipediaController(props) {
 	    _classCallCheck(this, WikipediaController);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(WikipediaController).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(WikipediaController).call(this, props));
+
+	    _this.state = { data: [], loading: true };
+	    return _this;
 	  }
 
 	  _createClass(WikipediaController, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.serverRequest = $.ajax({
+	        type: 'POST',
+	        url: '/wikipedia',
+	        dataType: 'json',
+	        success: function (wikiData) {
+	          this.setState({ data: wikiData, loading: false });
+	        }.bind(this)
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_wikipedia2.default, { title: this.props.wiki.data.title,
-	          body: this.props.wiki.data.body })
+	        !this.state.loading ? _react2.default.createElement(_wikipedia2.default, { title: this.state.data.data.title, body: this.state.data.data.body }) : _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Loading...'
+	        )
 	      );
 	    }
 	  }]);
