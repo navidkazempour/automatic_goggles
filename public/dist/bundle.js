@@ -20211,7 +20211,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'yt' },
-	          _react2.default.createElement(_youtubeController2.default, { videos: _test.contacts })
+	          _react2.default.createElement(_youtubeController2.default, null)
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -30125,22 +30125,45 @@
 	var YoutubeController = function (_React$Component) {
 	  _inherits(YoutubeController, _React$Component);
 
-	  function YoutubeController() {
+	  function YoutubeController(props) {
 	    _classCallCheck(this, YoutubeController);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(YoutubeController).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(YoutubeController).call(this, props));
+
+	    _this.state = { data: [], loading: true };
+	    return _this;
 	  }
 
 	  _createClass(YoutubeController, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.serverRequest = $.ajax({
+	        type: 'POST',
+	        url: '/youtube',
+	        dataType: 'json',
+	        success: function (youtubeData) {
+	          this.setState({ data: youtubeData, loading: false });
+	        }.bind(this)
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var videoControlller = this.props.videos.map(function (vid) {
-	        return _react2.default.createElement(_youtube2.default, { key: vid.id, title: vid.title, videoId: vid.videoId });
-	      });
+	      var videoControlller = [];
+	      if (!this.state.loading) {
+	        videoControlller = this.state.data.data.map(function (vid) {
+	          return _react2.default.createElement(_youtube2.default, { key: vid.id, title: vid.title, videoId: vid.videoId });
+	        });
+	        debugger;
+	      }
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        videoControlller
+	        !this.state.loading ? videoControlller : _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Loading...'
+	        )
 	      );
 	    }
 	  }]);
