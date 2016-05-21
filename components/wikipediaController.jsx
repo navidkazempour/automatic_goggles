@@ -19,7 +19,6 @@ export default class WikipediaController extends React.Component {
     });
   }
   render(){
-    debugger;
     return(
         <div>
           {!this.state.loading ?
