@@ -5,14 +5,17 @@ var router = express.Router();
 
 var config = require('../config');
 
+// for youtube functionality
 var Youtube = require('youtube-node');
 var youTube = new Youtube();
 youTube.setKey('AIzaSyBWDQ2uae9ojRM-lOHaL1qqyFJCF3B_P7A');
 youTube.addParam('relevanceLanguage', 'en');
 
+// for twitter functionality
 var Twitter = require('twitter');
 var twitter = new Twitter(config.twitter);
 
+// for wikipedia functionality
 var Intlpedia = require('intl-wikipedia');
 var intlpedia = new Intlpedia('en');
 var cheerio = require('cheerio');
@@ -21,6 +24,8 @@ var request = require('request');
 // router.get('/todos',function(req,res){
 //   res.json({todos:todos});
 // });
+
+var searchTerm =
 
 router.get('/',function(req,res){
   res.render('index');
@@ -141,35 +146,6 @@ router.get('/results/:search_term?', function(req, res, next) {
 		};
 	});
 
-	// intlpedia.search(searchTerm)
-	//   .then(page => console.log(page))
-	//   .catch(err => console.error(err));
-
-	youTube.setKey(config.youtube.consumer_key);
-	youTube.addParam('relevanceLanguage', 'en');
-
-	youTube.search(searchTerm, 2, function(error, result) {
-		var videos = [];
-
-		function parseResult(result) {
-			for (var i = 0; i < result["items"].length; i++) {
-				videos.push({
-					video_id: result["items"][i].id.videoId,
-					date: result["items"][i].snippet.publishedAt,
-					title: result["items"][i].snippet.title,
-					description: result["items"][i].snippet.description
-				});
-			}
-		}
-
-		if (error) {
-			console.log(error);
-		} else {
-			parseResult(result)
-			res.render('index', {videos: videos});
-		}
-	});
-	// res.render('index');
 });
 
 module.exports = router;
