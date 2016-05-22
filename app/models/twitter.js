@@ -1,12 +1,12 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var twitterSchema = new mongoose.Schema({
-  searchTerm: {type: String, required: true},
-  title: {type: String, required:true},
-  videoId:  {type: String, required:true},
-  description:  {type: String, required:true}
+  title: {type: String},
+  description: {type: String},
+  searchTerm: {type: Schema.ObjectId, ref: 'search'}
 });
 
 var model = mongoose.model('Twitter', twitterSchema);

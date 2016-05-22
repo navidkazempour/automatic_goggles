@@ -7,7 +7,7 @@ var app = express();
 var router = require('./app/action');
 var port = process.env.port || 3000;
 
-require('./src/database');
+require('./app/database');
 app.set('views', path.join(__dirname,'/app/views'));
 app.set('view engine','jade');
 app.use(express.static(path.join(__dirname,'public')));

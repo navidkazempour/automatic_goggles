@@ -16,7 +16,7 @@
     "intl-wikipedia": "^5.0.0",
     "jade": "^1.11.0",
     "jquery": "^2.2.4",
-    "mongoose": "^4.4.17",
+    "mongoose": "^4.4.19",
     "path": "^0.12.7",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",

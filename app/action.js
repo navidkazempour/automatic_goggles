@@ -2,8 +2,9 @@
 
 var express = require('express');
 var router = express.Router();
-
+var fs = require('fs');
 var config = require('../config');
+var mongoose = require('mongoose');
 
 // for youtube functionality
 var Youtube = require('youtube-node');
@@ -24,6 +25,14 @@ var request = require('request');
 router.get('/',function(req,res){
   res.render('index');
 });
+
+// Load all files in models dir
+fs.readdirSync(__dirname + '/models/').forEach(function(filename){
+  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+});
+
+
+
 router.post('/wikipedia',function(req,res){
   /*******************************/
       var searchTerm = 'Steve Jobs';
