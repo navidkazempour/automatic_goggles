@@ -18,6 +18,8 @@ $font: Raleway, Arial, serif;
 @mixin card {
 	box-shadow: 0 2px 2px $box-shadow-color;
 	border-radius: $box-shadow-radius;
+	margin-bottom: 1em;
+	background-color: $article-background-color;
 
 	&:hover {
 		box-shadow: 0 8px 8px $box-shadow-color;
@@ -49,7 +51,7 @@ body {
 header {
 	@include span-columns(12 of 12);
 	padding: 1em 3em;
-	margin-bottom: 10px;
+	margin-bottom: 1.5em;
 	background-color: $header-color;
 }
 
@@ -71,13 +73,6 @@ figure {
 	display: inline-block;
 	margin: 0 12px 12px 12px;
 	float: left;
-}
-
-figcaption {
-	text-align: center;
-	font-family: $font;
-	font-weight: 300;
-	font-style: italic;
 }
 
 h1 {
@@ -112,16 +107,13 @@ div {
 }
 
 .media_bar,
-.wikipedia_map_bar {
-	@include span-columns(3 of 12);
+.wikipedia_map_bar,
+.twitter_bar {
+	@include span-columns(4 of 12);
 
 }
 
-.main_bar {
-	@include span-columns(6 of 12);
-}
-
-.wikipedia_map_bar {
+.twitter_bar {
 	@include omega();
 }
 
@@ -133,20 +125,13 @@ div {
 	@include card;
 }
 
+.video_carousel {
+	overflow: hidden;
+}
+
 .loading {
 	display: block;
-	margin: auto;
-}
-
-.image_carousel,
-.wiki {
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-
-.video_carousel,
-.geography {
-	margin-bottom: 10px;
+	margin: 1em auto;
 }
 
 .wiki_img {
@@ -162,40 +147,22 @@ div {
 }
 
 .twitter li {
-	@include span-columns(3);
-	@include omega(4n);
-	@include card;
-}
-
-.news {
-	margin-top: 10px;
-	padding: 15px;
-
-	li {
-		@include span-columns(6 of 12);
-		@include omega(2n);
-		margin-bottom: 5px;
-	}
+	@include span-columns(12 of 12);
 }
 
 .geography {
 	@include card;
 }
 
-.article_pic {
-	height: 200px;
-	width: 250px;
-	margin: 5px;
-	padding: 5px;
+.twitter {
+	margin-top: 0;
 }
 
-.news,
 .wiki,
 .tweet {
 	@include card;
 	border: 1px solid #ccc;
 	padding: 1em;
-	background-color: $article-background-color;
 }
 
 .tweet_link {
@@ -212,9 +179,12 @@ div {
 		background-size: 1em;
 		display: inline-block;
 	}
-
 }
 
+iframe {
+	width: 100%;
+	display: block;
+}
 /* Media Queries */
 
 $tablet: new-breakpoint(max-width 1220px);
