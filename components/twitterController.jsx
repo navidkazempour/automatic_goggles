@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
 import $ from "jquery";
-import Twitter from './twitter.jsx';
 import {tweets} from './test.js'
 
 export default class TwitterController extends React.Component {
