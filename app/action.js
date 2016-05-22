@@ -66,7 +66,6 @@ router.post('/wikipedia',function(req,res){
             wiki["facts"]=result;
       		}).catch(err => console.error(err)).then(
             ()=>{
-              console.log(wiki);
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify({ data: wiki }));
             });
@@ -78,7 +77,7 @@ router.post('/youtube',function(req,res){
   var searchTerm = req.params.search_term || 'World War z Trailer';
 
   var videos = function(searchTerm,callback){
-    youTube.search(searchTerm,10,function(error, result) {
+    youTube.search(searchTerm,3,function(error, result) {
       if (error) {
       	console.log(error);
       	}
