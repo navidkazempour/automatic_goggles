@@ -108,8 +108,6 @@ router.post('/youtube',function(req,res){
   };
 
   videos(searchTerm,function(){
-    console.log("Completed");
-    console.log(vids);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: vids }));
   });
@@ -140,8 +138,8 @@ router.post('/twitter/:search_term?', function(req, res) {
   };
 
   fetchTweets(searchTerm, function() {
-    console.log("Tweets retrieved");
-    console.log("constructed tweet url: " + "https://twitter.com/" + tweets.statuses[i].user.screen_name + "/status/" + tweets.statuses[i].id_str);
+    // console.log("Tweets retrieved");
+    // console.log("constructed tweet url: " + "https://twitter.com/" + tweets.statuses[i].user.screen_name + "/status/" + tweets.statuses[i].id_str);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: tweets }));
   });
