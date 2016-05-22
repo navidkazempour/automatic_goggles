@@ -10,15 +10,10 @@ export default class Wikipedia extends React.Component{
       return(<WikipediaFact key={keys} factkey={keys} factText={self.props.facts[keys]}/>);
     });
     return(
-      <div>
-        <div>
+        <div id="wikipedia">
           <h2>{this.props.title}</h2>
           <p>{this.props.body}</p>
         </div>
-        <div>
-            {wikipediaFact}
-        </div>
-      </div>
     );
   }
 }
