@@ -108,6 +108,8 @@ router.post('/youtube',function(req,res){
   };
 
   videos(searchTerm,function(){
+    // console.log("Completed");
+    // console.log(vids);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: vids }));
   });
