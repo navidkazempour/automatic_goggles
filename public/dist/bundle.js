@@ -30291,7 +30291,7 @@
 	  _createClass(Youtube, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('iframe', { src: "http://www.youtube.com/embed/" + this.props.videoId });
+	      return _react2.default.createElement('iframe', { width: '280', height: '200', src: "http://www.youtube.com/embed/" + this.props.videoId });
 	    }
 	  }]);
 
