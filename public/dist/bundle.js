@@ -20177,11 +20177,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _youtubeController = __webpack_require__(172);
-
-	var _youtubeController2 = _interopRequireDefault(_youtubeController);
-
-	var _wikipediaController = __webpack_require__(174);
+	var _wikipediaController = __webpack_require__(172);
 
 	var _wikipediaController2 = _interopRequireDefault(_wikipediaController);
 
@@ -20192,6 +20188,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import YoutubeController from './youtubeController.jsx'
+
 
 	var MainController = function (_React$Component) {
 	  _inherits(MainController, _React$Component);
@@ -20208,16 +20206,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'media' },
-	        _react2.default.createElement(
-	          'div',
-	          { id: 'yt' },
-	          _react2.default.createElement(_youtubeController2.default, null)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { id: 'wiki' },
-	          _react2.default.createElement(_wikipediaController2.default, null)
-	        )
+	        _react2.default.createElement('div', { id: 'yt' }),
+	        _react2.default.createElement(_wikipediaController2.default, null)
 	      );
 	    }
 	  }]);
@@ -30110,147 +30100,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _youtube = __webpack_require__(173);
-
-	var _youtube2 = _interopRequireDefault(_youtube);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var YoutubeController = function (_React$Component) {
-	  _inherits(YoutubeController, _React$Component);
-
-	  function YoutubeController(props) {
-	    _classCallCheck(this, YoutubeController);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(YoutubeController).call(this, props));
-
-	    _this.state = { data: [], loading: true };
-	    return _this;
-	  }
-
-	  _createClass(YoutubeController, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.serverRequest = $.ajax({
-	        type: 'POST',
-	        url: '/youtube',
-	        dataType: 'json',
-	        success: function (youtubeData) {
-	          this.setState({ data: youtubeData, loading: false });
-	        }.bind(this)
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var videoControlller = [];
-	      if (!this.state.loading) {
-	        videoControlller = this.state.data.data.map(function (vid) {
-	          return _react2.default.createElement(_youtube2.default, { key: vid.id, title: vid.title, videoId: vid.video_id });
-	        });
-	      }
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        !this.state.loading ? videoControlller : _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Loading...'
-	        )
-	      );
-	    }
-	  }]);
-
-	  return YoutubeController;
-	}(_react2.default.Component);
-
-	exports.default = YoutubeController;
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Youtube = function (_React$Component) {
-	  _inherits(Youtube, _React$Component);
-
-	  function Youtube() {
-	    _classCallCheck(this, Youtube);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Youtube).apply(this, arguments));
-	  }
-
-	  _createClass(Youtube, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          this.props.title
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement('iframe', { src: "http://www.youtube.com/embed/" + this.props.videoId })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Youtube;
-	}(_react2.default.Component);
-
-	exports.default = Youtube;
-
-/***/ },
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
 	var _jquery = __webpack_require__(171);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _wikipedia = __webpack_require__(175);
+	var _wikipedia = __webpack_require__(173);
 
 	var _wikipedia2 = _interopRequireDefault(_wikipedia);
 
@@ -30291,12 +30145,8 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        !this.state.loading ? _react2.default.createElement(_wikipedia2.default, { title: this.state.data.data.title, body: this.state.data.data.body }) : _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Loading...'
-	        )
+	        { className: 'wiki' },
+	        !this.state.loading ? _react2.default.createElement(_wikipedia2.default, { title: this.state.data.data.title, body: this.state.data.data.body, facts: this.state.data.data.facts }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	      );
 	    }
 	  }]);
@@ -30307,7 +30157,7 @@
 	exports.default = WikipediaController;
 
 /***/ },
-/* 175 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30322,7 +30172,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _wikipediaFact = __webpack_require__(176);
+	var _wikipediaFact = __webpack_require__(174);
 
 	var _wikipediaFact2 = _interopRequireDefault(_wikipediaFact);
 
@@ -30346,6 +30196,10 @@
 	  _createClass(Wikipedia, [{
 	    key: 'render',
 	    value: function render() {
+	      var self = this;
+	      var wikipediaFact = Object.keys(this.props.facts).map(function (keys) {
+	        return _react2.default.createElement(_wikipediaFact2.default, { key: keys, factkey: keys, factText: self.props.facts[keys] });
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -30353,19 +30207,20 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(
-	            'h1',
+	            'h2',
 	            null,
 	            this.props.title
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
+	          ),
 	          _react2.default.createElement(
 	            'p',
 	            null,
 	            this.props.body
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          wikipediaFact
 	        )
 	      );
 	    }
@@ -30377,7 +30232,7 @@
 	exports.default = Wikipedia;
 
 /***/ },
-/* 176 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30413,9 +30268,18 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'h1',
+	        'ul',
 	        null,
-	        'Hello World'
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          this.props.factkey
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          this.props.factText
+	        )
 	      );
 	    }
 	  }]);
