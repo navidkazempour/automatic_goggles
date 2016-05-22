@@ -25,8 +25,6 @@ var request = require('request');
 //   res.json({todos:todos});
 // });
 
-var searchTerm =
-
 router.get('/',function(req,res){
   res.render('index');
 });
@@ -118,34 +116,37 @@ router.post('/youtube',function(req,res){
     res.end(JSON.stringify({ data: vids }));
   });
 });
-router.get('/results/:search_term?', function(req, res, next) {
-	var searchTerm = req.params.search_term || 'cute wombats'
 
-	// twitter.stream('statuses/filter', {track: searchTerm}, function(stream) {
-	// 	stream.on('data',function(data){
-	// 		console.log(data);
-	//
-	// 		var tweet = {
-	// 				twid: data["id_str"],
-	// 				author: data["user"]["name"],
-	// 				avatar: data["user"]["profile_image_url"],
-	// 				text: data["text"],
-	// 				date: data['created_at'],
-	//       screenname: data['user']['screen_name']
-	// 			};
-	//
-	// 		res.render('index', {tweets: tweet});
-	// 	 });
-	// });
+// code below powers tweet retrieval functionality
+router.post('/twitter/:search_term?', function(req, res) {
+  var tweets = [];
+  var searchTerm = req.params.search_term || 'brexit';
 
-	twitter.get('search/tweets', {q: searchTerm}, function(error, tweets, response) {
-		for (var i = 0; i < tweets.statuses.length; i++) {
-			console.log(tweets.statuses[i].user.screen_name);
-			console.log(tweets.statuses[i].text);
-			// console.log(tweets.statuses[0]);
-		};
-	});
+  var fetchTweets = function(searchTerm, callback) {
+    twitter.get('search/tweets', {q: searchTerm, lang: "en", result_type: "popular", count: 12}, function(error, tweets, response) {
+      if (error) {
+      	console.log(error);
+      } else {
+      	for (var i = 0; i < tweets.statuses.length; i++) {
+      		tweets.push({
+            id_str: tweets.statuses[i].id_str,
+      			screen_name: tweets.statuses[i].user.screen_name,
+      			text: tweets.statuses[i].text,
+      			profile_image_url: tweets.statuses[i].user.profile_image_url,
+      			constructed_tweet_url: "https://twitter.com/" + screen_name + "/status/" + id_str
+      		});
+      	}
+        callback(null);
+      }
+    });
+  };
 
+  fetchTweets(searchTerm, function() {
+    console.log("Tweets retrieved");
+    console.log("constructed tweet url: " + "https://twitter.com/" + tweets.statuses[i].user.screen_name + "/status/" + tweets.statuses[i].id_str);
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ data: tweets }));
+  });
 });
 
 module.exports = router;
