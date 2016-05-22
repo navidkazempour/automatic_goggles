@@ -20177,7 +20177,11 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _wikipediaController = __webpack_require__(172);
+	var _youtubeController = __webpack_require__(172);
+
+	var _youtubeController2 = _interopRequireDefault(_youtubeController);
+
+	var _wikipediaController = __webpack_require__(174);
 
 	var _wikipediaController2 = _interopRequireDefault(_wikipediaController);
 
@@ -20188,8 +20192,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import YoutubeController from './youtubeController.jsx'
-
 
 	var MainController = function (_React$Component) {
 	  _inherits(MainController, _React$Component);
@@ -20206,7 +20208,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'media' },
-	        _react2.default.createElement('div', { id: 'yt' }),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'yt' },
+	          _react2.default.createElement(_youtubeController2.default, null)
+	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'wiki' },
@@ -30104,7 +30110,139 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _wikipedia = __webpack_require__(173);
+	var _youtube = __webpack_require__(173);
+
+	var _youtube2 = _interopRequireDefault(_youtube);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var YoutubeController = function (_React$Component) {
+	  _inherits(YoutubeController, _React$Component);
+
+	  function YoutubeController(props) {
+	    _classCallCheck(this, YoutubeController);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(YoutubeController).call(this, props));
+
+	    _this.state = { data: [], loading: true, index: 0, tag: true };
+	    return _this;
+	  }
+
+	  _createClass(YoutubeController, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.serverRequest = $.ajax({
+	        type: 'POST',
+	        url: '/youtube',
+	        dataType: 'json',
+	        success: function (youtubeData) {
+	          this.setState({ data: youtubeData, loading: false });
+	        }.bind(this)
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        !this.state.loading ? _react2.default.createElement(_youtube2.default, { key: this.state.data.data[this.state.index].id,
+	          title: this.state.data.data[this.state.index].title,
+	          videoId: this.state.data.data[this.state.index].video_id }) : _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Loading...'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return YoutubeController;
+	}(_react2.default.Component);
+
+	exports.default = YoutubeController;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Youtube = function (_React$Component) {
+	  _inherits(Youtube, _React$Component);
+
+	  function Youtube() {
+	    _classCallCheck(this, Youtube);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Youtube).apply(this, arguments));
+	  }
+
+	  _createClass(Youtube, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          this.props.title
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('iframe', { src: "http://www.youtube.com/embed/" + this.props.videoId })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Youtube;
+	}(_react2.default.Component);
+
+	exports.default = Youtube;
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _wikipedia = __webpack_require__(175);
 
 	var _wikipedia2 = _interopRequireDefault(_wikipedia);
 
@@ -30161,7 +30299,7 @@
 	exports.default = WikipediaController;
 
 /***/ },
-/* 173 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30176,7 +30314,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _wikipediaFact = __webpack_require__(174);
+	var _wikipediaFact = __webpack_require__(176);
 
 	var _wikipediaFact2 = _interopRequireDefault(_wikipediaFact);
 
@@ -30240,7 +30378,7 @@
 	exports.default = Wikipedia;
 
 /***/ },
-/* 174 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
