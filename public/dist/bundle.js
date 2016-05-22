@@ -54,13 +54,22 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _mainController = __webpack_require__(168);
+	var _jquery = __webpack_require__(168);
 
-	var _mainController2 = _interopRequireDefault(_mainController);
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _youtubeController = __webpack_require__(169);
+
+	var _youtubeController2 = _interopRequireDefault(_youtubeController);
+
+	var _wikipediaController = __webpack_require__(171);
+
+	var _wikipediaController2 = _interopRequireDefault(_wikipediaController);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_mainController2.default, null), document.getElementById('main'));
+	_reactDom2.default.render(_react2.default.createElement(_wikipediaController2.default, null), document.querySelector(".wiki"));
+	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video_carousel"));
 
 /***/ },
 /* 1 */
@@ -20339,123 +20348,6 @@
 /* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _test = __webpack_require__(169);
-
-	var _test2 = __webpack_require__(170);
-
-	var _jquery = __webpack_require__(171);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _youtubeController = __webpack_require__(172);
-
-	var _youtubeController2 = _interopRequireDefault(_youtubeController);
-
-	var _wikipediaController = __webpack_require__(174);
-
-	var _wikipediaController2 = _interopRequireDefault(_wikipediaController);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MainController = function (_React$Component) {
-	  _inherits(MainController, _React$Component);
-
-	  function MainController() {
-	    _classCallCheck(this, MainController);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MainController).apply(this, arguments));
-	  }
-
-	  _createClass(MainController, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { id: 'media' },
-	        _react2.default.createElement(
-	          'div',
-	          { id: 'yt' },
-	          _react2.default.createElement(_youtubeController2.default, null)
-	        ),
-	        _react2.default.createElement(_wikipediaController2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return MainController;
-	}(_react2.default.Component);
-
-	exports.default = MainController;
-
-/***/ },
-/* 169 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	/**
-	 * This function simulates an API.
-	 * It will return an array of contacts after a 300ms delay using setTimeout
-	 */
-	var contacts = exports.contacts = [{ id: 1, title: "World War Z - Official Trailer (HD)", videoId: "HcwTxRuq-uk", description: "http://www.joblo.com - \"World War Z\" - Official Trailer Source: http://trailers.apple.com/trailers/paramount/worldwarz/ World War Z Twitter: ..." }, { id: 2, title: "World War Z TRAILER 2 (2013) - Brad Pitt Movie HD", videoId: "4EC7P5WdUko", description: "Subscribe to TRAILERS: http://bit.ly/sxaw6h Subscribe to COMING SOON: http://bit.ly/H2vZUn Like us on FACEBOOK: http://goo.gl/dHs73 Follow us on ..." }, { id: 3, title: "World War Z - Trailer 1 - Official [HD]", videoId: "cXuC_v0KWaU", description: "World War Z Trailer Our first look at the new movie World War Z, based off the Max Brooks Novel \"World War Z\". The movie is to take on a different approach from ..." }, { id: 4, title: "World War Z 2 Official Trailer #1 (2017) - Brad Pitt Movie HD", videoId: "WwJD0qIe__k", description: "Keeping movies honest ▻http://bit.ly/HonestTrailerSub World War Z was one of the most anticipated book adaptations this summer. Sometimes things are better ..." }];
-
-/***/ },
-/* 170 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var wikipedia = exports.wikipedia = [{
-	  "id": 1,
-	  "title": "Steve Jobs",
-	  "body": "Steven Paul \"Steve\" Jobs (/ˈdʒɒbz/; February 24, 1955 – October 5, 2011) was an American information technology entrepreneur and inventor. He was the co-founder, chairman, and chief executive officer (CEO) of Apple Inc.; CEO and majority shareholder of Pixar Animation Studios; a member of The Walt Disney Company's board of directors following its acquisition of Pixar; and founder, chairman, and CEO of NeXT Inc. Jobs is widely recognized as a pioneer of the microcomputer revolution of the 1970s, along with Apple co-founder Steve Wozniak. Shortly after his death, Jobs's official biographer, Walter Isaacson, described him as a creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries: personal computers, animated movies, music, phones, tablet computing, and digital publishing.",
-	  "fact": {
-	    'Born': 'Steven Paul Jobs\n(1955-02-24)February 24, 1955\nSan Francisco, California'
-	  }
-	}];
-	// Died: 'October 5, 2011(2011-10-05) (aged 56)\nPalo Alto, California',
-	// 'Cause of death': 'Pancreatic cancer and respiratory arrest',
-	// Nationality: 'American',
-	// Ethnicity: 'German and Syrian',
-	// Education: 'Homestead High School (\'72)\nReed College (attended)',
-	// Occupation: 'Co-founder, Chairman, and CEO of Apple Inc.\nPrimary investor and CEO of Pixar\nFounder and CEO of NeXT',
-	// 'Known for': 'Pioneer of the personal computer revolution with Steve Wozniak',
-	// 'Board member of': 'The Walt Disney Company\n\nApple Inc.',
-	// Religion: 'Zen Buddhism (previously Lutheran)',
-	// 'Spouse(s)': 'Laurene Powell (m. 1991; his death 2011)',
-	// 'Partner(s)': 'Chrisann Brennan',
-	// Children: 'Lisa Brennan-Jobs (with Chrisann, b. 1978)\nReed (with Laurene, b. 1991)\nErin (with Laurene, b. 1995)\nEve (with Laurene, b. 1998)',
-	// 'Parent(s)': 'Paul and Clara Jobs (adoptive parents)\nJoanne Schieble Simpson and Abdulfattah Jandali (biological parents)',
-	// Relatives: 'Mona Simpson (biological sister)\nPatricia "Patty" Jobs (adopted sister)'
-
-/***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	 * jQuery JavaScript Library v2.2.4
 	 * http://jquery.com/
@@ -30273,7 +30165,7 @@
 
 
 /***/ },
-/* 172 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30288,7 +30180,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _youtube = __webpack_require__(173);
+	var _youtube = __webpack_require__(170);
 
 	var _youtube2 = _interopRequireDefault(_youtube);
 
@@ -30324,18 +30216,28 @@
 	        }.bind(this)
 	      });
 	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps() {
-	      if (!this.state.loading) {
-	        debugger;
-	        var self = this;
-	        setTimeout(function () {
-	          this.state.index = this.state.index + 1;
-	          console.log(this.this.state.index);
-	        }, 1000);
-	      }
-	    }
+	    // componentWillReceiveProps(){
+	    //   if(!this.state.loading){
+	    //     debugger;
+	    //     var self = this;
+	    //     setTimeout(function(){
+	    //       this.state.index = this.state.index + 1;
+	    //       console.log(this.this.state.index);
+	    //     },1000);
+	    //   }
+	    // }
+	    //   startPolling() {
+	    //     var self = this;
+	    //     setTimeout(function() {
+	    //       if (!self.isMounted()) { return; } // abandon
+	    //       self.poll(); // do it once and then start it up ...
+	    //       self._timer = setInterval(self.poll.bind(self), 15000);
+	    //     }, 1000);
+	    // }
+	    // componentDidMount(){
+	    //    this.startPolling();
+	    // }
+
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -30343,7 +30245,6 @@
 	        'div',
 	        null,
 	        !this.state.loading ? _react2.default.createElement(_youtube2.default, { key: this.state.data.data[this.state.index].id,
-	          title: this.state.data.data[this.state.index].title,
 	          videoId: this.state.data.data[this.state.index].video_id }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	      );
 	    }
@@ -30355,7 +30256,7 @@
 	exports.default = YoutubeController;
 
 /***/ },
-/* 173 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30390,20 +30291,7 @@
 	  _createClass(Youtube, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          this.props.title
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement('iframe', { src: "http://www.youtube.com/embed/" + this.props.videoId })
-	        )
-	      );
+	      return _react2.default.createElement('iframe', { width: '280', height: '200', src: "http://www.youtube.com/embed/" + this.props.videoId });
 	    }
 	  }]);
 
@@ -30413,7 +30301,7 @@
 	exports.default = Youtube;
 
 /***/ },
-/* 174 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30428,11 +30316,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _jquery = __webpack_require__(171);
+	var _jquery = __webpack_require__(168);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _wikipedia = __webpack_require__(175);
+	var _wikipedia = __webpack_require__(172);
 
 	var _wikipedia2 = _interopRequireDefault(_wikipedia);
 
@@ -30473,7 +30361,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'wiki' },
+	        null,
 	        !this.state.loading ? _react2.default.createElement(_wikipedia2.default, { title: this.state.data.data.title, body: this.state.data.data.body, facts: this.state.data.data.facts }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	      );
 	    }
@@ -30485,7 +30373,7 @@
 	exports.default = WikipediaController;
 
 /***/ },
-/* 175 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30500,7 +30388,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _wikipediaFact = __webpack_require__(176);
+	var _wikipediaFact = __webpack_require__(173);
 
 	var _wikipediaFact2 = _interopRequireDefault(_wikipediaFact);
 
@@ -30530,25 +30418,16 @@
 	      });
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { id: 'wikipedia' },
 	        _react2.default.createElement(
-	          'div',
+	          'h2',
 	          null,
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            this.props.title
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            this.props.body
-	          )
+	          this.props.title
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          'p',
 	          null,
-	          wikipediaFact
+	          this.props.body
 	        )
 	      );
 	    }
@@ -30560,7 +30439,7 @@
 	exports.default = Wikipedia;
 
 /***/ },
-/* 176 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

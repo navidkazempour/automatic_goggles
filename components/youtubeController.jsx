@@ -26,23 +26,22 @@ export default class YoutubeController extends React.Component {
   //     },1000);
   //   }
   // }
-    startPolling() {
-      var self = this;
-      setTimeout(function() {
-        if (!self.isMounted()) { return; } // abandon
-        self.poll(); // do it once and then start it up ...
-        self._timer = setInterval(self.poll.bind(self), 15000);
-      }, 1000);
-  }
-  componentDidMount(){
-     this.startPolling();
-  }
+  //   startPolling() {
+  //     var self = this;
+  //     setTimeout(function() {
+  //       if (!self.isMounted()) { return; } // abandon
+  //       self.poll(); // do it once and then start it up ...
+  //       self._timer = setInterval(self.poll.bind(self), 15000);
+  //     }, 1000);
+  // }
+  // componentDidMount(){
+  //    this.startPolling();
+  // }
   render(){
     return(
         <div>
           {!this.state.loading ?
             <Youtube key={this.state.data.data[this.state.index].id}
-              title={this.state.data.data[this.state.index].title}
               videoId={this.state.data.data[this.state.index].video_id}/>:
             <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
        </div>
