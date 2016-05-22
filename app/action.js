@@ -150,19 +150,19 @@ var AlchemyAPI = require('../alchemyapi');
 var alchemyapi = new AlchemyAPI();
 
 router.get('/alchemy/what', doAlchemy);
-var what_url = 'http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen';
+var what_url = 'http://www.nytimes.com/2016/05/23/world/middleeast/egypt-sends-submarine-in-search-for-egyptair-jets-black-boxes.html?_r=0';
 var demo_text = 'Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.';
 
-function doAlchemy(req, res) {
-	var output = {};
+  function doAlchemy(req, res) {
+	   var output = {};
 
   function entities(req, res, output) {
-  	// alchemyapi.entities('url', what_url,{ 'sentiment':1 }, function(response) {
-  	// 	output['entities'] = { url:what_url, response:JSON.stringify(response,null,4), results:response['entities'] };
-    alchemyapi.entities('text', demo_text,{ 'sentiment':1 }, function(response) {
-  		output['entities'] = { text:demo_text, response:JSON.stringify(response,null,4), results:response['entities'] };
+  	alchemyapi.entities('url', what_url,{ 'sentiment':1 }, function(response) {
+  		output['entities'] = { url:what_url, response:JSON.stringify(response,null,4), results:response['entities'] };
+    // alchemyapi.entities('text', demo_text,{ 'sentiment':1 }, function(response) {
+  	// 	output['entities'] = { text:demo_text, response:JSON.stringify(response,null,4), results:response['entities'] };
       console.log('Alchemy is real');
-      console.log(output);
+      console.log(response);
   	});
   }
 
