@@ -35,7 +35,7 @@ header {
   margin-right: 2.35765%;
   width: 100%;
   padding: 1em 3em;
-  margin-bottom: 10px;
+  margin-bottom: 1.5em;
   background-color: #2b55b0; }
   header:last-child {
     margin-right: 0; }
@@ -60,12 +60,6 @@ figure {
   display: inline-block;
   margin: 0 12px 12px 12px;
   float: left; }
-
-figcaption {
-  text-align: center;
-  font-family: Raleway, Arial, serif;
-  font-weight: 300;
-  font-style: italic; }
 
 h1 {
   font-family: Raleway, Arial, serif;
@@ -96,24 +90,18 @@ div::after {
   display: table; }
 
 .media_bar,
-.wikipedia_map_bar {
+.wikipedia_map_bar,
+.twitter_bar {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%; }
+  width: 31.76157%; }
   .media_bar:last-child,
-  .wikipedia_map_bar:last-child {
+  .wikipedia_map_bar:last-child,
+  .twitter_bar:last-child {
     margin-right: 0; }
 
-.main_bar {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%; }
-  .main_bar:last-child {
-    margin-right: 0; }
-
-.wikipedia_map_bar {
+.twitter_bar {
   margin-right: 0; }
 
 .image_carousel,
@@ -125,7 +113,9 @@ div::after {
   margin-right: 2.35765%;
   width: 100%;
   box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px; }
+  border-radius: 7px;
+  margin-bottom: 1em;
+  background-color: #fff; }
   .image_carousel:last-child,
   .video_carousel:last-child,
   .wiki:last-child,
@@ -138,18 +128,12 @@ div::after {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
+.video_carousel {
+  overflow: hidden; }
+
 .loading {
   display: block;
-  margin: auto; }
-
-.image_carousel,
-.wiki {
-  margin-top: 20px;
-  margin-bottom: 10px; }
-
-.video_carousel,
-.geography {
-  margin-bottom: 10px; }
+  margin: 1em auto; }
 
 .wiki_img {
   height: 20px;
@@ -165,57 +149,30 @@ div::after {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
-  box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px; }
+  width: 100%; }
   .twitter li:last-child {
     margin-right: 0; }
-  .twitter li:nth-child(4n) {
-    margin-right: 0; }
-  .twitter li:nth-child(4n+1) {
-    clear: left; }
-  .twitter li:hover {
-    box-shadow: 0 8px 8px #cbc6c5;
-    border-radius: 7px; }
-
-.news {
-  margin-top: 10px;
-  padding: 15px; }
-  .news li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
-    margin-bottom: 5px; }
-    .news li:last-child {
-      margin-right: 0; }
-    .news li:nth-child(2n) {
-      margin-right: 0; }
-    .news li:nth-child(2n+1) {
-      clear: left; }
 
 .geography {
   box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px; }
+  border-radius: 7px;
+  margin-bottom: 1em;
+  background-color: #fff; }
   .geography:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
-.article_pic {
-  height: 200px;
-  width: 250px;
-  margin: 5px;
-  padding: 5px; }
+.twitter {
+  margin-top: 0; }
 
-.news,
 .wiki,
 .tweet {
   box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px;
+  margin-bottom: 1em;
+  background-color: #fff;
   border: 1px solid #ccc;
-  padding: 1em;
-  background-color: #fff; }
-  .news:hover,
+  padding: 1em; }
   .wiki:hover,
   .tweet:hover {
     box-shadow: 0 8px 8px #cbc6c5;
@@ -233,6 +190,10 @@ div::after {
     background-image: url("../images/twitter_logo.png");
     background-size: 1em;
     display: inline-block; }
+
+iframe {
+  width: 100%;
+  display: block; }
 
 /* Media Queries */
 @media screen and (max-width: 1220px) {
