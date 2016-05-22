@@ -2,8 +2,9 @@
 
 var express = require('express');
 var router = express.Router();
-
+var fs = require('fs');
 var config = require('../config');
+var mongoose = require('mongoose');
 
 // for youtube functionality
 var Youtube = require('youtube-node');
@@ -24,6 +25,14 @@ var request = require('request');
 router.get('/',function(req,res){
   res.render('index');
 });
+
+// Load all files in models dir
+fs.readdirSync(__dirname + '/models/').forEach(function(filename){
+  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+});
+
+
+
 router.post('/wikipedia',function(req,res){
   /*******************************/
       var searchTerm = 'Steve Jobs';
@@ -99,8 +108,6 @@ router.post('/youtube',function(req,res){
   };
 
   videos(searchTerm,function(){
-    console.log("Completed");
-    console.log(vids);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: vids }));
   });
@@ -131,8 +138,8 @@ router.post('/twitter/:search_term?', function(req, res) {
   };
 
   fetchTweets(searchTerm, function() {
-    console.log("Tweets retrieved");
-    console.log("constructed tweet url: " + "https://twitter.com/" + tweets.statuses[i].user.screen_name + "/status/" + tweets.statuses[i].id_str);
+    // console.log("Tweets retrieved");
+    // console.log("constructed tweet url: " + "https://twitter.com/" + tweets.statuses[i].user.screen_name + "/status/" + tweets.statuses[i].id_str);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: tweets }));
   });

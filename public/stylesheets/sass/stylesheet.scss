@@ -107,6 +107,10 @@ p {
 	font-size: 1 em;
 }
 
+div {
+	@include clearfix;
+}
+
 .media_bar,
 .wikipedia_map_bar {
 	@include span-columns(3 of 12);
@@ -186,11 +190,29 @@ p {
 }
 
 .news,
-.wiki {
+.wiki,
+.tweet {
 	@include card;
 	border: 1px solid #ccc;
-	padding: 15px;
+	padding: 1em;
 	background-color: $article-background-color;
+}
+
+.tweet_link {
+	text-decoration: none;
+	color: $font-color;
+	float: right;
+
+	&::before {
+		content: "";
+		height: 1em;
+		width: 1em;
+		margin-right: 0.5em;
+		background-image: url("../images/twitter_logo.png");
+		background-size: 1em;
+		display: inline-block;
+	}
+
 }
 
 /* Media Queries */
