@@ -90,6 +90,11 @@ p {
   font-weight: 400;
   font-size: 1 em; }
 
+div::after {
+  clear: both;
+  content: "";
+  display: table; }
+
 .media_bar,
 .wikipedia_map_bar {
   float: left;
@@ -203,16 +208,31 @@ p {
   padding: 5px; }
 
 .news,
-.wiki {
+.wiki,
+.tweet {
   box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px;
   border: 1px solid #ccc;
-  padding: 15px;
+  padding: 1em;
   background-color: #fff; }
   .news:hover,
-  .wiki:hover {
+  .wiki:hover,
+  .tweet:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
+
+.tweet_link {
+  text-decoration: none;
+  color: #222;
+  float: right; }
+  .tweet_link::before {
+    content: "";
+    height: 1em;
+    width: 1em;
+    margin-right: 0.5em;
+    background-image: url("../images/twitter_logo.png");
+    background-size: 1em;
+    display: inline-block; }
 
 /* Media Queries */
 @media screen and (max-width: 1220px) {
