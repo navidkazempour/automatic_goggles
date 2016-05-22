@@ -1,6 +1,15 @@
 #### Meta News Link Analysis
 
-Single page application that takes as input data a news article and gives back a single page of results that includes most relevant wiki article for background reading, mapped location of relevant location for geographic context, relevant photos, relevant short video clips. Lastly, it will find tweets relevant to the event (if applicable), so that the user can join a unified conversation. All of the above results will be filtered by different criteria and results will have scrolling disabled.
+Single page application designed to let news readers get background info on the subject of their reading and help them tap into a unified conversation.
+
+It takes as input data a news article and gives back a single page of results that includes:
+1. a relevant wiki article
+2. a mapped location of relevant location for geographic context
+3. relevant photos
+4. relevant short video clips.
+5. if applicable, it will find tweets relevant to the event, and allow the user to participate in the conversations.
+
+All of the above results will be filtered by varied criteria.
 
 ##### Development (Few Tips Before Starting):
 1. Install nodemon:
@@ -14,7 +23,6 @@ Single page application that takes as input data a news article and gives back a
    	This will allow us to automatically start debugging the server using the Inspector on Chrome Browser.
    2. Using two terminals, start one by typing 'node-inspector' and then copying the url into the browser and starting the second terminal by typing nodemon --debug server.js. In addition, type in 'debugger;' wherever you require it inside the js file.
    additional: --debug-brk
-3. Jade, handlebars, & ejs are tools to render html in node, similar to erb in sinatra.
 
 ##### Git (team process):
 1. Sync your fork with upstream.
