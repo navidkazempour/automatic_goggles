@@ -1,5 +1,6 @@
 import React from 'react'
 import Youtube from './youtube.jsx'
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 export default class YoutubeController extends React.Component {
   constructor(props){
@@ -16,34 +17,23 @@ export default class YoutubeController extends React.Component {
       }.bind(this)
     });
   }
-  // componentWillReceiveProps(){
-  //   if(!this.state.loading){
-  //     debugger;
-  //     var self = this;
-  //     setTimeout(function(){
-  //       this.state.index = this.state.index + 1;
-  //       console.log(this.this.state.index);
-  //     },1000);
-  //   }
-  // }
-  //   startPolling() {
-  //     var self = this;
-  //     setTimeout(function() {
-  //       if (!self.isMounted()) { return; } // abandon
-  //       self.poll(); // do it once and then start it up ...
-  //       self._timer = setInterval(self.poll.bind(self), 15000);
-  //     }, 1000);
-  // }
-  // componentDidMount(){
-  //    this.startPolling();
-  // }
   render(){
+    if(!this.state.loading){
+    setTimeout(()=>{
+      if (this.state.index >= this.state.data.data.length-1){
+        this.setState({index: 0});
+      }else{
+        this.setState({index: this.state.index + 1});
+      }
+    },30000);}
     return(
         <div>
+          {/*<ReactCSSTransitionGroup transitionName="example">*/}
           {!this.state.loading ?
-            <Youtube key={this.state.data.data[this.state.index].id}
-              videoId={this.state.data.data[this.state.index].video_id}/>:
+            <Youtube key={this.state.index + 1}
+              videoId={this.state.data.data[this.state.index].video_id}/> :
             <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
+          {/*</ReactCSSTransitionGroup>*/}
        </div>
      );
     };

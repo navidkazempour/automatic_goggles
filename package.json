@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --content-base components --inline --hot",
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base components --inline --hot",
     "start": "nodemon server"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "mongoose": "^4.4.19",
     "path": "^0.12.7",
     "react": "^15.0.2",
+    "react-addons-css-transition-group": "^15.1.0",
     "react-dom": "^15.0.2",
     "request": "^2.72.0",
     "rsvp": "^3.2.1",
