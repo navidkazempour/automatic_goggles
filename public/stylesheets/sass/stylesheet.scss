@@ -110,13 +110,12 @@ a {
 }
 
 .media_bar,
-.wikipedia_map_bar,
-.twitter_bar {
+.wikipedia_bar,
+.map_bar {
 	@include span-columns(4 of 12);
-
 }
 
-.twitter_bar {
+.map_bar {
 	@include omega();
 }
 
@@ -174,8 +173,15 @@ a {
 	vertical-align: bottom;
 }
 
-.twitter li {
+/* Twitter */
+
+.twitter_bar {
 	@include span-columns(12 of 12);
+	@include omega();
+}
+
+.twitter li {
+	@include span-columns(3 of 12);
 }
 
 .geography {
@@ -222,11 +228,12 @@ $tablet: new-breakpoint(max-width 1220px);
 	}
 
 	.media_bar,
-	.wikipedia_map_bar {
+	.wikipedia_bar,
+	.map_bar {
 		@include span-columns(6 of 12);
 	}
 
-	.wikipedia_map_bar {
+	.map_bar {
 		@include omega();
 	}
 
@@ -245,7 +252,8 @@ $mobile: new-breakpoint(max-width 600px);
 @include media($mobile) {
 	.main_bar,
 	.media_bar,
-	.wikipedia_map_bar {
+	.wikipedia_bar,
+	.map_bar {
 		@include span-columns(12 of 12);
 	}
 }

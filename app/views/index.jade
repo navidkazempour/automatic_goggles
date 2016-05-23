@@ -1,16 +1,17 @@
 extends ./layout
 block content
   header
-    img(id="logo" src="images/logo.png" alt="logo")
+    img(id="logo" src="images/Logo_2.png" alt="logo")
   .wrapper
     .media_bar
       .image_carousel.cell
         include ./partials/_image
       .video_carousel
         include ./partials/_video
-    .wikipedia_map_bar
+    .wikipedia_bar
       .wiki
         include ./partials/_wiki
+    .map_bar
       .geography
         img(src="images/map-placeholder.png" alt="Map")
     .twitter_bar

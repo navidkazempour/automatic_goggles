@@ -31210,6 +31210,12 @@
 	          'p',
 	          null,
 	          this.props.body
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { className: 'wiki_ref', href: '#' },
+	          'Read more on ',
+	          _react2.default.createElement('img', { src: 'images/Wikipedia-word.png', alt: 'Wikipedia' })
 	        )
 	      );
 	    }
