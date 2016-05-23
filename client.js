@@ -7,4 +7,4 @@ import TwitterController from './components/twitterController.jsx'
 
 ReactDOM.render(<WikipediaController/>,document.querySelector(".wiki"));
 ReactDOM.render(<YoutubeController/>,document.querySelector(".video_carousel"));
-ReactDOM.render(<TwitterController/>,document.querySelector(".twitter"));
+ReactDOM.render(<TwitterController/>,document.querySelector(".twitter_bar"));
