@@ -30,6 +30,7 @@ $font: Raleway, Arial, serif;
 /* Styles */
 
 html {
+	font-family: $font;
 	color: $font-color;
 	background-color: $site-background-color;
 	font-size: 1em;
@@ -76,28 +77,24 @@ figure {
 }
 
 h1 {
-	font-family: $font;
 	font-weight: 900;
 	font-size: 3em;
 	margin: 0;
 }
 
 h2 {
-	font-family: $font;
 	font-weight: 700;
 	font-size: 2em;
 	margin-top: 0;
 }
 
 h3 {
-	font-family: $font;
 	font-weight: 300;
 	font-style: italic;
 	margin: 0;
 }
 
 p {
-	font-family: $font;
 	font-weight: 400;
 	font-size: 1 em;
 }
@@ -158,27 +155,25 @@ div {
 	margin-top: 0;
 }
 
-.wiki,
-.tweet {
+.wiki {
 	@include card;
 	border: 1px solid #ccc;
 	padding: 1em;
 }
 
-.tweet_link {
-	text-decoration: none;
-	color: $font-color;
-	float: right;
+.twitter li {
+	@include card;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
 
-	&::before {
-		content: "";
-		height: 1em;
-		width: 1em;
-		margin-right: 0.5em;
-		background-image: url("../images/twitter_logo.png");
-		background-size: 1em;
-		display: inline-block;
-	}
+.twitter-tweet {
+	margin: 0 !important;
+}
+
+blockquote.twitter-tweet {
+	background-color: $article-background-color;
+	padding: 1em;
 }
 
 iframe {
