@@ -16,27 +16,35 @@ var request = require('request');
 
 var searchTerm ='brexit';
 var topTweets = [];
+var twit = function(searchTerm, cb){
+	twitter.get('search/tweets', {q: searchTerm, lang: "en", result_type: "popular", count: 12}, function(error, tweets, response) {
+			if (error) {
+				console.log(error);
+			} else {
+				for(var i =0 ;i < tweets.statuses.length;i++){
+					var url = "https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2F"+tweets.statuses[i].user.screen_name+"%2Fstatus%2F"+tweets.statuses[i].id_str;
+					request(url,function(err,res,body){
+						if(err){
+							console.log(err);
+						}else{
+								var data = JSON.parse(body);
+								topTweets.push(data);
+							}
+					});
+				};
+			}
 
-twitter.get('search/tweets', {q: searchTerm, lang: "en", result_type: "popular", count: 12}, function(error, tweets, response) {
-		if (error) {
-			console.log(error);
-		} else {
-			for(var i =0 ;i < tweets.statuses.length;i++){
-				var url = "https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2F"+tweets.statuses[i].user.screen_name+"%2Fstatus%2F"+tweets.statuses[i].id_str;
-				request(url,function(err,res,body){
-					if(err){
-						console.log(err);
-					}else{
-							var data = JSON.parse(body);
-							console.log(data);
-					}
-
-				});
-
-			};
-
-		}
 	});
+}
+
+twit(searchTerm,function(){
+	console.log(topTweets);
+});
+//
+//
+// 	.then(()=>{
+// 	console.log(topTweets);
+// });
 
 
 
