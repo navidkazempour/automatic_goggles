@@ -210,6 +210,11 @@ a {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
+.geography,
+.wiki,
+.image_carousel {
+  height: calc(22.86em + 2px); }
+
 .twitter li {
   box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px;
@@ -285,29 +290,3 @@ iframe {
       margin-right: 0; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
-/********* Extras *************/
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-.example-appear {
-  opacity: 0.01;
-}
-
-.example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}

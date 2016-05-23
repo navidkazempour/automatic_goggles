@@ -198,6 +198,12 @@ a {
 	padding: 1em;
 }
 
+.geography,
+.wiki,
+.image_carousel {
+	height: calc(22.86em + 2px);
+}
+
 .twitter li {
 	@include card;
 	border: 1px solid #ccc;
