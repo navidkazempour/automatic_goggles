@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './client.js',
+  entry: './components/client.js',
   output: {filename: 'public/dist/bundle.js' },
   module: {
     loaders: [
