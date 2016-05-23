@@ -86,10 +86,10 @@ router.post('/wikipedia',function(req,res){
 });
 router.post('/youtube',function(req,res){
   var vids = [];
-  var searchTerm = req.params.search_term || 'World War z Trailer';
+  var searchTerm = req.params.search_term || 'Steve Jobs';
 
   var videos = function(searchTerm,callback){
-    youTube.search(searchTerm,3,function(error, result) {
+    youTube.search(searchTerm,5,function(error, result) {
       if (error) {
       	console.log(error);
       	}
