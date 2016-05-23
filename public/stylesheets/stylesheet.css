@@ -8,6 +8,7 @@ html {
 /* Mixins */
 /* Styles */
 html {
+  font-family: Raleway, Arial, serif;
   color: #222;
   background-color: #fcfcfc;
   font-size: 1em;
@@ -62,25 +63,21 @@ figure {
   float: left; }
 
 h1 {
-  font-family: Raleway, Arial, serif;
   font-weight: 900;
   font-size: 3em;
   margin: 0; }
 
 h2 {
-  font-family: Raleway, Arial, serif;
   font-weight: 700;
   font-size: 2em;
   margin-top: 0; }
 
 h3 {
-  font-family: Raleway, Arial, serif;
   font-weight: 300;
   font-style: italic;
   margin: 0; }
 
 p {
-  font-family: Raleway, Arial, serif;
   font-weight: 400;
   font-size: 1 em; }
 
@@ -165,31 +162,34 @@ div::after {
 .twitter {
   margin-top: 0; }
 
-.wiki,
-.tweet {
+.wiki {
   box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px;
   margin-bottom: 1em;
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 1em; }
-  .wiki:hover,
-  .tweet:hover {
+  .wiki:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
-.tweet_link {
-  text-decoration: none;
-  color: #222;
-  float: right; }
-  .tweet_link::before {
-    content: "";
-    height: 1em;
-    width: 1em;
-    margin-right: 0.5em;
-    background-image: url("../images/twitter_logo.png");
-    background-size: 1em;
-    display: inline-block; }
+.twitter li {
+  box-shadow: 0 2px 2px #cbc6c5;
+  border-radius: 7px;
+  margin-bottom: 1em;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow: hidden; }
+  .twitter li:hover {
+    box-shadow: 0 8px 8px #cbc6c5;
+    border-radius: 7px; }
+
+.twitter-tweet {
+  margin: 0 !important; }
+
+blockquote.twitter-tweet {
+  background-color: #fff;
+  padding: 1em; }
 
 iframe {
   width: 100%;
