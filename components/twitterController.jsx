@@ -17,10 +17,17 @@ export default class TwitterController extends React.Component {
     //     this.setState({data: wikiData, loading:false});
     //   }.bind(this)
     // });
-    console.log(tweets);
     this.setState({data: tweets, loading: false});
   }
   render(){
+    if(!this.state.loading){
+    setTimeout(()=>{
+      if (this.state.index >= this.state.data.length-1){
+        this.setState({index: 0});
+      }else{
+        this.setState({index: this.state.index + 4});
+      }
+    },30000);}
     return(
       <ul className="twitter">
         <li>
