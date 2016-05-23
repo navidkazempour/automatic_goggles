@@ -66,10 +66,15 @@
 
 	var _wikipediaController2 = _interopRequireDefault(_wikipediaController);
 
+	var _twitterController = __webpack_require__(174);
+
+	var _twitterController2 = _interopRequireDefault(_twitterController);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(_wikipediaController2.default, null), document.querySelector(".wiki"));
 	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video_carousel"));
+	_reactDom2.default.render(_react2.default.createElement(_twitterController2.default, null), document.querySelector(".twitter_bar"));
 
 /***/ },
 /* 1 */
@@ -30495,6 +30500,232 @@
 	}(_react2.default.Component);
 
 	exports.default = WikipediaFact;
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jquery = __webpack_require__(168);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _test = __webpack_require__(175);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TwitterController = function (_React$Component) {
+	  _inherits(TwitterController, _React$Component);
+
+	  function TwitterController(props) {
+	    _classCallCheck(this, TwitterController);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TwitterController).call(this, props));
+
+	    _this.state = { data: [], loading: true, index: 0 };
+	    return _this;
+	  }
+
+	  _createClass(TwitterController, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      //   this.serverRequest =$.ajax({
+	      //   type: 'POST',
+	      //   url: '/wikipedia',
+	      //   dataType: 'json',
+	      //   success: function(wikiData){
+	      //     this.setState({data: wikiData, loading:false});
+	      //   }.bind(this)
+	      // });
+	      console.log(_test.tweets);
+	      this.setState({ data: _test.tweets, loading: false });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'twitter' },
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          !this.state.loading ? _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.data[this.state.index].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          !this.state.loading ? _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.data[this.state.index + 1].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          !this.state.loading ? _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.data[this.state.index + 2].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          !this.state.loading ? _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.data[this.state.index + 3].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return TwitterController;
+	}(_react2.default.Component);
+
+	exports.default = TwitterController;
+
+
+	{/*<h1>
+	  </h1>*/}
+
+/***/ },
+/* 175 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var tweets = exports.tweets = [{ url: 'https://twitter.com/tnewtondunn/status/734330319986429952',
+	  author_name: 'Tom Newton Dunn',
+	  author_url: 'https://twitter.com/tnewtondunn',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Head of CBI <a href="https://twitter.com/cbicarolyn">@cbicarolyn</a> agrees UK may eventually prosper under Brexit: &quot;I accept that over the long term, the economy would adapt&quot; <a href="https://twitter.com/hashtag/bbcsp?src=hash">#bbcsp</a></p>&mdash; Tom Newton Dunn (@tnewtondunn) <a href="https://twitter.com/tnewtondunn/status/734330319986429952">May 22, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/montie/status/733953892283748352',
+	  author_name: 'Tim Montgomerie ن',
+	  author_url: 'https://twitter.com/montie',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I can&#39;t think why so many politicians are untrusted <a href="https://twitter.com/hashtag/Brexit?src=hash">#Brexit</a> <a href="https://t.co/iGKwnhpg9i">pic.twitter.com/iGKwnhpg9i</a></p>&mdash; Tim Montgomerie ن (@montie) <a href="https://twitter.com/montie/status/733953892283748352">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/sarahwollaston/status/734096587870371840',
+	  author_name: 'Sarah Wollaston MP',
+	  author_url: 'https://twitter.com/sarahwollaston',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s not <a href="https://twitter.com/hashtag/Brexit?src=hash">#Brexit</a> that will save the <a href="https://twitter.com/hashtag/NHS?src=hash">#NHS</a>, it&#39;s a higher percentage of GDP on health &amp; focus on workforce, prevention &amp; transforming services</p>&mdash; Sarah Wollaston MP (@sarahwollaston) <a href="https://twitter.com/sarahwollaston/status/734096587870371840">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/Telegraph/status/733967896536330241',
+	  author_name: 'The Telegraph',
+	  author_url: 'https://twitter.com/Telegraph',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Britain &#39;could liberate Europe again&#39; by voting for Brexit and sparking populist revolution <a href="https://t.co/HSrL5d1qOg">https://t.co/HSrL5d1qOg</a> <a href="https://t.co/YuRS63Ub8o">pic.twitter.com/YuRS63Ub8o</a></p>&mdash; The Telegraph (@Telegraph) <a href="https://twitter.com/Telegraph/status/733967896536330241">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/johnprescott/status/734298703754842113',
+	  author_name: 'John Prescott',
+	  author_url: 'https://twitter.com/johnprescott',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Stop demonising refugees to boost Brexit. They don&#39;t come for a life on benefits. They want the benefit of life. <a href="https://t.co/8zcTgxnZKC">https://t.co/8zcTgxnZKC</a></p>&mdash; John Prescott (@johnprescott) <a href="https://twitter.com/johnprescott/status/734298703754842113">May 22, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/AdamBienkov/status/733916453683003392',
+	  author_name: 'Adam Bienkov',
+	  author_url: 'https://twitter.com/AdamBienkov',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">If you still believe Boris Johnson took a principled decision to back Brexit, you&#39;ll believe anything. <a href="https://t.co/a7PGCNHggJ">https://t.co/a7PGCNHggJ</a></p>&mdash; Adam Bienkov (@AdamBienkov) <a href="https://twitter.com/AdamBienkov/status/733916453683003392">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/Daily_Express/status/734149814779252738',
+	  author_name: 'Daily Express',
+	  author_url: 'https://twitter.com/Daily_Express',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Turkish migrants to CRIPPLE the NHS: Brexit minister&#39;s stark WARNING about EU ascension <a href="https://t.co/EAR1XWApzZ">https://t.co/EAR1XWApzZ</a> <a href="https://t.co/Q0IDBuOWUv">pic.twitter.com/Q0IDBuOWUv</a></p>&mdash; Daily Express (@Daily_Express) <a href="https://twitter.com/Daily_Express/status/734149814779252738">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/LouiseMensch/status/734004209507532800',
+	  author_name: 'Louise Mensch',
+	  author_url: 'https://twitter.com/LouiseMensch',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">EU Chief Jean-Claude Juncker Threatens Britain over Brexit “Deserters!” <a href="https://t.co/Qzw2GzM7wg">https://t.co/Qzw2GzM7wg</a> &lt;-- with great poll news for Vote Leave</p>&mdash; Louise Mensch (@LouiseMensch) <a href="https://twitter.com/LouiseMensch/status/734004209507532800">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/montie/status/733934046204559360',
+	  author_name: 'Tim Montgomerie ن',
+	  author_url: 'https://twitter.com/montie',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Given <a href="https://twitter.com/hashtag/Brexit?src=hash">#Brexit</a> will also spark World War III, the 18% drop in house prices threatened by Osborne is quite modest. <a href="https://twitter.com/hashtag/TheyMakeItUpAsTheyGoAlong?src=hash">#TheyMakeItUpAsTheyGoAlong</a></p>&mdash; Tim Montgomerie ن (@montie) <a href="https://twitter.com/montie/status/733934046204559360">May 21, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/TheEconomist/status/734489027110445057',
+	  author_name: 'The Economist',
+	  author_url: 'https://twitter.com/TheEconomist',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">British farmers benefit from EU funding but they back Brexit. Why? <a href="https://t.co/ZZVG6KRj7S">https://t.co/ZZVG6KRj7S</a> <a href="https://t.co/APbNTn9EeS">pic.twitter.com/APbNTn9EeS</a></p>&mdash; The Economist (@TheEconomist) <a href="https://twitter.com/TheEconomist/status/734489027110445057">May 22, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/Nigel_Farage/status/734297778738892800',
+	  author_name: 'Nigel Farage',
+	  author_url: 'https://twitter.com/Nigel_Farage',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The safe, sensible, secure choice is to Leave EU and control our borders. <a href="https://t.co/GGc1bKnPiI">https://t.co/GGc1bKnPiI</a></p>&mdash; Nigel Farage (@Nigel_Farage) <a href="https://twitter.com/Nigel_Farage/status/734297778738892800">May 22, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }, { url: 'https://twitter.com/TheEconomist/status/734427114578006017',
+	  author_name: 'The Economist',
+	  author_url: 'https://twitter.com/TheEconomist',
+	  html: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Agriculture could lose out, but most farmers seems to back Brexit <a href="https://t.co/6RjnLrPSva">https://t.co/6RjnLrPSva</a> <a href="https://t.co/vH71COlXKW">pic.twitter.com/vH71COlXKW</a></p>&mdash; The Economist (@TheEconomist) <a href="https://twitter.com/TheEconomist/status/734427114578006017">May 22, 2016</a></blockquote>\n<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>',
+	  width: 550,
+	  type: 'rich',
+	  cache_age: '3153600000',
+	  provider_name: 'Twitter',
+	  provider_url: 'https://twitter.com',
+	  height: null,
+	  version: '1.0' }];
 
 /***/ }
 /******/ ]);

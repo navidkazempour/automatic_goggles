@@ -8,8 +8,9 @@ html {
 /* Mixins */
 /* Styles */
 html {
+  font-family: Raleway, Arial, serif;
   color: #222;
-  background-color: #fcfcfc;
+  background-color: #fefefe;
   font-size: 1em;
   line-height: 1.4; }
 
@@ -62,25 +63,21 @@ figure {
   float: left; }
 
 h1 {
-  font-family: Raleway, Arial, serif;
   font-weight: 900;
   font-size: 3em;
   margin: 0; }
 
 h2 {
-  font-family: Raleway, Arial, serif;
   font-weight: 700;
   font-size: 2em;
   margin-top: 0; }
 
 h3 {
-  font-family: Raleway, Arial, serif;
   font-weight: 300;
   font-style: italic;
   margin: 0; }
 
 p {
-  font-family: Raleway, Arial, serif;
   font-weight: 400;
   font-size: 1 em; }
 
@@ -88,6 +85,11 @@ div::after {
   clear: both;
   content: "";
   display: table; }
+
+a {
+  color: #2b55b0;
+  text-decoration: none;
+  font-weight: 700; }
 
 .media_bar,
 .wikipedia_map_bar,
@@ -142,8 +144,30 @@ div::after {
   box-shadow: none; }
 
 .wiki p {
-  margin-bottom: 5px;
-  box-shadow: none; }
+  position: relative;
+  height: 14em;
+  overflow: hidden; }
+
+.wiki p:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.4em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%); }
+
+.wiki_ref {
+  display: block;
+  text-align: right;
+  opacity: 0.7;
+  color: #222; }
+
+.wiki_ref img {
+  height: 1.4em;
+  display: inline;
+  vertical-align: bottom; }
 
 .twitter li {
   float: left;
@@ -165,35 +189,39 @@ div::after {
 .twitter {
   margin-top: 0; }
 
-.wiki,
-.tweet {
+.wiki {
   box-shadow: 0 2px 2px #cbc6c5;
   border-radius: 7px;
   margin-bottom: 1em;
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 1em; }
-  .wiki:hover,
-  .tweet:hover {
+  .wiki:hover {
     box-shadow: 0 8px 8px #cbc6c5;
     border-radius: 7px; }
 
-.tweet_link {
-  text-decoration: none;
-  color: #222;
-  float: right; }
-  .tweet_link::before {
-    content: "";
-    height: 1em;
-    width: 1em;
-    margin-right: 0.5em;
-    background-image: url("../images/twitter_logo.png");
-    background-size: 1em;
-    display: inline-block; }
+.twitter li {
+  box-shadow: 0 2px 2px #cbc6c5;
+  border-radius: 7px;
+  margin-bottom: 1em;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow: hidden; }
+  .twitter li:hover {
+    box-shadow: 0 8px 8px #cbc6c5;
+    border-radius: 7px; }
+
+.twitter-tweet {
+  margin: 0 !important; }
+
+blockquote.twitter-tweet {
+  background-color: #fff;
+  padding: 1em; }
 
 iframe {
   width: 100%;
-  display: block; }
+  display: block;
+  border: 0; }
 
 /* Media Queries */
 @media screen and (max-width: 1220px) {
