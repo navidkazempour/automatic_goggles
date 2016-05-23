@@ -152,19 +152,74 @@ var AlchemyAPI = require('../alchemyapi');
 var alchemyapi = new AlchemyAPI();
 
 router.get('/alchemy/what', doAlchemy);
-var what_url = 'http://www.nytimes.com/2016/05/23/world/middleeast/egypt-sends-submarine-in-search-for-egyptair-jets-black-boxes.html?_r=0';
+var what_url = 'http://www.theglobeandmail.com/arts/film/canadian-director-xavier-dolan-takes-home-polarizing-grand-prix-win-at-cannes/article30116024/';
 var demo_text = 'Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.';
 
-  function doAlchemy(req, res) {
-	   var output = {};
+function doAlchemy(req, res) {
+  var output = {};
 
   function entities(req, res, output) {
-  	alchemyapi.entities('url', what_url,{ 'sentiment':1 }, function(response) {
-  		output['entities'] = { url:what_url, response:JSON.stringify(response,null,4), results:response['entities'] };
-    // alchemyapi.entities('text', demo_text,{ 'sentiment':1 }, function(response) {
-  	// 	output['entities'] = { text:demo_text, response:JSON.stringify(response,null,4), results:response['entities'] };
+  	alchemyapi.entities('url', what_url,{ 'sentiment': 1 }, function(response) {
+  		// output['entities'] = { url: what_url, response: JSON.stringify(response, null, 4), results: response['entities'] };
       console.log('Alchemy is real');
-      console.log(response);
+
+      console.log("entities:");
+
+      if (response.language === "english") {
+        for (var i = 0; i < response.entities.length; i++) {
+          if (response.entities[i].relevance > 0.5) {
+            // console.log(response.entities[i]);
+          }
+        }
+      } else {
+        console.log("this article is not in english");
+      }
+
+      keywords(req, res, output);
+  	});
+  }
+
+  function keywords(req, res, output) {
+  	alchemyapi.keywords('url', what_url, { 'sentiment': 1 }, function(response) {
+  		// output['keywords'] = { text:demo_text, response:JSON.stringify(response,null,4), results:response['keywords'] };
+      console.log("keywords:");
+
+      for (var i = 0; i < response.keywords.length; i++) {
+        if (response.keywords[i].relevance > 0.5) {
+          // console.log(response.keywords[i]);
+        }
+      }
+
+      concepts(req, res, output);
+  	});
+  }
+
+  function concepts(req, res, output) {
+  	alchemyapi.concepts('url', what_url, { 'showSourceText':1 }, function(response) {
+  		// output['concepts'] = { text:demo_text, response:JSON.stringify(response,null,4), results:response['concepts'] };
+      console.log("concepts:");
+
+      for (var i = 0; i < response.concepts.length; i++) {
+        if (response.concepts[i].relevance > 0.5) {
+          console.log(response.concepts[i]);
+        }
+      }
+
+      taxonomy(req, res, output);
+  	});
+  }
+
+  function taxonomy(req, res, output) {
+  	alchemyapi.taxonomy('url', what_url, {}, function(response) {
+  		// output['taxonomy'] = { url:demo_url, response:JSON.stringify(response,null,4), results:response };
+      console.log("taxonomy:");
+
+      for (var i = 0; i < response.taxonomy.length; i++) {
+        if (response.taxonomy[i].confident) {
+        } else {
+          console.log(response.taxonomy[i]);
+        }
+      }
   	});
   }
 
