@@ -22,16 +22,16 @@ var intlpedia = new Intlpedia('en');
 var cheerio = require('cheerio');
 var request = require('request');
 
+
 router.get('/',function(req,res){
   res.render('index');
 });
 
-// Load all files in models dir
-fs.readdirSync(__dirname + '/models/').forEach(function(filename){
-  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
-});
-
-
+//for models functionality
+var twitterModel = require('./models/twitter');
+var wikipediaModel = require('./models/wikipedia');
+var youtubeModel = require('./models/youtube');
+var searchModel = require('./models/search');
 
 router.post('/wikipedia',function(req,res){
   /*******************************/
