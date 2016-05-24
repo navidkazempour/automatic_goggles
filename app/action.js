@@ -5,20 +5,15 @@ var router = express.Router();
 var fs = require('fs');
 var config = require('../config');
 var mongoose = require('mongoose');
-var tweets = require('../API/twitter.js');
-var videos = require('../API/youtube.js');
-
-//for models functionality
-var twitterModel = require('./models/twitter');
-var wikipediaModel = require('./models/wikipedia');
-var youtubeModel = require('./models/youtube');
-var searchModel = require('./models/search');
 var wikipedia = require('../API/wikipedia.js');
+var videos = require('../API/youtube.js');
+var tweets = require('../API/twitter.js');
 
 router.get('/',function(req,res){
   res.render('index');
 });
 
+// wikipedia
 router.post('/wikipedia',function(req,res){
   var searchTerm = req.params.search_term || 'Edward M. Nero';
   var url = "https://en.wikipedia.org/wiki/"+searchTerm;
@@ -27,17 +22,17 @@ router.post('/wikipedia',function(req,res){
     res.end(JSON.stringify({ data: wiki }));
   });
 });
+
+// youtube
 router.post('/youtube',function(req,res){
   var searchTerm = req.params.search_term || 'Steve Jobs';
-  console.log("B");
   videos(searchTerm,function(vids){
-    console.log(vids);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: vids }));
   });
 });
 
-
+// twitter
 router.post('/twitter', function(req, res) {
   var searchTerm = req.params.search_term || 'brexit';
   tweets(searchTerm,function(result){

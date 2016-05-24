@@ -8,7 +8,7 @@ var wikipediaSchema = new mongoose.Schema({
   _search: {type: Schema.Types.ObjectId, ref: 'Search'},
   title: {type: String},
   body: {type: String},
-  facts: {type: String}
+  // facts: {type: String}
 });
 
 var Wikipedia = mongoose.model('Wikipedia', wikipediaSchema);
