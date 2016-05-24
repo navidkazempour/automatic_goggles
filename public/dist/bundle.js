@@ -76,9 +76,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// ReactDOM.render(<WikipediaController/>,document.querySelector(".wiki"));
-	// ReactDOM.render(<YoutubeController/>,document.querySelector(".video"));
-	// ReactDOM.render(<TwitterController/>,document.querySelector(".twitter"));
+	_reactDom2.default.render(_react2.default.createElement(_wikipediaController2.default, null), document.querySelector(".wiki"));
+	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video"));
+	_reactDom2.default.render(_react2.default.createElement(_twitterController2.default, null), document.querySelector(".twitter"));
 	_reactDom2.default.render(_react2.default.createElement(_googleMaps2.default, null), document.getElementById("main"));
 
 /***/ },
@@ -30425,10 +30425,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+<<<<<<< HEAD
 	var _wikipediaFact = __webpack_require__(175);
 
 	var _wikipediaFact2 = _interopRequireDefault(_wikipediaFact);
 
+=======
+>>>>>>> as_14
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30436,6 +30439,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// import WikipediaFact from './wikipediaFact.jsx'
 
 	var Wikipedia = function (_React$Component) {
 	  _inherits(Wikipedia, _React$Component);
@@ -30449,10 +30454,10 @@
 	  _createClass(Wikipedia, [{
 	    key: 'render',
 	    value: function render() {
-	      var self = this;
-	      var wikipediaFact = Object.keys(this.props.facts).map(function (keys) {
-	        return _react2.default.createElement(_wikipediaFact2.default, { key: keys, factkey: keys, factText: self.props.facts[keys] });
-	      });
+	      // var self = this;
+	      // var wikipediaFact = Object.keys(this.props.facts).map(function(keys){
+	      //   return(<WikipediaFact key={keys} factkey={keys} factText={self.props.facts[keys]}/>);
+	      // });
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'wikipedia' },
@@ -30501,8 +30506,11 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
+<<<<<<< HEAD
 	var _test = __webpack_require__(176);
 
+=======
+>>>>>>> as_14
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30526,15 +30534,14 @@
 	  _createClass(TwitterController, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      //   this.serverRequest =$.ajax({
-	      //   type: 'POST',
-	      //   url: '/wikipedia',
-	      //   dataType: 'json',
-	      //   success: function(wikiData){
-	      //     this.setState({data: wikiData, loading:false});
-	      //   }.bind(this)
-	      // });
-	      this.setState({ data: _test.tweets, loading: false });
+	      this.serverRequest = _jquery2.default.ajax({
+	        type: 'POST',
+	        url: '/twitter',
+	        dataType: 'json',
+	        success: function (tweets) {
+	          this.setState({ data: tweets, loading: false });
+	        }.bind(this)
+	      });
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
@@ -30551,7 +30558,7 @@
 	      if (!this.state.loading) {
 	        setTimeout(function () {
 	          // setTimeout
-	          if (_this2.state.index >= _this2.state.data.length - 1) {
+	          if (_this2.state.index >= _this2.state.data.data.length - 1) {
 	            _this2.setState({ index: 0 });
 	          } else {
 	            _this2.setState({ index: _this2.state.index + 4 });
@@ -30564,22 +30571,22 @@
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data[this.state.index].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	        ),
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data[this.state.index + 1].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 1].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	        ),
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data[this.state.index + 2].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 2].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	        ),
 	        _react2.default.createElement(
 	          'li',
 	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data[this.state.index + 3].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 3].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	        )
 	      );
 	    }
@@ -30687,6 +30694,7 @@
 
 	exports.default = ExampleGoogleMap;
 
+<<<<<<< HEAD
 /***/ },
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
@@ -30876,5 +30884,7 @@
 	  height: null,
 	  version: '1.0' }];
 
+=======
+>>>>>>> as_14
 /***/ }
 /******/ ]);

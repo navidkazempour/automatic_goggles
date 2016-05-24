@@ -14,7 +14,7 @@ function wikipedia(url,callback){
       var content = $('div#bodyContent div#mw-content-text > p:first-of-type');
       wiki["title"] = headingText;
       wiki["body"] = content.text().replace(/(\[\d*\])/g,"");
-      if(wiki["title"] !== null && wiki["body"] !== null){
+      if(wiki["title"] !== "" && wiki["body"] !== ""){
         callback(wiki);
       }
     }

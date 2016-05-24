@@ -7,6 +7,7 @@ youTube.addParam('relevanceLanguage', 'en');
 var vids = [];
 
 var videos = function(searchTerm,callback){
+  console.log(searchTerm);
   youTube.search(searchTerm,5,function(error, result) {
     if (error) {
       console.log(error);
@@ -20,7 +21,10 @@ var videos = function(searchTerm,callback){
             description: result["items"][i].snippet.description
           });
         }
-        callback(vids);
+        console.log(vids);
+        if(vids.length === result["items"].length){
+          callback(vids);
+        }
       }
   });
 };
