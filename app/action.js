@@ -34,6 +34,7 @@ router.post('/youtube',function(req,res){
 
 // twitter
 router.post('/twitter', function(req, res) {
+  console.log('in post twitter', req.params);
   var searchTerm = req.params.search_term || 'brexit';
   tweets(searchTerm,function(result){
     res.setHeader('Content-Type', 'application/json');
