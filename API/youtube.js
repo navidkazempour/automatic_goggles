@@ -10,20 +10,20 @@ var videos = function(searchTerm,callback){
     var vids = [];
     if (error) {
       console.log(error);
+    }else {
+      for(var i=0;i<result["items"].length;i++){
+        vids.push({
+          video_id: result["items"][i].id.videoId,
+          date: result["items"][i].snippet.publishedAt,
+          title: result["items"][i].snippet.title,
+          description: result["items"][i].snippet.description
+        });
       }
-      else {
-        for(var i=0;i<result["items"].length;i++){
-          vids.push({
-            video_id: result["items"][i].id.videoId,
-            date: result["items"][i].snippet.publishedAt,
-            title: result["items"][i].snippet.title,
-            description: result["items"][i].snippet.description
-          });
-        }
         if(vids.length === result["items"].length){
           callback(vids);
         }
       }
+    }
   });
 };
 
