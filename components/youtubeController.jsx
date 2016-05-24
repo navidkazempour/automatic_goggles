@@ -1,6 +1,8 @@
-import React from 'react'
-import Youtube from './youtube.jsx'
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+import React from 'react';
+import Youtube from './youtube.jsx';
+// import Video from 'react-video';
+// import Youtube from 'react-youtube'
+// var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 export default class YoutubeController extends React.Component {
   constructor(props){
@@ -25,15 +27,13 @@ export default class YoutubeController extends React.Component {
       }else{
         this.setState({index: this.state.index + 1});
       }
-    },30000);}
+    },10000);}
     return(
         <div>
-          {/*<ReactCSSTransitionGroup transitionName="example">*/}
           {!this.state.loading ?
             <Youtube key={this.state.index + 1}
-              videoId={this.state.data.data[this.state.index].video_id}/> :
+              videoId={this.state.data.data[this.state.index].video_id} onReady={this._onReady}/> :
             <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
-          {/*</ReactCSSTransitionGroup>*/}
        </div>
      );
     };
