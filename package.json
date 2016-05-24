@@ -15,6 +15,7 @@
     "cheerio": "^0.20.0",
     "embed": "0.0.1",
     "express": "^4.13.4",
+    "google-map-react": "^0.12.1",
     "intl-wikipedia": "^5.0.0",
     "jade": "^1.11.0",
     "jquery": "^2.2.4",
