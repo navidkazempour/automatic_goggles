@@ -2,18 +2,12 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-require('../action');
 
 var searchSchema = new mongoose.Schema({
+  _id: {type: Schema.Types.ObjectId, auto:true},
   searchTerm: {type: String, required:true},
-  yts : { type: Schema.Types.ObjectId, ref: 'YT' }
 });
 
-var term = mongoose.model('term', searchSchema);
-
-var Search = new term({ searchTerm: `#{searchTerm}` });
-Search.save(function (err) {
-  if (err) return console.log(err);
-});
+var Search = mongoose.model('Search', searchSchema);
 
 module.exports = Search;

@@ -2,22 +2,15 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-require('./search');
+var Search = require('./search');
 
 var twitterSchema = new mongoose.Schema({
-  title: {type: String},
+  _search: {type: Schema.Types.ObjectId, ref: 'Search'},
   description: {type: String},
-  searchTerm: {type: String, ref:'Search'}
+  // searchId: {type: Schema.Types.ObjectId, ref:'search'}
+  // _id: {type: Schema.Types.ObjectId, auto:true}
 });
 
-var Twit = mongoose.model('Twit', twitterSchema);
-
-var Twitter = new Twit({ 
-  title: 'title',
-  description: 'twit',
-  });
-Twitter.save(function (err) {
-  if (err) return console.log(err);
-});
+var Twitter = mongoose.model('Tweet', twitterSchema);
 
 module.exports = Twitter;

@@ -2,22 +2,14 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-require('./search');
+var Search = require('./search');
 
 var youtubeSchema = new mongoose.Schema({
+  _search: {type: Schema.Types.ObjectId, ref: 'Search'},
   videoId: {type: String},
-  title: {type: String},
-  searchTerm: {type: String, ref:'Search'}
+  title: {type: String}
 });
 
-var YT = mongoose.model('YT', youtubeSchema);
-
-var Youtube = new YT({ 
-  videoId: 'videoId',
-  title: 'title',
-  });
-Youtube.save(function (err) {
-  if (err) return console.log(err);
-});
+var Youtube = mongoose.model('Youtube', youtubeSchema);
 
 module.exports = Youtube;
