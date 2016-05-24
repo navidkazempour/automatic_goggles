@@ -6,7 +6,7 @@ var fs = require('fs');
 var config = require('../config');
 var mongoose = require('mongoose');
 var tweets = require('../API/twitter.js');
-var youtube = require('../API/youtube.js');
+var videos = require('../API/youtube.js');
 
 //for models functionality
 var twitterModel = require('./models/twitter');
@@ -29,7 +29,9 @@ router.post('/wikipedia',function(req,res){
 });
 router.post('/youtube',function(req,res){
   var searchTerm = req.params.search_term || 'Steve Jobs';
-  youtube(searchTerm,function(vids){
+  console.log("B");
+  videos(searchTerm,function(vids){
+    console.log(vids);
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: vids }));
   });
