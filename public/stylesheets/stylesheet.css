@@ -8,16 +8,12 @@ html {
 /* Mixins */
 /* Styles */
 html {
-  font-family: Raleway, Arial, serif;
   color: #222;
-  background-color: #fefefe;
+  background-color: #2b55b0;
+  font-family: Raleway, Arial, serif;
   font-size: 1em;
+  font-weight: 400;
   line-height: 1.4; }
-
-.wrapper {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
 
 body {
   max-width: 1200px;
@@ -29,6 +25,11 @@ body {
     clear: both;
     content: "";
     display: table; }
+
+main {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
 
 header {
   float: left;
@@ -43,24 +44,10 @@ header {
 
 img {
   max-width: 100%;
-  display: block;
-  border-radius: 7px; }
-
-footer {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  footer:last-child {
-    margin-right: 0; }
+  display: block; }
 
 ul {
   padding: 0; }
-
-figure {
-  display: inline-block;
-  margin: 0 12px 12px 12px;
-  float: left; }
 
 h1 {
   font-weight: 900;
@@ -72,15 +59,6 @@ h2 {
   font-size: 2em;
   margin-top: 0; }
 
-h3 {
-  font-weight: 300;
-  font-style: italic;
-  margin: 0; }
-
-p {
-  font-weight: 400;
-  font-size: 1 em; }
-
 div::after {
   clear: both;
   content: "";
@@ -91,160 +69,132 @@ a {
   text-decoration: none;
   font-weight: 700; }
 
-.media_bar,
-.wikipedia_map_bar,
-.twitter_bar {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%; }
-  .media_bar:last-child,
-  .wikipedia_map_bar:last-child,
-  .twitter_bar:last-child {
-    margin-right: 0; }
-
-.twitter_bar {
-  margin-right: 0; }
-
-.image_carousel,
-.video_carousel,
+/* Main content */
+.video,
 .wiki,
-.geography {
+.map,
+.twitter {
+  margin-bottom: 1em;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  height: calc(22.86em + 2px); }
+
+.video {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%;
-  box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px;
-  margin-bottom: 1em;
-  background-color: #fff; }
-  .image_carousel:last-child,
-  .video_carousel:last-child,
-  .wiki:last-child,
-  .geography:last-child {
+  width: 65.88078%; }
+  .video:last-child {
     margin-right: 0; }
-  .image_carousel:hover,
-  .video_carousel:hover,
-  .wiki:hover,
-  .geography:hover {
-    box-shadow: 0 8px 8px #cbc6c5;
-    border-radius: 7px; }
 
-.video_carousel {
-  overflow: hidden; }
+.wiki {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-right: 0; }
+  .wiki:last-child {
+    margin-right: 0; }
+
+.map {
+  float: left;
+  display: block;
+  margin-right: 2.84259%;
+  width: 17.72593%; }
+  .map:last-child {
+    margin-right: 0; }
+
+.twitter {
+  float: left;
+  display: block;
+  margin-right: 2.84259%;
+  width: 79.43148%; }
+  .twitter:last-child {
+    margin-right: 0; }
 
 .loading {
   display: block;
-  margin: 1em auto; }
+  margin: calc(50% - 32px) auto; }
 
-.wiki_img {
-  height: 20px;
-  width: 80px;
-  padding: 0;
-  box-shadow: none; }
-
-.wiki p {
-  position: relative;
-  height: 14em;
-  overflow: hidden; }
-
-.wiki p:after {
-  content: "";
-  text-align: right;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 70%;
-  height: 1.4em;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%); }
-
-.wiki_ref {
-  display: block;
-  text-align: right;
-  opacity: 0.7;
-  color: #222; }
-
-.wiki_ref img {
-  height: 1.4em;
-  display: inline;
-  vertical-align: bottom; }
-
-.twitter li {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  .twitter li:last-child {
-    margin-right: 0; }
-
-.geography {
-  box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px;
-  margin-bottom: 1em;
-  background-color: #fff; }
-  .geography:hover {
-    box-shadow: 0 8px 8px #cbc6c5;
-    border-radius: 7px; }
-
-.twitter {
-  margin-top: 0; }
-
-.wiki {
-  box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px;
-  margin-bottom: 1em;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 1em; }
-  .wiki:hover {
-    box-shadow: 0 8px 8px #cbc6c5;
-    border-radius: 7px; }
-
-.twitter li {
-  box-shadow: 0 2px 2px #cbc6c5;
-  border-radius: 7px;
-  margin-bottom: 1em;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  overflow: hidden; }
-  .twitter li:hover {
-    box-shadow: 0 8px 8px #cbc6c5;
-    border-radius: 7px; }
-
-.twitter-tweet {
-  margin: 0 !important; }
-
-blockquote.twitter-tweet {
-  background-color: #fff;
-  padding: 1em; }
-
-iframe {
+/* Video */
+.video div {
+  height: 100%; }
+.video iframe {
   width: 100%;
+  height: 100%;
   display: block;
   border: 0; }
 
+/* Wikipedia */
+.wiki {
+  border: 1px solid #ccc;
+  padding: 1em; }
+  .wiki p {
+    position: relative;
+    height: 14em;
+    overflow: hidden; }
+  .wiki p:after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1.4em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%); }
+  .wiki .wiki_ref {
+    display: block;
+    text-align: right;
+    opacity: 0.7;
+    color: #222; }
+    .wiki .wiki_ref img {
+      height: 1.4em;
+      display: inline;
+      vertical-align: bottom; }
+
+/* Maps */
+.map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+/* Twitter */
+.twitter {
+  background-color: transparent;
+  display: flex;
+  align-items: center; }
+  .twitter ul {
+    margin-top: 0; }
+  .twitter li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .twitter li:last-child {
+      margin-right: 0; }
+  .twitter .twitter-tweet {
+    margin: 0 !important; }
+  .twitter blockquote {
+    color: #fff; }
+    .twitter blockquote a {
+      color: #fff; }
+
 /* Media Queries */
 @media screen and (max-width: 1220px) {
-  .main_bar {
+  .map,
+  .twitter {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
-    .main_bar:last-child {
+    .map:last-child,
+    .twitter:last-child {
       margin-right: 0; }
 
-  .media_bar,
-  .wikipedia_map_bar {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    .media_bar:last-child,
-    .wikipedia_map_bar:last-child {
-      margin-right: 0; }
-
-  .wikipedia_map_bar {
-    margin-right: 0; }
+  .twitter {
+    height: auto;
+    padding: 0 1em; }
 
   .twitter li {
     float: left;
@@ -258,42 +208,12 @@ iframe {
   .twitter li:nth-child(2n) {
     margin-right: 0; } }
 @media screen and (max-width: 600px) {
-  .main_bar,
-  .media_bar,
-  .wikipedia_map_bar {
+  .twitter li {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
-    .main_bar:last-child,
-    .media_bar:last-child,
-    .wikipedia_map_bar:last-child {
+    .twitter li:last-child {
       margin-right: 0; } }
 
 /*# sourceMappingURL=stylesheet.css.map */
-/********* Extras *************/
-.example-enter {
-  opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-.example-appear {
-  opacity: 0.01;
-}
-
-.example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}

@@ -35,7 +35,7 @@ export default class TwitterController extends React.Component {
       }
     },10000);}
     return(
-      <ul className="twitter">
+      <ul>
         <li>
           {!this.state.loading ?
           <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data[this.state.index].html }} /> :

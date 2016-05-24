@@ -73,8 +73,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(_wikipediaController2.default, null), document.querySelector(".wiki"));
-	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video_carousel"));
-	_reactDom2.default.render(_react2.default.createElement(_twitterController2.default, null), document.querySelector(".twitter_bar"));
+	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video"));
+	_reactDom2.default.render(_react2.default.createElement(_twitterController2.default, null), document.querySelector(".twitter"));
 
 /***/ },
 /* 1 */
@@ -30535,7 +30535,7 @@
 	      }
 	      return _react2.default.createElement(
 	        'ul',
-	        { className: 'twitter' },
+	        null,
 	        _react2.default.createElement(
 	          'li',
 	          null,

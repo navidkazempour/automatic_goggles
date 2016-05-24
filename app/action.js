@@ -152,7 +152,7 @@ var AlchemyAPI = require('../alchemyapi');
 var alchemyapi = new AlchemyAPI();
 
 router.get('/alchemy/what', doAlchemy);
-var what_url = 'http://www.theglobeandmail.com/arts/film/canadian-director-xavier-dolan-takes-home-polarizing-grand-prix-win-at-cannes/article30116024/';
+var what_url = 'http://www.ctvnews.ca/world/officer-acquitted-in-freddie-gray-case-1.2913341';
 
 function doAlchemy(req, res) {
   var output = {};
@@ -221,6 +221,15 @@ function doAlchemy(req, res) {
       }
   	});
   }
+
+  // maps:
+  // find entity hash with the highest relevance that is a .type === 'City' || 'Country' || "StateOrCounty"
+  // twitter:
+  // combine multiple items into one and send to the twitter query. if entity .type === 'Hashtag' || 'TwitterHandle', send as priority
+  // wikipedia:
+  // if the hash with the highest relevance is a .type === 'Person', use that to query wikipedia
+  // youtube:
+  // send the hash text with the highest relevance
 
   //Start the analysis chain
 	entities(req, res, output);
