@@ -30292,38 +30292,34 @@
 	  }
 
 	  _createClass(Youtube, [{
-	    key: 'onYouTubeIframeAPIReady',
-	    value: function onYouTubeIframeAPIReady(e) {
-	      //creates the player object
-	      debugger;
-	      var ik_player = document.getElementById('ik_player_iframe');
-
-	      console.log('Video API is loaded');
-
-	      //subscribe to events
-	      ik_player.addEventListener("onReady", "onYouTubePlayerReady");
-	      ik_player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
-	    }
-	  }, {
-	    key: 'onYouTubePlayerReady',
-	    value: function onYouTubePlayerReady() {
-	      debugger;
-	      console.log('Video is ready to play');
-	    }
-	  }, {
-	    key: 'onYouTubePlayerStateChange',
-	    value: function onYouTubePlayerStateChange(event) {
-	      debugger;
-	      console.log('Video state changed');
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.onYouTubeIframeAPIReady();
-	      debugger;
-	    }
-	  }, {
 	    key: 'render',
+
+
+	    //    onYouTubeIframeAPIReady(e) {
+	    //   //creates the player object
+	    //   // debugger;
+	    //   var ik_player = document.getElementById('ik_player_iframe');
+	    //
+	    //   console.log('Video API is loaded');
+	    //
+	    //   //subscribe to events
+	    //   ik_player.addEventListener("onReady",       "onYouTubePlayerReady");
+	    //   ik_player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
+	    // }
+	    //
+	    //  onYouTubePlayerReady() {
+	    //   // debugger;
+	    //   console.log('Video is ready to play');
+	    // }
+	    //
+	    //  onYouTubePlayerStateChange(event) {
+	    //   // debugger;
+	    //   console.log('Video state changed');
+	    // }
+	    //   componentDidMount(){
+	    //     this.onYouTubeIframeAPIReady();
+	    //     // debugger;
+	    //   }
 	    value: function render() {
 	      return(
 	        // <embed onSelect={this.somefunctioninController} src={"http://www.youtube.com/embed/"+this.props.videoId+"?controls=0"}/>
@@ -30514,14 +30510,17 @@
 	  }
 
 	  _createClass(TwitterController, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      this.serverRequest = _jquery2.default.ajax({
 	        type: 'POST',
 	        url: '/twitter',
 	        dataType: 'json',
 	        success: function (tweets) {
 	          this.setState({ data: tweets, loading: false });
+	        }.bind(this),
+	        error: function (err) {
+	          console.error('error', err);
 	        }.bind(this)
 	      });
 	    }
@@ -30538,7 +30537,7 @@
 	      var _this2 = this;
 
 	      if (!this.state.loading) {
-	        setTimeout(function () {
+	        var interval = setTimeout(function () {
 	          // setTimeout
 	          if (_this2.state.index >= _this2.state.data.data.length - 1) {
 	            _this2.setState({ index: 0 });

@@ -6,9 +6,9 @@ module.exports = {
 	  access_token_secret: 'loQIwI2oEmSTUOwzO18vk24pm2a2UsSNuz0aVhugfohCh'
   },
   youtube: {
-  	consumer_key: 'AIzaSyAk0yCctxGpTV21h4O-ZIq_hQrpOPjBcTo'
+  	consumer_key: 'AIzaSyB8bbPptVEFOy-YSRmaTjQdCuhAynm6S-A'
   },
   googlemaps:{
-    consumer_key: 'AIzaSyAk0yCctxGpTV21h4O-ZIq_hQrpOPjBcTo'
+    consumer_key: 'AIzaSyB8bbPptVEFOy-YSRmaTjQdCuhAynm6S-A'
   }
 }

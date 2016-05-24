@@ -7,14 +7,15 @@ export default class TwitterController extends React.Component {
     super(props);
     this.state = {data:[],loading: true, index: 0};
   }
-  componentWillMount(){
+  componentDidMount(){
       this.serverRequest =$.ajax({
       type: 'POST',
       url: '/twitter',
       dataType: 'json',
       success: function(tweets){
         this.setState({data: tweets, loading:false});
-      }.bind(this)
+      }.bind(this),
+      error: function(err) { console.error('error', err) }.bind(this)
     });
   }
   componentDidUpdate(){
@@ -24,7 +25,7 @@ export default class TwitterController extends React.Component {
   }
   render(){
     if(!this.state.loading){
-    setTimeout(()=>{
+    var interval = setTimeout(()=>{
       // setTimeout
       if (this.state.index >= this.state.data.data.length-1){
         this.setState({index: 0});
