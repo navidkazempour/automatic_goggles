@@ -29,7 +29,7 @@ export default class TwitterController extends React.Component {
       }
     },30000);}
     return(
-      <ul className="twitter">
+      <ul>
         <li>
           {!this.state.loading ?
           <div dangerouslySetInnerHTML={{__html: this.state.data[this.state.index].html }} /> :
