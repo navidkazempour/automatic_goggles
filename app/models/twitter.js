@@ -11,6 +11,6 @@ var twitterSchema = new mongoose.Schema({
   // _id: {type: Schema.Types.ObjectId, auto:true}
 });
 
-var Twitter = mongoose.model('Tweet', twitterSchema);
+var Twitter = mongoose.model('Twitter', twitterSchema);
 
 module.exports = Twitter;
