@@ -23,7 +23,6 @@ var videos = function(searchTerm,callback){
           callback(vids);
         }
       }
-    }
   });
 };
 
