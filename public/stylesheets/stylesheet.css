@@ -4,7 +4,7 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
@@ -14,20 +14,18 @@ html {
 /* Mixins */
 /* Styles */
 html {
-  color: #222;
-  background-color: #2b55b0;
-  font-family: Raleway, Arial, serif;
+  font-family: Raleway, sans-serif;
   font-size: 1em;
   font-weight: 400;
   line-height: 1;
 }
 
 body {
-  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
-  max-width: none; }
+  max-width: none;
+}
   body::after {
     clear: both;
     content: "";
@@ -78,7 +76,7 @@ div::after {
   display: table; }
 
 a {
-  color: #2b55b0;
+  /*color: #2b55b0;*/
   text-decoration: none;
   font-weight: 700; }
 
@@ -88,8 +86,8 @@ a {
 .map,
 .twitter {
   margin-bottom: 1em;
-  background-color: #fff;
-  border-radius: 3px;
+  /*background-color: #fff;*/
+  /*border-radius: 3px;*/
   overflow: hidden;
   height: calc(22.86em + 2px); }
 
