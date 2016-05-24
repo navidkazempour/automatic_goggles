@@ -22,13 +22,15 @@ var twit = function(searchTerm, cb){
 				console.log(error);
 			} else {
 				for(var i =0 ;i < tweets.statuses.length;i++){
-					var url = "https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2F"+tweets.statuses[i].user.screen_name+"%2Fstatus%2F"+tweets.statuses[i].id_str;
+					var url = "https://api.twitter.com/1/statuses/oembed.json?url=https://twitter.com/"+tweets.statuses[i].user.screen_name+"/status/"+tweets.statuses[i].id_str;
+					// var url = "https://publish.twitter.com/oembed?url=https%3A%2F%2Ftwitter.com%2F"+tweets.statuses[i].user.screen_name+"%2Fstatus%2F"+tweets.statuses[i].id_str;
 					request(url,function(err,res,body){
 						if(err){
 							console.log(err);
 						}else{
 								var data = JSON.parse(body);
 								topTweets.push(data);
+								console.log(data);
 							}
 					});
 				};

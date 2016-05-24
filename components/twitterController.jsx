@@ -19,35 +19,41 @@ export default class TwitterController extends React.Component {
     // });
     this.setState({data: tweets, loading: false});
   }
+  componentDidUpdate(){
+    if(twttr){
+      window.twttr.widgets.load(document.getElementsByClassName("MNLAtwitter"));
+    }
+  }
   render(){
     if(!this.state.loading){
     setTimeout(()=>{
+      // setTimeout
       if (this.state.index >= this.state.data.length-1){
         this.setState({index: 0});
       }else{
         this.setState({index: this.state.index + 4});
       }
-    },30000);}
+    },10000);}
     return(
       <ul className="twitter">
         <li>
           {!this.state.loading ?
-          <div dangerouslySetInnerHTML={{__html: this.state.data[this.state.index].html }} /> :
+          <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data[this.state.index].html }} /> :
           <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
         </li>
         <li>
           {!this.state.loading ?
-          <div dangerouslySetInnerHTML={{__html: this.state.data[this.state.index + 1].html }} /> :
+          <div  className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data[this.state.index + 1].html }} /> :
           <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
         </li>
         <li>
           {!this.state.loading ?
-          <div dangerouslySetInnerHTML={{__html: this.state.data[this.state.index + 2].html }} /> :
+          <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data[this.state.index + 2].html }} /> :
           <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
         </li>
         <li>
           {!this.state.loading ?
-          <div dangerouslySetInnerHTML={{__html: this.state.data[this.state.index + 3].html }} /> :
+          <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data[this.state.index + 3].html }} /> :
           <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
         </li>
       </ul>

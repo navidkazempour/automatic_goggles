@@ -35,7 +35,7 @@ var searchModel = require('./models/search');
 
 router.post('/wikipedia',function(req,res){
   /*******************************/
-      var searchTerm = 'Steve Jobs';
+      var searchTerm = 'Edward M. Nero';
       var wiki ={};
       var url = "https://en.wikipedia.org/wiki/"+searchTerm;
       function wikipedia(url,callback){
