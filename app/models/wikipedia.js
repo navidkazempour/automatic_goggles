@@ -2,24 +2,14 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-require('./search');
+var Search = require('./search');
 
 var wikipediaSchema = new mongoose.Schema({
+  _search: {type: Schema.Types.ObjectId, ref: 'Search'},
   title: {type: String},
-  body: {type: String},
-  facts: {type: String},
-  searchTerm: {type: String, ref:'Search'}
+  body: {type: String}
 });
 
-var Wiki = mongoose.model('Wiki', wikipediaSchema);
-
-var Wikipedia = new Wiki({ 
-  title: 'title',
-  body: 'body',
-  facts: 'facts',
-  });
-Wikipedia.save(function (err) {
-  if (err) return console.log(err);
-});
+var Wikipedia = mongoose.model('Wikipedia', wikipediaSchema);
 
 module.exports = Wikipedia;
