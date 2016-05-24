@@ -66,11 +66,11 @@
 
 	var _wikipediaController2 = _interopRequireDefault(_wikipediaController);
 
-	var _twitterController = __webpack_require__(174);
+	var _twitterController = __webpack_require__(173);
 
 	var _twitterController2 = _interopRequireDefault(_twitterController);
 
-	var _googleMaps = __webpack_require__(176);
+	var _googleMaps = __webpack_require__(174);
 
 	var _googleMaps2 = _interopRequireDefault(_googleMaps);
 
@@ -30425,7 +30425,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _wikipediaFact = __webpack_require__(173);
+	var _wikipediaFact = __webpack_require__(175);
 
 	var _wikipediaFact2 = _interopRequireDefault(_wikipediaFact);
 
@@ -30497,69 +30497,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var WikipediaFact = function (_React$Component) {
-	  _inherits(WikipediaFact, _React$Component);
-
-	  function WikipediaFact() {
-	    _classCallCheck(this, WikipediaFact);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(WikipediaFact).apply(this, arguments));
-	  }
-
-	  _createClass(WikipediaFact, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'ul',
-	        null,
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          this.props.factkey
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          this.props.factText
-	        )
-	      );
-	    }
-	  }]);
-
-	  return WikipediaFact;
-	}(_react2.default.Component);
-
-	exports.default = WikipediaFact;
-
-/***/ },
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
 	var _jquery = __webpack_require__(168);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _test = __webpack_require__(175);
+	var _test = __webpack_require__(176);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30653,7 +30595,158 @@
 	  </h1>*/}
 
 /***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ExampleGoogleMap = function (_React$Component) {
+	    _inherits(ExampleGoogleMap, _React$Component);
+
+	    function ExampleGoogleMap(props) {
+	        _classCallCheck(this, ExampleGoogleMap);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleGoogleMap).call(this, props));
+
+	        _this.state = { map: null };
+	        return _this;
+	    }
+	    // constructor(props){
+	    //   super(props);
+	    //   this.state ={
+	    //           initialZoom: 8,
+	    //           mapCenterLat: 43.6425569,
+	    //           mapCenterLng: -79.4073126,
+	    //           map: null
+	    //       };
+	    // }
+	    // componentDidMount(){
+	    //   var mapOptions = {
+	    //           center: this.state.mapCenterLatLng(),
+	    //           zoom: this.state.initialZoom
+	    //       },
+	    //       map = new google.maps.Map(this.getDOMNode(), mapOptions);
+	    //       var marker = new google.maps.Marker({position: this.state.mapCenterLatLng(), title: 'Hi', map: map});
+	    //       this.setState({map: map});
+	    // }
+	    // mapCenterLatLng() {
+	    //       var props = this.state;
+	    //       return new google.maps.LatLng(props.mapCenterLat, props.mapCenterLng);
+	    //   }
+
+
+	    _createClass(ExampleGoogleMap, [{
+	        key: 'createMap',
+	        value: function createMap(element) {
+	            var mapOptions = {
+	                center: this.mapCenterLatLng(),
+	                zoom: 8
+	            };
+
+	            var map = new google.maps.Map(element, mapOptions);
+	            var marker = new google.maps.Marker({ position: this.mapCenterLatLng(), title: 'Hi', map: map });
+	            this.setState({ map: map });
+	        }
+	    }, {
+	        key: 'mapCenterLatLng',
+	        value: function mapCenterLatLng() {
+	            var props = this.props;
+	            return new google.maps.LatLng(-34.397, 150.644);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('div', { ref: this.createMap, className: 'map-gic' });
+	        }
+	    }]);
+
+	    return ExampleGoogleMap;
+	}(_react2.default.Component);
+
+	exports.default = ExampleGoogleMap;
+
+/***/ },
 /* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var WikipediaFact = function (_React$Component) {
+	  _inherits(WikipediaFact, _React$Component);
+
+	  function WikipediaFact() {
+	    _classCallCheck(this, WikipediaFact);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(WikipediaFact).apply(this, arguments));
+	  }
+
+	  _createClass(WikipediaFact, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          this.props.factkey
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          this.props.factText
+	        )
+	      );
+	    }
+	  }]);
+
+	  return WikipediaFact;
+	}(_react2.default.Component);
+
+	exports.default = WikipediaFact;
+
+/***/ },
+/* 176 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30782,99 +30875,6 @@
 	  provider_url: 'https://twitter.com',
 	  height: null,
 	  version: '1.0' }];
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(38);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ExampleGoogleMap = function (_React$Component) {
-	    _inherits(ExampleGoogleMap, _React$Component);
-
-	    function ExampleGoogleMap(props) {
-	        _classCallCheck(this, ExampleGoogleMap);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleGoogleMap).call(this, props));
-
-	        _this.state = { map: null };
-	        return _this;
-	    }
-	    // constructor(props){
-	    //   super(props);
-	    //   this.state ={
-	    //           initialZoom: 8,
-	    //           mapCenterLat: 43.6425569,
-	    //           mapCenterLng: -79.4073126,
-	    //           map: null
-	    //       };
-	    // }
-	    // componentDidMount(){
-	    //   var mapOptions = {
-	    //           center: this.state.mapCenterLatLng(),
-	    //           zoom: this.state.initialZoom
-	    //       },
-	    //       map = new google.maps.Map(this.getDOMNode(), mapOptions);
-	    //       var marker = new google.maps.Marker({position: this.state.mapCenterLatLng(), title: 'Hi', map: map});
-	    //       this.setState({map: map});
-	    // }
-	    // mapCenterLatLng() {
-	    //       var props = this.state;
-	    //       return new google.maps.LatLng(props.mapCenterLat, props.mapCenterLng);
-	    //   }
-
-
-	    _createClass(ExampleGoogleMap, [{
-	        key: 'createMap',
-	        value: function createMap(element) {
-	            var mapOptions = {
-	                center: this.mapCenterLatLng(),
-	                zoom: 8
-	            };
-
-	            var map = new google.maps.Map(element, mapOptions);
-	            var marker = new google.maps.Marker({ position: this.mapCenterLatLng(), title: 'Hi', map: map });
-	            this.setState({ map: map });
-	        }
-	    }, {
-	        key: 'mapCenterLatLng',
-	        value: function mapCenterLatLng() {
-	            var props = this.props;
-	            return new google.maps.LatLng(-34.397, 150.644);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement('div', { ref: this.createMap, className: 'map-gic' });
-	        }
-	    }]);
-
-	    return ExampleGoogleMap;
-	}(_react2.default.Component);
-
-	exports.default = ExampleGoogleMap;
 
 /***/ }
 /******/ ]);
