@@ -70,11 +70,16 @@
 
 	var _twitterController2 = _interopRequireDefault(_twitterController);
 
+	var _googleMaps = __webpack_require__(176);
+
+	var _googleMaps2 = _interopRequireDefault(_googleMaps);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_wikipediaController2.default, null), document.querySelector(".wiki"));
-	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video"));
-	_reactDom2.default.render(_react2.default.createElement(_twitterController2.default, null), document.querySelector(".twitter"));
+	// ReactDOM.render(<WikipediaController/>,document.querySelector(".wiki"));
+	// ReactDOM.render(<YoutubeController/>,document.querySelector(".video"));
+	// ReactDOM.render(<TwitterController/>,document.querySelector(".twitter"));
+	_reactDom2.default.render(_react2.default.createElement(_googleMaps2.default, null), document.getElementById("main"));
 
 /***/ },
 /* 1 */
@@ -30185,7 +30190,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _youtube = __webpack_require__(176);
+	var _youtube = __webpack_require__(170);
 
 	var _youtube2 = _interopRequireDefault(_youtube);
 
@@ -30254,7 +30259,85 @@
 	exports.default = YoutubeController;
 
 /***/ },
-/* 170 */,
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Youtube = function (_React$Component) {
+	  _inherits(Youtube, _React$Component);
+
+	  function Youtube() {
+	    _classCallCheck(this, Youtube);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Youtube).apply(this, arguments));
+	  }
+
+	  _createClass(Youtube, [{
+	    key: 'onYouTubeIframeAPIReady',
+	    value: function onYouTubeIframeAPIReady(e) {
+	      //creates the player object
+	      debugger;
+	      var ik_player = document.getElementById('ik_player_iframe');
+
+	      console.log('Video API is loaded');
+
+	      //subscribe to events
+	      ik_player.addEventListener("onReady", "onYouTubePlayerReady");
+	      ik_player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
+	    }
+	  }, {
+	    key: 'onYouTubePlayerReady',
+	    value: function onYouTubePlayerReady() {
+	      debugger;
+	      console.log('Video is ready to play');
+	    }
+	  }, {
+	    key: 'onYouTubePlayerStateChange',
+	    value: function onYouTubePlayerStateChange(event) {
+	      debugger;
+	      console.log('Video state changed');
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.onYouTubeIframeAPIReady();
+	      debugger;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return(
+	        // <embed onSelect={this.somefunctioninController} src={"http://www.youtube.com/embed/"+this.props.videoId+"?controls=0"}/>
+	        _react2.default.createElement('iframe', { id: 'ik_player_iframe', src: "http://www.youtube.com/embed/" + this.props.videoId + "?controls=0" })
+	      );
+	    }
+	  }]);
+
+	  return Youtube;
+	}(_react2.default.Component);
+
+	exports.default = Youtube;
+
+/***/ },
 /* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -30707,7 +30790,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -30715,6 +30798,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30724,60 +30811,70 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Youtube = function (_React$Component) {
-	  _inherits(Youtube, _React$Component);
+	var ExampleGoogleMap = function (_React$Component) {
+	    _inherits(ExampleGoogleMap, _React$Component);
 
-	  function Youtube() {
-	    _classCallCheck(this, Youtube);
+	    function ExampleGoogleMap(props) {
+	        _classCallCheck(this, ExampleGoogleMap);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Youtube).apply(this, arguments));
-	  }
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ExampleGoogleMap).call(this, props));
 
-	  _createClass(Youtube, [{
-	    key: 'onYouTubeIframeAPIReady',
-	    value: function onYouTubeIframeAPIReady(e) {
-	      //creates the player object
-	      debugger;
-	      var ik_player = document.getElementById('ik_player_iframe');
-
-	      console.log('Video API is loaded');
-
-	      //subscribe to events
-	      ik_player.addEventListener("onReady", "onYouTubePlayerReady");
-	      ik_player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
+	        _this.state = { map: null };
+	        return _this;
 	    }
-	  }, {
-	    key: 'onYouTubePlayerReady',
-	    value: function onYouTubePlayerReady() {
-	      debugger;
-	      console.log('Video is ready to play');
-	    }
-	  }, {
-	    key: 'onYouTubePlayerStateChange',
-	    value: function onYouTubePlayerStateChange(event) {
-	      debugger;
-	      console.log('Video state changed');
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.onYouTubeIframeAPIReady();
-	      debugger;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return(
-	        // <embed onSelect={this.somefunctioninController} src={"http://www.youtube.com/embed/"+this.props.videoId+"?controls=0"}/>
-	        _react2.default.createElement('iframe', { id: 'ik_player_iframe', src: "http://www.youtube.com/embed/" + this.props.videoId + "?controls=0" })
-	      );
-	    }
-	  }]);
+	    // constructor(props){
+	    //   super(props);
+	    //   this.state ={
+	    //           initialZoom: 8,
+	    //           mapCenterLat: 43.6425569,
+	    //           mapCenterLng: -79.4073126,
+	    //           map: null
+	    //       };
+	    // }
+	    // componentDidMount(){
+	    //   var mapOptions = {
+	    //           center: this.state.mapCenterLatLng(),
+	    //           zoom: this.state.initialZoom
+	    //       },
+	    //       map = new google.maps.Map(this.getDOMNode(), mapOptions);
+	    //       var marker = new google.maps.Marker({position: this.state.mapCenterLatLng(), title: 'Hi', map: map});
+	    //       this.setState({map: map});
+	    // }
+	    // mapCenterLatLng() {
+	    //       var props = this.state;
+	    //       return new google.maps.LatLng(props.mapCenterLat, props.mapCenterLng);
+	    //   }
 
-	  return Youtube;
+
+	    _createClass(ExampleGoogleMap, [{
+	        key: 'createMap',
+	        value: function createMap(element) {
+	            var mapOptions = {
+	                center: this.mapCenterLatLng(),
+	                zoom: 8
+	            };
+
+	            var map = new google.maps.Map(element, mapOptions);
+	            var marker = new google.maps.Marker({ position: this.mapCenterLatLng(), title: 'Hi', map: map });
+	            this.setState({ map: map });
+	        }
+	    }, {
+	        key: 'mapCenterLatLng',
+	        value: function mapCenterLatLng() {
+	            var props = this.props;
+	            return new google.maps.LatLng(-34.397, 150.644);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('div', { ref: this.createMap, className: 'map-gic' });
+	        }
+	    }]);
+
+	    return ExampleGoogleMap;
 	}(_react2.default.Component);
 
-	exports.default = Youtube;
+	exports.default = ExampleGoogleMap;
 
 /***/ }
 /******/ ]);
