@@ -1,0 +1,43 @@
+<html lang="en"></html>
+<head>
+  <meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300italic,700,900" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Ib5WUYOh/fqe9wT9MDBX+VgUWQuUf8oDH3yuR9Kr+6Y5ejq92KR8LEuCbRiGZpG" crossorigin="anonymous"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css"/>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+  <script id="twitter-wjs" type="text/javascript" async="async" defer="defer" src="//platform.twitter.com/widgets.js"></script>
+  <title>MetaNews</title>
+  <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <div class="navbar-brand">
+              <ul class="nav navbar-nav"><a href="#">MetaNews</a><a href="#" class="glyphicon glyphicon-bookmark"></a></ul>
+            </div>
+          </div>
+          <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <form role="search" class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" placeholder="url goes here" class="form-control"/>
+                </div>
+                <button type="submit" class="btn btn-default">analyse</button>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="video"></div>
+      <div class="wiki"></div>
+      <div class="map"></div>
+      <div class="twitter"></div>
+    </main>
+  </body>
+  <script src="/dist/bundle.js"></script>
+</head>

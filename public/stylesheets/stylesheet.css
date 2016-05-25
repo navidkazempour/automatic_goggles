@@ -35,8 +35,8 @@ body {
 main {
   margin-left: auto;
   margin-top: 4em;
-  max-width: none;
   margin-right: auto;
+  max-width: 1300px;
 }
 
 /*header {
@@ -52,8 +52,9 @@ main {
     margin-right: 0; }*/
 
 img {
-  max-width: 100%;
-  display: block; }
+  /*max-width: 100%;
+  display: block;*/
+}
 
 /*ul {
   padding: 0; }
@@ -83,28 +84,28 @@ a {
 .map,
 .twitter {
   margin-bottom: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
   background-color: #fff;
-  /*border-radius: 3px;*/
-  overflow: hidden;
+  border-radius: 0.25em;
   height: calc(22.86em + 2px);
 }
 
 .video {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
+  overflow: hidden;
+  width: 33%;
 }
   .video:last-child {
     margin-right: 0;
   }
 
 .wiki {
-  float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-  margin-right: 0; }
+  overflow: hidden;
+  width: 33%;
+}
   .wiki:last-child {
     margin-right: 0; }
 
@@ -120,19 +121,18 @@ form > .btn {
 
 .map {
   /*float: left;*/
-  /*display: block;*/
-  /*margin-right: 2.84259%;*/
-  width: 100%;
+  display: block;
+  overflow: hidden;
+  width: 33%;
 }
   .map:last-child {
     margin-right: 0;
   }
 
 .twitter {
-  float: left;
-  display: block;
-  margin-right: 2.84259%;
-  width: 79.43148%; }
+  /*float: left;
+  display: block;*/
+  width: 100%; }
   .twitter:last-child {
     margin-right: 0; }
 
@@ -158,11 +158,11 @@ form > .btn {
   padding: 1em;
 }
   .wiki p {
-    position: relative;
-    height: 14em;
+    /*position: relative;*/
+    /*height: 14em;*/
     overflow: hidden;
   }
-  .wiki p:after {
+  .wiki p::after {
     content: "";
     text-align: right;
     position: absolute;
@@ -194,15 +194,15 @@ form > .btn {
 /* Twitter */
 .twitter {
   background-color: transparent;
-  display: flex;
-  align-items: center; }
-  .twitter ul {
-    margin-top: 0; }
+  /*display: flex;*/
+  align-items: center;
+}
+  /*.twitter ul {
+    margin-top: 0; }*/
   .twitter li {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%;
+    width: 25%;
   }
     .twitter li:last-child {
       margin-right: 0; }
