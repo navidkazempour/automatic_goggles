@@ -1,11 +1,26 @@
 extends ./layout
 block content
   header
-    img(id="logo" src="images/Logo_2.png" alt="logo")
-    div(class="navbar navbar-default navbar-fixed-top")
-      div(class="container")
-        div(class="navbar-header")
-          a(href="/" class="navbar-brand") MetaNews
+    nav.navbar.navbar-default.navbar-fixed-top
+     .container-fluid
+       .navbar-header
+         button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+           span.sr-only Toggle navigation
+           span.icon-bar
+           span.icon-bar
+           span.icon-bar
+         .navbar-brand
+           img(src='images/logo_4.PNG')
+       #bs-example-navbar-collapse-1.collapse.navbar-collapse
+         ul.nav.navbar-nav
+           li
+             a(href='#') MetaNews
+           a.glyphicon.glyphicon-bookmark(href='#')
+         ul.nav.navbar-nav.navbar-right
+           form.navbar-form.navbar-left(role='search')
+             .form-group
+               input.form-control(type='text', placeholder='url goes here')
+             button.btn.btn-default(type='submit') submit
   main
     .video
       include ./partials/_video
