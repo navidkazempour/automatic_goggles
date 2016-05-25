@@ -11,6 +11,7 @@ export default class TwitterController extends React.Component {
       this.serverRequest =$.ajax({
       type: 'POST',
       url: '/twitter',
+      data: {search_term:'brexit'},
       dataType: 'json',
       success: function(tweets){
         this.setState({data: tweets, loading:false});

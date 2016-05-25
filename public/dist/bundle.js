@@ -30205,6 +30205,7 @@
 	// import Video from 'react-video';
 	// import Youtube from 'react-youtube'
 	// var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+	// import YouTube from 'react-youtube';
 
 	var YoutubeController = function (_React$Component) {
 	  _inherits(YoutubeController, _React$Component);
@@ -30214,7 +30215,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(YoutubeController).call(this, props));
 
-	    _this.state = { data: [], loading: true, index: 0, tag: true };
+	    _this.state = { data: [], loading: true, index: 0, play: false, myvar: null };
 	    return _this;
 	  }
 
@@ -30224,19 +30225,37 @@
 	      this.serverRequest = $.ajax({
 	        type: 'POST',
 	        url: '/youtube',
+	        data: { search_term: 'Steve Jobs' },
 	        dataType: 'json',
 	        success: function (youtubeData) {
 	          this.setState({ data: youtubeData, loading: false });
 	        }.bind(this)
 	      });
 	    }
+	    // _state(e){
+	    //   if(e.data === 1)
+	    //   {
+	    //     console.log("Playing");
+	    //     clearTimeout(this.myvar);
+	    //   }
+	    //   else if(e.data === 2){
+	    //     console.log("Pausing");
+	    //     debugger;
+	    //   }
+	    //   else if(e.data === 0){
+	    //     console.log("ended");
+	    //     debugger;
+	    //   }
+	    // }
+
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 
 	      if (!this.state.loading) {
-	        setTimeout(function () {
+	        console.log(this.state.index);
+	        this.myvar = setTimeout(function () {
 	          if (_this2.state.index >= _this2.state.data.data.length - 1) {
 	            _this2.setState({ index: 0 });
 	          } else {
@@ -30248,7 +30267,7 @@
 	        'div',
 	        null,
 	        !this.state.loading ? _react2.default.createElement(_youtube2.default, { key: this.state.index + 1,
-	          videoId: this.state.data.data[this.state.index].video_id, onReady: this._onReady }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner_inverse.gif', alt: 'Loading...' })
+	          videoId: this.state.data.data[this.state.index].video_id }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner_inverse.gif', alt: 'Loading...' })
 	      );
 	    }
 	  }]);
@@ -30281,6 +30300,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// import YouTube from 'react-youtube';
 
 	var Youtube = function (_React$Component) {
 	  _inherits(Youtube, _React$Component);
@@ -30320,10 +30341,12 @@
 	    //     this.onYouTubeIframeAPIReady();
 	    //     // debugger;
 	    //   }
+
 	    value: function render() {
 	      return(
 	        // <embed onSelect={this.somefunctioninController} src={"http://www.youtube.com/embed/"+this.props.videoId+"?controls=0"}/>
-	        _react2.default.createElement('iframe', { id: 'ik_player_iframe', src: "http://www.youtube.com/embed/" + this.props.videoId + "?controls=0" })
+	        // <YouTube videoId={this.props.videoId}/>
+	        _react2.default.createElement('iframe', { src: "http://www.youtube.com/embed/" + this.props.videoId + "?controls=0" })
 	      );
 	    }
 	  }]);
@@ -30380,10 +30403,10 @@
 	  _createClass(WikipediaController, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.serverRequest = _jquery2.default.ajax({
+	      _jquery2.default.ajax({
 	        type: 'POST',
+	        data: { search_term: 'Edward M. Nero' },
 	        url: '/wikipedia',
-	        dataType: 'json',
 	        success: function (wikiData) {
 	          this.setState({ data: wikiData, loading: false });
 	        }.bind(this)
@@ -30515,6 +30538,7 @@
 	      this.serverRequest = _jquery2.default.ajax({
 	        type: 'POST',
 	        url: '/twitter',
+	        data: { search_term: 'brexit' },
 	        dataType: 'json',
 	        success: function (tweets) {
 	          this.setState({ data: tweets, loading: false });

@@ -9,10 +9,10 @@ export default class WikipediaController extends React.Component {
     this.state = {data:[],loading: true};
   }
   componentWillMount(){
-      this.serverRequest =$.ajax({
+      $.ajax({
       type: 'POST',
+      data: {search_term: 'Edward M. Nero'},
       url: '/wikipedia',
-      dataType: 'json',
       success: function(wikiData){
         this.setState({data: wikiData, loading:false});
       }.bind(this)
@@ -25,5 +25,6 @@ export default class WikipediaController extends React.Component {
             <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body} facts={this.state.data.data.facts} />:
               <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
        </div>
-     )};
+     )
+  }
 }
