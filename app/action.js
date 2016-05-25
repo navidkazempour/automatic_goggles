@@ -8,37 +8,126 @@ var mongoose = require('mongoose');
 var wikipedia = require('../API/wikipedia.js');
 var videos = require('../API/youtube.js');
 var tweets = require('../API/twitter.js');
+var Search = require('./models/search');
+var Twitter = require('./models/twitter');
+var Wikipedia = require('./models/wikipedia');
+var Youtube = require('./models/youtube');
+var MongoClient = require('mongodb').MongoClient;
+
+/**** Global Variables ****/
+
 
 router.get('/',function(req,res){
   res.render('index');
 });
+/*****************Practice Routes ****/
+router.post('/search',function(req,res){
+  searchTerm = req.params.search_term || "http://www.google.com";
+
+});
+/***********************/
 
 // wikipedia
 router.post('/wikipedia',function(req,res){
-  var searchTerm = req.params.search_term || 'Lighthouse Labs';
-  var url = "https://en.wikipedia.org/wiki/"+searchTerm;
-  wikipedia(url,function(wiki){
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ data: wiki }));
+  var Term = req.params.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
+    if(data.length === 0){
+      var search = new Search({searchTerm: Term});
+      search.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        var url = "https://en.wikipedia.org/wiki/"+Term;
+        wikipedia(url,function(wiki){
+          var result = new Wikipedia({title: wiki.title , body: wiki.body ,  _search: search._id});
+          result.save(function(err){
+            if(err){
+              return console.log(err);
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ data: wiki }));
+          });
+        });
+      });
+    }else{
+      Wikipedia.find({_search: data[0]._id },function(err, wiki){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: wiki[0] }));
+      });
+    }
   });
 });
+
 
 // youtube
 router.post('/youtube',function(req,res){
-  var searchTerm = req.params.search_term || 'Lighthouse Labs';
-  videos(searchTerm,function(vids){
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ data: vids }));
+
+  var Term = req.params.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
+    if(data.length === 0){
+      var search = new Search({searchTerm: Term});
+      search.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        videos(Term,function(result){
+          var youtubes = new Youtube({videoId: result, _search: search._id});
+          youtubes.save(function(err){
+            if(err){
+              return console.log(err);
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ data: result }));
+          });
+        });
+      });
+    }else{
+      Youtube.find({_search: data[0]._id}, function(err,vids){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: vids }));
+      });
+    }
+
   });
 });
 
+
 // twitter
 router.post('/twitter', function(req, res) {
-  console.log('in post twitter', req.params);
-  var searchTerm = req.params.search_term || 'Lighthouse Labs';
-  tweets(searchTerm,function(result){
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ data: result }));
+  var Term = req.params.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
+    if(data.length === 0){
+      var search = new Search({searchTerm: Term});
+      search.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        tweets(Term,function(result){
+          var twits = new Twitter({description: result, _search: search._id});
+          twits.save(function(err){
+            if(err){
+              return console.log(err);
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ data: result }));
+          });
+        });
+      });
+    }else{
+      Twitter.find({_search: data[0]._id}, function(err, twits){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: twits[0].description }));
+      });
+    }
   });
 });
 

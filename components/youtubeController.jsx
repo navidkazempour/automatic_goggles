@@ -17,6 +17,7 @@ export default class YoutubeController extends React.Component {
       this.serverRequest =$.ajax({
       type: 'POST',
       url: '/youtube',
+      data: {search_term:'Steve Jobs'},
       dataType: 'json',
       success: function(youtubeData){
         this.setState({data: youtubeData, loading:false});
