@@ -30210,7 +30210,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(YoutubeController).call(this, props));
 
-	    _this.state = { data: [], loading: true, index: 0, play: false, myvar: null };
+	    _this.state = { data: [], loading: true, index: 0, play: false, myvar: null, counter: 0 };
 	    return _this;
 	  }
 
@@ -30220,7 +30220,7 @@
 	      this.serverRequest = $.ajax({
 	        type: 'POST',
 	        url: '/youtube',
-	        data: { search_term: 'Steve Jobs' },
+	        data: { search_term: 'Bill Gates' },
 	        dataType: 'json',
 	        success: function (youtubeData) {
 	          this.setState({ data: youtubeData, loading: false });
@@ -30230,6 +30230,7 @@
 	  }, {
 	    key: '_state',
 	    value: function _state(e) {
+	      debugger;
 	      if (e.data === 1) {
 	        console.log("Playing");
 	        clearTimeout(this.myvar);
@@ -30259,7 +30260,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        !this.state.loading ? _react2.default.createElement(_reactYoutube2.default, { key: this.state.index + 1,
+	        !this.state.loading ? _react2.default.createElement(_reactYoutube2.default, { key: this.state.counter + 1,
 	          videoId: this.state.data.data[this.state.index].video_id,
 	          onStateChange: this._state.bind(this) }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
 	      );

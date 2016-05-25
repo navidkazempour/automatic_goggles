@@ -66,8 +66,8 @@ router.post('/wikipedia',function(req,res){
 
 // youtube
 router.post('/youtube',function(req,res){
-console.log(req.body.search_term);
-   var Term = req.body.search_term;
+  console.log(req.body.search_term);
+  var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
       var search = new Search({searchTerm: Term});
@@ -81,6 +81,7 @@ console.log(req.body.search_term);
             if(err){
               return console.log(err);
             }
+            console.log(result);
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify({ data: result }));
           });
@@ -91,8 +92,9 @@ console.log(req.body.search_term);
         if(err){
           return console.log(err);
         }
+        console.log(vids);
         res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({ data: vids }));
+        res.end(JSON.stringify({ data: vids[0].videoId }));
       });
     }
   });

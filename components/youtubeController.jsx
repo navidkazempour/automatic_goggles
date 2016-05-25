@@ -5,14 +5,14 @@ export default class YoutubeController extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {data: [], loading: true, index: 0, play: false, myvar: null};
+    this.state = {data: [], loading: true, index: 0, play: false, myvar: null,counter: 0};
   }
 
   componentWillMount(){
       this.serverRequest =$.ajax({
       type: 'POST',
       url: '/youtube',
-      data: {search_term:'Steve Jobs'},
+      data: {search_term:'Bill Gates'},
       dataType: 'json',
       success: function(youtubeData){
         this.setState({data: youtubeData, loading:false});
@@ -20,6 +20,7 @@ export default class YoutubeController extends React.Component {
     });
   }
     _state(e){
+      debugger;
       if(e.data === 1)
       {
         console.log("Playing");
@@ -48,7 +49,7 @@ export default class YoutubeController extends React.Component {
     return(
         <div>
           {!this.state.loading ?
-              <YouTube key={this.state.index + 1}
+              <YouTube key={this.state.counter + 1}
                 videoId={this.state.data.data[this.state.index].video_id}
                 onStateChange={this._state.bind(this)}/> :
             <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
