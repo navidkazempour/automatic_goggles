@@ -29,7 +29,8 @@ router.post('/search',function(req,res){
 
 // wikipedia
 router.post('/wikipedia',function(req,res){
-  var Term = req.params.search_term;
+  console.log(req.body.search_term);
+  var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
       var search = new Search({searchTerm: Term});
@@ -54,6 +55,7 @@ router.post('/wikipedia',function(req,res){
         if(err){
           return console.log(err);
         }
+        console.log(wiki);
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ data: wiki[0] }));
       });
@@ -64,8 +66,8 @@ router.post('/wikipedia',function(req,res){
 
 // youtube
 router.post('/youtube',function(req,res){
-
-  var Term = req.params.search_term;
+console.log(req.body.search_term);
+  var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
       var search = new Search({searchTerm: Term});
@@ -100,7 +102,8 @@ router.post('/youtube',function(req,res){
 
 // twitter
 router.post('/twitter', function(req, res) {
-  var Term = req.params.search_term;
+  console.log(req.body.search_term);
+  var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
       var search = new Search({searchTerm: Term});

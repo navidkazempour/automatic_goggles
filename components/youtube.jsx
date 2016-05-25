@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import YouTube from 'react-youtube';
+// import YouTube from 'react-youtube';
 
 export default class Youtube extends React.Component{
 
@@ -33,7 +33,8 @@ export default class Youtube extends React.Component{
   render() {
     return(
         // <embed onSelect={this.somefunctioninController} src={"http://www.youtube.com/embed/"+this.props.videoId+"?controls=0"}/>
-        <YouTube videoId={this.props.videoId}/>
+        // <YouTube videoId={this.props.videoId}/>
+        <iframe src={"http://www.youtube.com/embed/"+this.props.videoId+"?controls=0"}/>
     );
   }
 }
