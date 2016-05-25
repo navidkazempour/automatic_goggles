@@ -1,9 +1,5 @@
 import React from 'react';
-import Youtube from './youtube.jsx';
-// import Video from 'react-video';
-// import Youtube from 'react-youtube'
-// var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-// import YouTube from 'react-youtube';
+import YouTube from 'react-youtube';
 
 export default class YoutubeController extends React.Component {
 
@@ -23,21 +19,21 @@ export default class YoutubeController extends React.Component {
       }.bind(this)
     });
   }
-    // _state(e){
-    //   if(e.data === 1)
-    //   {
-    //     console.log("Playing");
-    //     clearTimeout(this.myvar);
-    //   }
-    //   else if(e.data === 2){
-    //     console.log("Pausing");
-    //     debugger;
-    //   }
-    //   else if(e.data === 0){
-    //     console.log("ended");
-    //     debugger;
-    //   }
-    // }
+    _state(e){
+      if(e.data === 1)
+      {
+        console.log("Playing");
+        clearTimeout(this.myvar);
+      }
+      else if(e.data === 2){
+        console.log("Pausing");
+        this.setState({index: this.state.index + 1});
+      }
+      else if(e.data === 0){
+        console.log("ended");
+        this.setState({index: this.state.index + 1});
+      }
+    }
 
   render(){
     if(!this.state.loading){
@@ -52,9 +48,10 @@ export default class YoutubeController extends React.Component {
     return(
         <div>
           {!this.state.loading ?
-              <Youtube key={this.state.index + 1}
-                videoId={this.state.data.data[this.state.index].video_id}/> :
-            <img className="loading" src="images/loading_spinner_inverse.gif" alt="Loading..." />}
+              <YouTube key={this.state.index + 1}
+                videoId={this.state.data.data[this.state.index].video_id}
+                onStateChange={this._state.bind(this)}/> :
+            <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
        </div>
      );
     };

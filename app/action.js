@@ -66,7 +66,8 @@ router.post('/wikipedia',function(req,res){
 
 // youtube
 router.post('/youtube',function(req,res){
-  var Term = req.body.search_term;
+console.log(req.body.search_term);
+   var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
       var search = new Search({searchTerm: Term});
@@ -94,7 +95,6 @@ router.post('/youtube',function(req,res){
         res.end(JSON.stringify({ data: vids }));
       });
     }
-
   });
 });
 
