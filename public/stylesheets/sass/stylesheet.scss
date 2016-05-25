@@ -15,21 +15,8 @@ $font: Raleway, Arial, serif;
 
 /* Mixins */
 
-// @mixin card {
-// 	box-shadow: 0 2px 2px $box-shadow-color;
-// 	border-radius: $box-shadow-radius;
-// 	margin-bottom: 1em;
-// 	background-color: $article-background-color;
-
-// 	&:hover {
-// 		box-shadow: 0 8px 8px $box-shadow-color;
-// 		border-radius: $box-shadow-radius;
-// 	}
-// }
-
 @mixin card {
 	margin-bottom: 1em;
-	background-color: $article-background-color;
 	border-radius: $box-radius;
 	overflow: hidden;
 }
@@ -56,7 +43,6 @@ main {
 	margin-left: auto;
 	margin-right: auto;
 }
-
 
 header {
 	@include span-columns(12 of 12);
@@ -104,7 +90,17 @@ a {
 .map,
 .twitter {
 	@include card;
+	position: relative;
+}
+
+.video,
+.wiki,
+.map {
 	height: calc(22.86em + 2px);
+}
+
+.twitter {
+	min-height: calc(22.86em + 2px);
 }
 
 .video {
@@ -126,7 +122,9 @@ a {
 
 .loading {
 	display: block;
-	margin: calc(50% - 32px) auto;
+	position: absolute;
+	top: calc(50% - 64px);
+	left: calc(50% - 64px);
 }
 
 /* Video */
@@ -148,6 +146,7 @@ a {
 
 .wiki {
 	border: 1px solid #ccc;
+	background-color: $article-background-color;
 	padding: 1em;
 
 	p {
@@ -193,11 +192,14 @@ a {
 
 .twitter {
 	background-color: transparent;
-	display: flex;
-  align-items: center;
+
+	& > div {
+		min-width: 100%;
+		min-height: 100%;
+	}
 
 	ul {
-		margin-top: 0;
+		margin: 0;
 	}
 
 	li {
@@ -205,24 +207,26 @@ a {
 	}
 
 	.twitter-tweet {
-		margin: 0 !important;
+		margin: 0 auto !important;
 	}
 
 	blockquote {
-	 	color: #fff;
+		color: #fff;
+		overflow: hidden;
 
-	 	a {
-	 		color: #fff;
+		a {
+			color: #fff;
 	 	}
 	}
 }
-
 
 /* Media Queries */
 
 $tablet: new-breakpoint(max-width 1220px);
 
 @include media($tablet) {
+	.video,
+	.wiki,
 	.map,
 	.twitter {
 		@include span-columns(12 of 12);
@@ -235,7 +239,7 @@ $tablet: new-breakpoint(max-width 1220px);
 
 	.twitter li {
 		@include span-columns(6 of 12);
-		margin-bottom: 10px;
+		margin-bottom: 1em;
 	}
 
 	.twitter li:nth-child(2n){
