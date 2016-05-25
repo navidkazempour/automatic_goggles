@@ -25,5 +25,6 @@ export default class WikipediaController extends React.Component {
             <Wikipedia title={this.state.data.data.title} body={this.state.data.data.body} facts={this.state.data.data.facts} />:
               <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
        </div>
-     )};
+     )
+  }
 }

@@ -265,3 +265,46 @@ each video in videos
     provider_url: 'https://twitter.com',
     height: null,
     version: '1.0' }]
+
+
+/***********************************
+
+    // console.log(query);
+  // if(query){
+  //   console.log("Gotcha");
+  //   var wikiQuery = Wikipedia.find({_search: search._id});
+  //   wikiQuery.exec(function(err,wiki){
+  //     if(err){
+  //       return console.log(err);
+  //     }
+  //     res.setHeader('Content-Type', 'application/json');
+  //     res.end(JSON.stringify({ data: wiki }));
+  //   });
+
+  // }else{
+    //     console.log("In your face");
+    //     var search = new Search({searchTerm: searchTerm});
+    //     search.save(function(err){
+    //       if(err){
+    //         console.log("Hello");
+    //         return console.log(err);
+    //       }
+    //     var url = "https://en.wikipedia.org/wiki/"+searchTerm;
+    //     wikipedia(url,function(wiki){
+    // ******** Wiki Database Create****
+    //     var result = new Wikipedia({title: wiki.title , body: wiki.body ,  _search: search._id});
+    //    result.save(function(err){
+    //     if(err){
+    //       return console.log(err);
+    //     }
+    //       res.setHeader('Content-Type', 'application/json');
+    //       res.end(JSON.stringify({ data: wiki }));
+    //    });
+    //  });
+    // });
+  // }
+
+  /***********************************
+
+
+
