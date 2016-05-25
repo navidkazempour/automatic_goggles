@@ -21,35 +21,16 @@ html {
 }
 
 body {
-  /*margin-left: auto;
+  margin-left: auto;
+  margin-top: 4em;
   margin-right: auto;
-  margin-top: 0;
-  max-width: none;*/
+  max-width: 1300px;
 }
   body::after {
     /*clear: both;
     content: "";
     display: table;*/
   }
-
-main {
-  margin-left: auto;
-  margin-top: 4em;
-  margin-right: auto;
-  max-width: 1300px;
-}
-
-/*header {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  padding: 0.2em 0.2em 0.2em 0.2em;
-  margin-bottom: 1.5em;
-}
-
-  header:last-child {
-    margin-right: 0; }*/
 
 img {
   /*max-width: 100%;
@@ -88,12 +69,13 @@ a {
   margin-left: 1em;
   background-color: #fff;
   border-radius: 0.25em;
-  height: calc(22.86em + 2px);
+  /*height: calc(22.86em + 2px);*/
 }
 
 .video {
   float: left;
   display: block;
+  height: calc(22.86em + 2px);
   overflow: hidden;
   width: 33%;
 }
@@ -103,6 +85,7 @@ a {
 
 .wiki {
   display: block;
+  height: calc(22.86em + 2px);
   overflow: hidden;
   width: 33%;
 }
@@ -122,20 +105,13 @@ form > .btn {
 .map {
   /*float: left;*/
   display: block;
+  height: calc(22.86em + 2px);
   overflow: hidden;
   width: 33%;
 }
   .map:last-child {
     margin-right: 0;
   }
-
-.twitter {
-  /*float: left;
-  display: block;*/
-  height: 39em;
-  width: 100%; }
-  .twitter:last-child {
-    margin-right: 0; }
 
 .loading {
   display: block;
@@ -163,7 +139,7 @@ form > .btn {
     /*height: 14em;*/
     overflow: hidden;
   }
-  /*.wiki p::after {
+  .wiki p::after {
     content: "";
     text-align: right;
     position: absolute;
@@ -172,7 +148,7 @@ form > .btn {
     width: 70%;
     height: 1.4em;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%);
-  }*/
+  }
   .wiki .wiki_ref {
     display: block;
     text-align: right;
@@ -193,14 +169,24 @@ form > .btn {
 }
 
 /* Twitter */
+
 .twitter {
-  background-color: white;
+  /*float: left;
+  display: block;*/
+  width: 100%;
+}
+  .twitter:last-child {
+    margin-right: 0; }
+
+.twitter {
+  background-color: #fff;
   /*display: flex;*/
   align-items: center;
 }
   /*.twitter ul {
     margin-top: 0; }*/
   .twitter li {
+    background-color: black;
     float: left;
     display: block;
     width: 25%;
@@ -213,42 +199,3 @@ form > .btn {
     color: #fcfcfc; }
     .twitter blockquote a {
       color: #fcfcfc; }
-
-/* Media Queries */
-/*@media screen and (max-width: 1220px) {
-  .map,
-  .twitter {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%; }
-    .map:last-child,
-    .twitter:last-child {
-      margin-right: 0; }
-
-  .twitter {
-    height: auto;
-    padding: 0 1em; }
-
-  .twitter li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
-    margin-bottom: 10px; }
-    .twitter li:last-child {
-      margin-right: 0; }
-
-  .twitter li:nth-child(2n) {
-    margin-right: 0; } }
-
-@media screen and (max-width: 600px) {
-  .twitter li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%; }
-    .twitter li:last-child {
-      margin-right: 0; } }*/
-
-/*# sourceMappingURL=stylesheet.css.map */
