@@ -120,10 +120,9 @@ form > .btn {
 }
 
 .map {
-  /*float: left;*/
   display: block;
   overflow: hidden;
-  width: 33%;
+  width: 20%;
 }
   .map:last-child {
     margin-right: 0;
