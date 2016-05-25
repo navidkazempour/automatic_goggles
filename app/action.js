@@ -15,7 +15,7 @@ router.get('/',function(req,res){
 
 // wikipedia
 router.post('/wikipedia',function(req,res){
-  var searchTerm = req.params.search_term || 'Edward M. Nero';
+  var searchTerm = req.params.search_term || 'Lighthouse Labs';
   var url = "https://en.wikipedia.org/wiki/"+searchTerm;
   wikipedia(url,function(wiki){
     res.setHeader('Content-Type', 'application/json');
@@ -25,7 +25,7 @@ router.post('/wikipedia',function(req,res){
 
 // youtube
 router.post('/youtube',function(req,res){
-  var searchTerm = req.params.search_term || 'Steve Jobs';
+  var searchTerm = req.params.search_term || 'Lighthouse Labs';
   videos(searchTerm,function(vids){
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: vids }));
@@ -35,7 +35,7 @@ router.post('/youtube',function(req,res){
 // twitter
 router.post('/twitter', function(req, res) {
   console.log('in post twitter', req.params);
-  var searchTerm = req.params.search_term || 'brexit';
+  var searchTerm = req.params.search_term || 'Lighthouse Labs';
   tweets(searchTerm,function(result){
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({ data: result }));

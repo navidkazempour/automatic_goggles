@@ -265,3 +265,6 @@ each video in videos
     provider_url: 'https://twitter.com',
     height: null,
     version: '1.0' }]
+
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8bbPptVEFOy-YSRmaTjQdCuhAynm6S-A"
+	    async defer)
