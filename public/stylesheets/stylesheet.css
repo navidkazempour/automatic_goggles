@@ -75,10 +75,17 @@ a {
 .map,
 .twitter {
   margin-bottom: 1em;
-  background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+  position: relative; }
+
+.video,
+.wiki,
+.map {
   height: calc(22.86em + 2px); }
+
+.twitter {
+  min-height: calc(22.86em + 2px); }
 
 .video {
   float: left;
@@ -115,7 +122,9 @@ a {
 
 .loading {
   display: block;
-  margin: calc(50% - 32px) auto; }
+  position: absolute;
+  top: calc(50% - 64px);
+  left: calc(50% - 64px); }
 
 /* Video */
 .video div {
@@ -129,6 +138,7 @@ a {
 /* Wikipedia */
 .wiki {
   border: 1px solid #ccc;
+  background-color: #fff;
   padding: 1em; }
   .wiki p {
     position: relative;
@@ -161,11 +171,12 @@ a {
 
 /* Twitter */
 .twitter {
-  background-color: transparent;
-  display: flex;
-  align-items: center; }
+  background-color: transparent; }
+  .twitter > div {
+    min-width: 100%;
+    min-height: 100%; }
   .twitter ul {
-    margin-top: 0; }
+    margin: 0; }
   .twitter li {
     float: left;
     display: block;
@@ -174,20 +185,25 @@ a {
     .twitter li:last-child {
       margin-right: 0; }
   .twitter .twitter-tweet {
-    margin: 0 !important; }
+    margin: 0 auto !important; }
   .twitter blockquote {
-    color: #fff; }
+    color: #fff;
+    overflow: hidden; }
     .twitter blockquote a {
       color: #fff; }
 
 /* Media Queries */
 @media screen and (max-width: 1220px) {
+  .video,
+  .wiki,
   .map,
   .twitter {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
+    .video:last-child,
+    .wiki:last-child,
     .map:last-child,
     .twitter:last-child {
       margin-right: 0; }
@@ -201,7 +217,7 @@ a {
     display: block;
     margin-right: 2.35765%;
     width: 48.82117%;
-    margin-bottom: 10px; }
+    margin-bottom: 1em; }
     .twitter li:last-child {
       margin-right: 0; }
 

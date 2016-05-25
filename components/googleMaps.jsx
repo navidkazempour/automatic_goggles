@@ -18,9 +18,10 @@ export default class SimpleMapPage extends Component {
 
   render() {
     return (
-         <GoogleMap
+        <GoogleMap
           defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}>
+          defaultZoom={this.state.zoom}
+          options={{scrollwheel: false}}>
           <div className="place" lat={60.955413} lng={30.337844}>MyPlace</div>
         </GoogleMap>
     );
