@@ -119,8 +119,8 @@ form > .btn {
 }
 
 .map {
-  float: left;
-  display: block;
+  /*float: left;*/
+  /*display: block;*/
   /*margin-right: 2.84259%;*/
   width: 100%;
 }
@@ -202,7 +202,8 @@ form > .btn {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 23.23176%; }
+    width: 23.23176%;
+  }
     .twitter li:last-child {
       margin-right: 0; }
   .twitter .twitter-tweet {
