@@ -20,7 +20,6 @@ export default class YoutubeController extends React.Component {
     });
   }
     _state(e){
-      debugger;
       if(e.data === 1)
       {
         console.log("Playing");
