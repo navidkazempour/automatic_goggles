@@ -30248,7 +30248,7 @@
 	        'div',
 	        null,
 	        !this.state.loading ? _react2.default.createElement(_youtube2.default, { key: this.state.index + 1,
-	          videoId: this.state.data.data[this.state.index].video_id, onReady: this._onReady }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
+	          videoId: this.state.data.data[this.state.index].video_id, onReady: this._onReady }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner_inverse.gif', alt: 'Loading...' })
 	      );
 	    }
 	  }]);
@@ -30547,28 +30547,32 @@
 	        }, 10000);
 	      }
 	      return _react2.default.createElement(
-	        'ul',
+	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'li',
+	        !this.state.loading ? _react2.default.createElement(
+	          'ul',
 	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 1].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 2].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          !this.state.loading ? _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 3].html } }) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner.gif', alt: 'Loading...' })
-	        )
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index].html } })
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 1].html } })
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 2].html } })
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement('div', { className: 'MNLAtwitter', dangerouslySetInnerHTML: { __html: this.state.data.data[this.state.index + 3].html } })
+	          )
+	        ) : _react2.default.createElement('img', { className: 'loading', src: 'images/loading_spinner_inverse.gif', alt: 'Loading...' })
 	      );
 	    }
 	  }]);
@@ -30636,7 +30640,8 @@
 	        _googleMapReact2.default,
 	        {
 	          defaultCenter: this.state.center,
-	          defaultZoom: this.state.zoom },
+	          defaultZoom: this.state.zoom,
+	          options: { scrollwheel: false } },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'place', lat: 60.955413, lng: 30.337844 },
@@ -36496,7 +36501,7 @@
 /* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;var require;/* WEBPACK VAR INJECTION */(function(process, global, module) {/*!
+	var require;var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(process, global, module) {/*!
 	 * @overview es6-promise - a tiny implementation of Promises/A+.
 	 * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
 	 * @license   Licensed under MIT license

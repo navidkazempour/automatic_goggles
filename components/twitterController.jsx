@@ -34,28 +34,24 @@ export default class TwitterController extends React.Component {
       }
     },10000);}
     return(
-      <ul>
-        <li>
-          {!this.state.loading ?
-          <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index].html }} /> :
-          <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
-        </li>
-        <li>
-          {!this.state.loading ?
-          <div  className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 1].html }} /> :
-          <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
-        </li>
-        <li>
-          {!this.state.loading ?
-          <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 2].html }} /> :
-          <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
-        </li>
-        <li>
-          {!this.state.loading ?
-          <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 3].html }} /> :
-          <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
-        </li>
-      </ul>
+      <div>
+      {!this.state.loading ?
+        <ul>
+          <li>
+            <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index].html }} />
+          </li>
+          <li>
+            <div  className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 1].html }} />
+          </li>
+          <li>
+            <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 2].html }} />
+          </li>
+          <li>
+            <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 3].html }} /> 
+          </li>
+        </ul>:
+        <img className="loading" src="images/loading_spinner_inverse.gif" alt="Loading..." />}
+      </div>
     )};
 }
 
