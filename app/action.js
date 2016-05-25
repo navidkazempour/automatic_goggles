@@ -8,37 +8,87 @@ var mongoose = require('mongoose');
 var wikipedia = require('../API/wikipedia.js');
 var videos = require('../API/youtube.js');
 var tweets = require('../API/twitter.js');
+var Search = require('./models/search');
+var Twitter = require('./models/twitter');
+var Wikipedia = require('./models/wikipedia');
+var Youtube = require('./models/youtube');
+var MongoClient = require('mongodb').MongoClient;
 
 router.get('/',function(req,res){
   res.render('index');
 });
+/*****************Practice Routes ****/
+router.post('/search',function(req,res){
+  var searchTerm = req.params.search_term || "http://www.google.com";
+  var result = searches.find();
+  console.log(result);
 
+});
+/***********************/
 // wikipedia
 router.post('/wikipedia',function(req,res){
   var searchTerm = req.params.search_term || 'Edward M. Nero';
-  var url = "https://en.wikipedia.org/wiki/"+searchTerm;
-  wikipedia(url,function(wiki){
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ data: wiki }));
+  var search = new Search({searchTerm: searchTerm});
+  search.save(function(err){
+    if(err){
+      return console.log(err);
+    }
+    var url = "https://en.wikipedia.org/wiki/"+searchTerm;
+    wikipedia(url,function(wiki){
+      /********* Wiki Database Create*****/
+      var result = new Wikipedia({title: wiki.title , body: wiki.body ,  _search: search._id});
+       result.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: wiki }));
+       });
+      /********* Wiki Database Create*****/
+      
+    });
   });
 });
 
 // youtube
 router.post('/youtube',function(req,res){
   var searchTerm = req.params.search_term || 'Steve Jobs';
-  videos(searchTerm,function(vids){
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ data: vids }));
+  var search = new Search({searchTerm: searchTerm});
+  search.save(function(err){
+    if(err){
+      return console.log(err);
+    }
+    videos(searchTerm,function(result){
+      var youtubes = new Youtube({videoId: result, _search: search._id});
+      youtubes.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: result }));
+      });
+    });
   });
 });
 
 // twitter
 router.post('/twitter', function(req, res) {
-  console.log('in post twitter', req.params);
   var searchTerm = req.params.search_term || 'brexit';
-  tweets(searchTerm,function(result){
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ data: result }));
+  var search = new Search({searchTerm: searchTerm});
+  search.save(function(err){
+    if(err){
+      return console.log(err);
+    }
+    tweets(searchTerm,function(result){
+      var twits = new Twitter({description: result, _search: search._id});
+      twits.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: result }));
+      });
+    });
   });
 });
 

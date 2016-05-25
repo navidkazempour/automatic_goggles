@@ -13,10 +13,7 @@ var videos = function(searchTerm,callback){
     }else {
       for(var i=0;i<result["items"].length;i++){
         vids.push({
-          video_id: result["items"][i].id.videoId,
-          date: result["items"][i].snippet.publishedAt,
-          title: result["items"][i].snippet.title,
-          description: result["items"][i].snippet.description
+          video_id: result["items"][i].id.videoId
         });
       }
         if(vids.length === result["items"].length){
