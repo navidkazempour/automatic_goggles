@@ -9,13 +9,10 @@ export default class WikipediaController extends React.Component {
     this.state = {data:[],loading: true};
   }
   componentWillMount(){
-      var data = {};
-      data.search_term = 'Edward M. Nero';
       $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/wikipedia',
-      data: JSON.stringify(data),
-      contentType: 'application/json',
+      data: {search_term: 'Edward M. Nero'},
+      url: '/wikipedia',
       success: function(wikiData){
         this.setState({data: wikiData, loading:false});
       }.bind(this)
