@@ -4,11 +4,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Search = require('./search');
 
-var twitterSchema = new mongoose.Schema({
+var gmapSchema = new mongoose.Schema({
   _search: {type: Schema.Types.ObjectId, ref: 'Search'},
-  description: {type: Array}
+  position: {type: Array}
 });
 
-var Twitter = mongoose.model('Twitter', twitterSchema);
+var Gmap = mongoose.model('Gmap', gmapSchema);
 
-module.exports = Twitter;
+module.exports = Gmap;

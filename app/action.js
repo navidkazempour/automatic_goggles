@@ -5,13 +5,15 @@ var router = express.Router();
 var fs = require('fs');
 var config = require('../config');
 var mongoose = require('mongoose');
-var wikipedia = require('../API/wikipedia.js');
-var videos = require('../API/youtube.js');
-var tweets = require('../API/twitter.js');
+var wikipedia = require('../API/wikipedia');
+var videos = require('../API/youtube');
+var tweets = require('../API/twitter');
+var gmap = require('../API/gmap');
 var Search = require('./models/search');
 var Twitter = require('./models/twitter');
 var Wikipedia = require('./models/wikipedia');
 var Youtube = require('./models/youtube');
+var Gmap = require('./models/gmap');
 var MongoClient = require('mongodb').MongoClient;
 
 /**** Global Variables ****/
@@ -29,7 +31,6 @@ router.post('/search',function(req,res){
 
 // wikipedia
 router.post('/wikipedia',function(req,res){
-  console.log(req.body.search_term);
   var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
@@ -55,7 +56,6 @@ router.post('/wikipedia',function(req,res){
         if(err){
           return console.log(err);
         }
-        console.log(wiki);
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ data: wiki[0] }));
       });
@@ -66,7 +66,6 @@ router.post('/wikipedia',function(req,res){
 
 // youtube
 router.post('/youtube',function(req,res){
-console.log(req.body.search_term);
   var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
@@ -102,7 +101,6 @@ console.log(req.body.search_term);
 
 // twitter
 router.post('/twitter', function(req, res) {
-  console.log(req.body.search_term);
   var Term = req.body.search_term;
   var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
@@ -133,6 +131,40 @@ router.post('/twitter', function(req, res) {
     }
   });
 });
+
+// google map
+router.post('/gmap', function(req, res) {
+  var Term = req.body.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
+    if(data.length === 0){
+      var search = new Search({searchTerm: Term});
+      search.save(function(err){
+        if(err){
+          return console.log(err);
+        }
+        gmaps(Term,function(result){
+          var map = new Gmap({description: result, _search: search._id});
+          map.save(function(err){
+            if(err){
+              return console.log(err);
+            }
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ data: result }));
+          });
+        });
+      });
+    }else{
+      Gmap.find({_search: data[0]._id}, function(err, map){
+        if(err){
+          return console.log(err);
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: map[0].description }));
+      });
+    }
+  });
+});
+
 
 //Create the AlchemyAPI object
 var AlchemyAPI = require('../alchemyapi');
