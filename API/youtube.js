@@ -1,13 +1,13 @@
 var config = require('../config');
 var Youtube = require('youtube-node');
 var youTube = new Youtube();
-youTube.setKey(config.youtube);
+youTube.setKey('AIzaSyB8bbPptVEFOy-YSRmaTjQdCuhAynm6S-A');
 youTube.addParam('relevanceLanguage', 'en');
 
-var vids = [];
 
 var videos = function(searchTerm,callback){
   youTube.search(searchTerm,5,function(error, result) {
+    var vids = [];
     if (error) {
       console.log(error);
     }else {
@@ -19,10 +19,10 @@ var videos = function(searchTerm,callback){
           description: result["items"][i].snippet.description
         });
       }
-      if(vids.length === result["items"].length){
-        callback(vids);
+        if(vids.length === result["items"].length){
+          callback(vids);
+        }
       }
-    }
   });
 };
 
