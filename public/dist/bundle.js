@@ -77,9 +77,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(_wikipediaController2.default, null), document.querySelector(".wiki"));
-	_reactDom2.default.render(_react2.default.createElement(_youtubeController2.default, null), document.querySelector(".video"));
-	_reactDom2.default.render(_react2.default.createElement(_twitterController2.default, null), document.querySelector(".twitter"));
-	_reactDom2.default.render(_react2.default.createElement(_googleMaps2.default, null), document.querySelector(".map"));
+	// ReactDOM.render(<YoutubeController/>,document.querySelector(".video"));
+	// ReactDOM.render(<TwitterController/>,document.querySelector(".twitter"));
+	// ReactDOM.render(<SimpleMapPage/>,document.querySelector(".map"));
 
 /***/ },
 /* 1 */
@@ -30224,6 +30224,7 @@
 	      this.serverRequest = $.ajax({
 	        type: 'POST',
 	        url: '/youtube',
+	        data: { search_term: 'Steve Jobs' },
 	        dataType: 'json',
 	        success: function (youtubeData) {
 	          this.setState({ data: youtubeData, loading: false });
@@ -30380,10 +30381,13 @@
 	  _createClass(WikipediaController, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.serverRequest = _jquery2.default.ajax({
+	      var data = {};
+	      data.search_term = 'Edward M. Nero';
+	      _jquery2.default.ajax({
 	        type: 'POST',
-	        url: '/wikipedia',
-	        dataType: 'json',
+	        url: 'http://localhost:3000/wikipedia',
+	        data: JSON.stringify(data),
+	        contentType: 'application/json',
 	        success: function (wikiData) {
 	          this.setState({ data: wikiData, loading: false });
 	        }.bind(this)
@@ -30515,6 +30519,7 @@
 	      this.serverRequest = _jquery2.default.ajax({
 	        type: 'POST',
 	        url: '/twitter',
+	        data: { search_term: 'brexit' },
 	        dataType: 'json',
 	        success: function (tweets) {
 	          this.setState({ data: tweets, loading: false });

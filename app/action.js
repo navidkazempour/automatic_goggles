@@ -14,30 +14,30 @@ var Wikipedia = require('./models/wikipedia');
 var Youtube = require('./models/youtube');
 var MongoClient = require('mongodb').MongoClient;
 
+/**** Global Variables ****/
+
+
 router.get('/',function(req,res){
   res.render('index');
 });
 /*****************Practice Routes ****/
 router.post('/search',function(req,res){
-  var searchTerm = req.params.search_term || "http://www.google.com";
-  var result = searches.find();
-  console.log(result);
-
+  searchTerm = req.params.search_term || "http://www.google.com";
+  
 });
 /***********************/
 
-
 // wikipedia
 router.post('/wikipedia',function(req,res){
-  var searchTerm = req.params.search_term || 'Edward M. Nero';
-  var query = Search.find({searchTerm: searchTerm}, function(err, data){
+  var Term = req.params.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
-      var search = new Search({searchTerm: searchTerm});
+      var search = new Search({searchTerm: Term});
       search.save(function(err){
         if(err){
           return console.log(err);
         }
-        var url = "https://en.wikipedia.org/wiki/"+searchTerm;
+        var url = "https://en.wikipedia.org/wiki/"+Term;
         wikipedia(url,function(wiki){
           var result = new Wikipedia({title: wiki.title , body: wiki.body ,  _search: search._id});
           result.save(function(err){
@@ -64,15 +64,15 @@ router.post('/wikipedia',function(req,res){
 
 // youtube
 router.post('/youtube',function(req,res){
-  var searchTerm = req.params.search_term || 'Steve Jobs';
-  var query = Search.find({searchTerm: searchTerm}, function(err, data){
+  var Term = req.params.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
-      var search = new Search({searchTerm: searchTerm});
+      var search = new Search({searchTerm: Term});
       search.save(function(err){
         if(err){
           return console.log(err);
         }
-        videos(searchTerm,function(result){
+        videos(Term,function(result){
           var youtubes = new Youtube({videoId: result, _search: search._id});
           youtubes.save(function(err){
             if(err){
@@ -98,15 +98,15 @@ router.post('/youtube',function(req,res){
 
 // twitter
 router.post('/twitter', function(req, res) {
-  var searchTerm = req.params.search_term || 'brexit';
-  var query = Search.find({searchTerm: searchTerm}, function(err, data){
+  var Term = req.params.search_term;
+  var query = Search.find({searchTerm: Term}, function(err, data){
     if(data.length === 0){
-      var search = new Search({searchTerm: searchTerm});
+      var search = new Search({searchTerm: Term});
       search.save(function(err){
         if(err){
           return console.log(err);
         }
-        tweets(searchTerm,function(result){
+        tweets(Term,function(result){
           var twits = new Twitter({description: result, _search: search._id});
           twits.save(function(err){
             if(err){
