@@ -54,7 +54,7 @@ export default class YoutubeController extends React.Component {
           {!this.state.loading ?
               <Youtube key={this.state.index + 1}
                 videoId={this.state.data.data[this.state.index].video_id}/> :
-            <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
+            <img className="loading" src="images/loading_spinner_inverse.gif" alt="Loading..." />}
        </div>
      );
     };
