@@ -90,12 +90,15 @@ a {
   position: relative; }
 
 .video,
-.wiki,
+.wiki {
+  height: calc(25em); }
+
 .map {
-  height: calc(22.86em + 2px); }
+  height: calc(16em);
+}
 
 .twitter {
-  min-height: calc(22.86em + 2px); }
+  height: calc(17em); }
 
 .video {
   float: left;

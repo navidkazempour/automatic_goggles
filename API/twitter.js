@@ -6,13 +6,13 @@ var request = require('request');
 
 
 var twit = function(searchTerm, cb){
-		twitter.get('search/tweets', {q: searchTerm, lang: "en", result_type: "popular", count: 12}, function(error, tweets, response) {
+		twitter.get('search/tweets', {q: searchTerm, lang: "en",result_type: "popular", count: 12}, function(error, tweets, response) {
 			var topTweets = [];
 				if (error) {
 					console.log(error);
 				} else {
 					for(var i =0 ;i < tweets.statuses.length;i++){
-						var url = "https://api.twitter.com/1/statuses/oembed.json?url=https://twitter.com/"+tweets.statuses[i].user.screen_name+"/status/"+tweets.statuses[i].id_str;
+						var url = "https://api.twitter.com/1/statuses/oembed.json?hide_media=true&hide_thread=true&url=https://twitter.com/"+tweets.statuses[i].user.screen_name+"/status/"+tweets.statuses[i].id_str;
 						request(url,function(err,res,body){
 							if(err){
 								console.log(err);
