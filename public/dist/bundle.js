@@ -40806,7 +40806,7 @@
 	        {
 	          defaultCenter: this.state.center,
 	          defaultZoom: this.state.zoom,
-	          options: { scrollwheel: false } },
+	          options: { scrollwheel: true } },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'place', lat: 60.955413, lng: 30.337844 },

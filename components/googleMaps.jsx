@@ -21,7 +21,7 @@ export default class SimpleMapPage extends Component {
         <GoogleMap
           defaultCenter={this.state.center}
           defaultZoom={this.state.zoom}
-          options={{scrollwheel: false}}>
+          options={{scrollwheel: true}}>
           <div className="place" lat={60.955413} lng={30.337844}>MyPlace</div>
         </GoogleMap>
     );
