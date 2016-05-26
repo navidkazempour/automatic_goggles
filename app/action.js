@@ -24,7 +24,32 @@ router.get('/',function(req,res){
 });
 /*****************Practice Routes ****/
 router.post('/search',function(req,res){
-  searchTerm = req.params.search_term || "http://www.google.com";
+  console.log(req.body.search_term);
+  var url = req.body.search_term;
+  // console.log(url);
+  // var query = Search.find({searchTerm: url}, function(err, data){
+  //   if(data.length === 0){
+  //     var search = new Search({searchTerm: url});
+  //     search.save(function(err){
+  //       if(err){
+  //         return console.log(err);
+  //       }
+          /******* Pass into Alchemy *****/
+          // /*******************************/ Name = 1, Country={}, News = 1 SearchTerm = Bill Gates
+        var searchTerm = {News:'Bill Gates', Country:'London'};
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({ data: searchTerm }));
+    //   }
+    // }else{
+    //   Search.find({_search: data[0]._id },function(err, term){
+    //     if(err){
+    //       return console.log(err);
+    //     }
+    //     res.setHeader('Content-Type', 'application/json');
+    //     res.end(JSON.stringify({ data: term[0] }));
+    //   });
+    // }
+
 
 });
 /***********************/
