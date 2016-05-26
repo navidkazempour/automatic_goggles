@@ -18,6 +18,19 @@ export default class WikipediaController extends React.Component {
       }.bind(this)
     });
   }
+  componentWillReceiveProps(){
+    this.setState({data:[],loading:true});
+    $.ajax({
+    type: 'POST',
+    url: '/wikipedia',
+    data: {search_term:'Steve Jobs'},
+    dataType: 'json',
+    success: function(wikiData){
+      this.setState({data: wikiData, loading:false});
+    }.bind(this),
+    error: function(err) { console.error('error', err) }.bind(this)
+    });
+  }
   render(){
     return(
         <div>

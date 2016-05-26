@@ -5,19 +5,38 @@ export default class YoutubeController extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {data: [], loading: true, index: 0, play: false, myvar: null,counter: 0};
+    this.state = {data: [], loading: true, index: 0,counter: 0, arrived: false};
+    // this.getData=function(){
+    //
+    // });
+    // }
   }
-
   componentWillMount(){
-      this.serverRequest =$.ajax({
+    $.ajax({
+    type: 'POST',
+    url: '/youtube',
+    data: {search_term:'Bill Gates'},
+    dataType: 'json',
+    success: function(youtubeData){
+      this.setState({data: youtubeData, loading:false});
+    }.bind(this)
+    });
+  }
+  // componentWillMount(){
+  //     this.serverRequest =
+  // }
+  componentWillReceiveProps(){
+      debugger;
+      $.ajax({
       type: 'POST',
       url: '/youtube',
-      data: {search_term:'Bill Gates'},
+      data: {search_term:'one piece'},
       dataType: 'json',
       success: function(youtubeData){
-        this.setState({data: youtubeData, loading:false});
-      }.bind(this)
-    });
+        this.setState({data: youtubeData, loading:false, arrived: false});
+      }.bind(this),
+      error: function(err) { console.error('error', err) }.bind(this)
+      });
   }
     _state(e){
       if(e.data === 1)
@@ -36,6 +55,7 @@ export default class YoutubeController extends React.Component {
     }
 
   render(){
+
     if(!this.state.loading){
       console.log(this.state.index);
     this.myvar = setTimeout(()=>{
@@ -45,6 +65,19 @@ export default class YoutubeController extends React.Component {
         this.setState({index: this.state.index + 1});
       }
     },10000);}
+    // if(this.props.data){
+    //   debugger;
+    //   $.ajax({
+    //   type: 'POST',
+    //   url: '/youtube',
+    //   data: {search_term:'one piece'},
+    //   dataType: 'json',
+    //   success: function(youtubeData){
+    //     this.setState({data: youtubeData, loading:false, arrived: false});
+    //   }.bind(this),
+    //   error: function(err) { console.error('error', err) }.bind(this)
+    //   });
+    // }
     return(
         <div>
           {!this.state.loading ?
