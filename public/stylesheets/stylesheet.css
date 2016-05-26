@@ -167,7 +167,7 @@ a {
     right: 0;
     width: 70%;
     height: 1.4em;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%); }
+    background: linear-gradient(to right, rgba(252, 252, 252, 0), rgba(252, 252, 252, 1)); }
   .wiki .wiki_ref {
     display: block;
     text-align: right;
