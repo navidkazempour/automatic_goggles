@@ -65,7 +65,7 @@ export default class TwitterController extends React.Component {
             <div className="MNLAtwitter" dangerouslySetInnerHTML={{__html: this.state.data.data[this.state.index + 3].html }} />
           </li>
         </ul>:
-        <img className="loading" src="images/loading_spinner_inverse.gif" alt="Loading..." />}
+        <img className="loading" src="images/loading_spinner.gif" alt="Loading..." />}
       </div>
     )};
 }
