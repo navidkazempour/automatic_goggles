@@ -54,14 +54,14 @@ header {
   header:last-child {
     margin-right: 0; }
 
-img {
+/*img {
   max-width: 100%;
-  display: block; }
+  display: block; }*/
 
 ul {
   padding: 0; }
 
-h1 {
+/*h1 {
   font-weight: 900;
   font-size: 3em;
   margin: 0; }
@@ -69,7 +69,7 @@ h1 {
 h2 {
   font-weight: 700;
   font-size: 2em;
-  margin-top: 0; }
+  margin-top: 0; }*/
 
 div::after {
   clear: both;
@@ -95,41 +95,41 @@ a {
 .video,
 .wiki,
 .map {
-  height: calc(22.86em + 2px); }
+  height: calc(25em); }
 
 .twitter {
-  min-height: calc(22.86em + 2px); }
+  height: calc(17em); }
 
 .video {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%; }
+  margin-right: 2%;
+  width: 40%; }
   .video:last-child {
     margin-right: 0; }
 
 .wiki {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-  margin-right: 0; }
-  .wiki:last-child {
-    margin-right: 0; }
+  margin-right: 2%;
+  width: 30%; }
+ /* .wiki:last-child {
+    margin-right: 0; }*/
 
 .map {
   float: left;
   display: block;
-  margin-right: 2.84259%;
-  width: 17.72593%; }
-  .map:last-child {
-    margin-right: 0; }
+  margin-right: 0%;
+  width: 26%;
+  border: 1px solid #ccc; }
+  /*.map:last-child {
+    margin-right: 0; }*/
 
 .twitter {
   float: left;
   display: block;
-  margin-right: 2.84259%;
-  width: 79.43148%; }
+  margin-right: 0%;
+  width: 100%; }
   .twitter:last-child {
     margin-right: 0; }
 
@@ -177,33 +177,33 @@ a {
       vertical-align: bottom; }
 
 /* Maps */
-.map img {
+/*.map img {
   width: 100%;
   height: 100%;
-  object-fit: cover; }
+  object-fit: cover; }*/
 
 /* Twitter */
 .twitter {
   background-color: transparent; }
-  .twitter > div {
-    min-width: 100%;
-    min-height: 100%; }
-  .twitter ul {
-    margin: 0; }
-  .twitter li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
-    .twitter li:last-child {
-      margin-right: 0; }
-  .twitter .twitter-tweet {
-    margin: 0 auto !important; }
-  .twitter blockquote {
-    color: #fff;
-    overflow: hidden; }
-    .twitter blockquote a {
-      color: #fff; }
+/*.twitter > div {
+  min-width: 100%;
+  min-height: 100%; }
+.twitter ul {
+  margin: 0; }*/
+.twitter li {
+  float: left;
+  display: block;
+  margin-right: 1%;
+  width: 24.25%; }
+.twitter li:last-child {
+  margin-right: 0; }
+/*.twitter .twitter-tweet {
+  margin: 0 auto !important; }
+.twitter blockquote {
+  color: #fff;
+  overflow: hidden; }
+.twitter blockquote a {
+  color: #fff; }*/
 
 /* Media Queries */
 @media screen and (min-width: 768px) {
