@@ -100,15 +100,15 @@ a {
   float: left;
   display: block;
   margin-right: 2%;
-  width: 40%; }
+  width: 60%; }
   .video:last-child {
     margin-right: 0; }
 
 .wiki {
   float: left;
   display: block;
-  margin-right: 2%;
-  width: 30%; }
+  margin-right: 0%;
+  width: 38%; }
  /* .wiki:last-child {
     margin-right: 0; }*/
 

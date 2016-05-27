@@ -11,7 +11,7 @@ export default class WikipediaController extends React.Component {
   componentWillMount(){
       $.ajax({
       type: 'POST',
-      data: {search_term: 'Edward M. Nero'},
+      data: {search_term: this.props.data},
       url: '/wikipedia',
       success: function(wikiData){
         this.setState({data: wikiData, loading:false});
@@ -23,7 +23,7 @@ export default class WikipediaController extends React.Component {
     $.ajax({
     type: 'POST',
     url: '/wikipedia',
-    data: {search_term:'Steve Jobs'},
+    data: {search_term: this.props.data},
     dataType: 'json',
     success: function(wikiData){
       this.setState({data: wikiData, loading:false});

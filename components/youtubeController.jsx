@@ -15,7 +15,7 @@ export default class YoutubeController extends React.Component {
     $.ajax({
     type: 'POST',
     url: '/youtube',
-    data: {search_term:'Bill Gates'},
+    data: {search_term: this.props.data},
     dataType: 'json',
     success: function(youtubeData){
       this.setState({data: youtubeData, loading:false});
@@ -26,11 +26,10 @@ export default class YoutubeController extends React.Component {
   //     this.serverRequest =
   // }
   componentWillReceiveProps(){
-      debugger;
       $.ajax({
       type: 'POST',
       url: '/youtube',
-      data: {search_term:'one piece'},
+      data: {search_term: this.props.data},
       dataType: 'json',
       success: function(youtubeData){
         this.setState({data: youtubeData, loading:false, arrived: false});

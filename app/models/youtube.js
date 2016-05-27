@@ -6,6 +6,7 @@ var Search = require('./search');
 
 var youtubeSchema = new mongoose.Schema({
   _search: {type: Schema.Types.ObjectId, ref: 'Search'},
+  searchTerm: {type:String},
   videoId: {type: Array}
 });
 

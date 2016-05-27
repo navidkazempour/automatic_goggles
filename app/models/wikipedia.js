@@ -6,6 +6,7 @@ var Search = require('./search');
 
 var wikipediaSchema = new mongoose.Schema({
   _search: {type: Schema.Types.ObjectId, ref: 'Search'},
+  searchTerm: {type: String},
   title: {type: String},
   body: {type: String}
 });
